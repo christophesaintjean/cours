@@ -1,5 +1,7 @@
-Introduction à la programmation
-===============================
+# Introduction à la programmation
+
+Christophe Saint-Jean
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY1ODQ3NjYyMF19
+eyJoaXN0b3J5IjpbLTEzNDY3OTEyMzddfQ==
 -->
