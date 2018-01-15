@@ -7,6 +7,10 @@ Christophe Saint-Jean
 Année 2018-2019
 
 ---
+## **L'équipe enseignante**
+
+*
+---
 
 ## Organisation de l'UE
 
@@ -20,5 +24,5 @@ import os
 
 ffff
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODQ3MzI4MTI1XX0=
+eyJoaXN0b3J5IjpbLTE4MzI5NjQ3NTddfQ==
 -->
