@@ -24,9 +24,15 @@ import os
 
 ---
 
+## Les objectifs de cet enseignement
+
+* Blabla
+* Blab
+
+
 ## Programmer ?
 
 ffff
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzYzMTIwMzI1XX0=
+eyJoaXN0b3J5IjpbNzI2OTcxMTg4XX0=
 -->
