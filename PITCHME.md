@@ -7,7 +7,7 @@ Christophe Saint-Jean
 Année 2018-2019
 
 ---
-## **L'équipe enseignante**
+## L'équipe enseignante
 
 *
 ---
@@ -24,5 +24,5 @@ import os
 
 ffff
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MzI5NjQ3NTddfQ==
+eyJoaXN0b3J5IjpbNzQzODExMzcxXX0=
 -->
