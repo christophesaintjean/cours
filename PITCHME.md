@@ -26,15 +26,16 @@ import os
 
 ## Les objectifs de cet enseignement
 
-* Blabla
-* Blabla
+ * Blabla
+ * Blibli
+ * Blabla
 
-Sondage !
+*Sondage !**
 
 
 ## Programmer ?
 
 ffff
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkyOTI0ODc1M119
+eyJoaXN0b3J5IjpbLTE2MDE0NjQ0NDddfQ==
 -->
