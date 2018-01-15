@@ -2,6 +2,8 @@
 
 Christophe Saint-Jean
 
+[https://gitpitch.com/christophesaintjean/cours/IntroProgS1](https://gitpitch.com/christophesaintjean/cours/IntroProgS1)
+
 Année 2018-2019
 
 ---
@@ -18,5 +20,5 @@ import os
 
 ffff
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0OTAwMDc1MTZdfQ==
+eyJoaXN0b3J5IjpbLTkyMjQ1NDA4NV19
 -->
