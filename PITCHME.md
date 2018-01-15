@@ -14,11 +14,11 @@ Année 2018-2019
 import os
 ```
 
-+++
+---
 
 ## Programmer ?
 
 ffff
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkyMjQ1NDA4NV19
+eyJoaXN0b3J5IjpbODQ3MzI4MTI1XX0=
 -->
