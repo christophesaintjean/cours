@@ -29,10 +29,12 @@ import os
 * Blabla
 * Blabla
 
+Sondage !
+
 
 ## Programmer ?
 
 ffff
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM2MjgyMTA3OV19
+eyJoaXN0b3J5IjpbLTkyOTI0ODc1M119
 -->
