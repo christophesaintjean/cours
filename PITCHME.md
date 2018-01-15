@@ -9,7 +9,11 @@ Année 2018-2019
 ---
 ## L'équipe enseignante
 
-*
+* Christophe Saint-Jean
+* Titi
+* Toto
+* Tata
+
 ---
 
 ## Organisation de l'UE
@@ -24,5 +28,5 @@ import os
 
 ffff
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzQzODExMzcxXX0=
+eyJoaXN0b3J5IjpbLTEwNzM3MjYwNDBdfQ==
 -->
