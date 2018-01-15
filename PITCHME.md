@@ -21,6 +21,7 @@ Année 2018-2019
 ```python
 import os
 ```
+$$\alpha = 3$$
 
 ---
 
@@ -37,5 +38,5 @@ import os
 
 ffff
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk5MDg1NzYwOV19
+eyJoaXN0b3J5IjpbLTExMDEyNjgyNzVdfQ==
 -->
