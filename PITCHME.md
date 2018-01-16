@@ -40,5 +40,5 @@ $$\alpha = 3$$
 
 ffff
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMDEyNjgyNzVdfQ==
+eyJoaXN0b3J5IjpbNDc3NzI5Mjk5XX0=
 -->
