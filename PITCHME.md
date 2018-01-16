@@ -7,12 +7,14 @@ Christophe Saint-Jean
 Année 2018-2019
 
 ---
+
 ## L'équipe enseignante
 
-* Christophe Saint-Jean (Cours/TP)
-* Titi (TP)
-* Toto (TP)
-* Tata (TP)
+* Christophe Saint-Jean (Cours/TP - Resp.)
+* Laurent Mascarilla (TP)
+* El Hadi ZahZah (TP)
+* Renaud Péteri (TP)
+* *Etc*
 
 ---
 
