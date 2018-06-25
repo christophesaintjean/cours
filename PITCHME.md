@@ -18,7 +18,7 @@ Année 2018-2019
 
 ---
 
-# Organisation de l'UE
+## Organisation de l'UE
 
 _Dispositif horaire:_
 
@@ -30,26 +30,23 @@ _Evaluation:_
 
 $$Session~1 = \frac{CC~1+CC~2}{2} $$
 
-
 ---
 
 ## Les objectifs de cet enseignement
 
- * Découvrir les bases de la programmation informatique
- * Maîtriser des concepts 
- * Appprendre un des langages support de votre formation
- * Libérer votre créativité
+* Découvrir les bases de la programmation informatique
+* Maîtriser des concepts
+* Appprendre un des langages support de votre formation
+* Libérer votre créativité
 
 *Sondage !*
 
-
-## Programmer ?
-
-ffff
+## Programmer
 
 ```python
 import os
 ```
+
 $$\alpha = 3$$
 
 ## Les types de langages de programmation
@@ -62,11 +59,13 @@ $$\alpha = 3$$
 ## Quelques exemples de code (Hello World)
 
 * En python:
+
 ```python
 print('hello world')
 ```
 
 * En java:
+
 ```java
 public class HW {
     public static void main(String[] args) {
