@@ -41,7 +41,7 @@ $$Session~1 = \frac{CC~1+CC~2}{2} $$
 
 *Sondage !*
 
-## Programmer
+# Programmer
 
 ```python
 import os
@@ -49,14 +49,14 @@ import os
 
 $$\alpha = 3$$
 
-## Les types de langages de programmation
+# Les types de langages de programmation
 
 * Langages impératifs (Python, C/C++)
 * Langages à objets
 * Langages fonctionnels (Javascript, OCAML, Haskell)
 * Langages déclaratifs (HTML)
 
-## Quelques exemples de code (Hello World)
+# Quelques exemples de code (Hello World)
 
 * En python:
 
