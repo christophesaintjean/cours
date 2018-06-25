@@ -12,26 +12,33 @@ Année 2018-2019
 
 * Christophe Saint-Jean (Cours/TP - Resp.)
 * Laurent Mascarilla (TP)
-* El Hadi ZahZah (TP)
+* El Hadi Zahzah (TP)
 * Renaud Péteri (TP)
 * *Etc*
 
 ---
 
-## Organisation de l'UE
+# Organisation de l'UE
 
-```python
-import os
-```
-$$\alpha = 3$$
+_Dispositif horaire:_
+
+* 5 cours de 1,5 heures (Amphithéatre)
+* 10 TPs de 1,5 heures (Sallles de TP)
+* 2 créneaux de 1,5h de TEA (Salles de TP)
+
+_Evaluation:_
+
+$$Session~1 = \frac{CC~1+CC~2}{2} $$
+
 
 ---
 
 ## Les objectifs de cet enseignement
 
- * Blabla
- * Blibli
- * Blabla
+ * Découvrir les bases de la programmation informatique
+ * Maîtriser des concepts 
+ * Appprendre un des langages support de votre formation
+ * Libérer votre créativité
 
 *Sondage !*
 
@@ -39,6 +46,31 @@ $$\alpha = 3$$
 ## Programmer ?
 
 ffff
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMDEyNjgyNzVdfQ==
--->
+
+```python
+import os
+```
+$$\alpha = 3$$
+
+## Les types de langages de programmation
+
+* Langages impératifs (Python, C/C++)
+* Langages à objets
+* Langages fonctionnels (Javascript, OCAML, Haskell)
+* Langages déclaratifs (HTML)
+
+## Quelques exemples de code (Hello World)
+
+* En python:
+```python
+print('hello world')
+```
+
+* En java:
+```java
+public class HW {
+    public static void main(String[] args) {
+        System.out.println('hello world');
+    }
+}
+```
