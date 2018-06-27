@@ -8,7 +8,9 @@ Année 2018-2019
 
 ---
 
-## L'équipe enseignante
+## Organisation de l'UE
+
+### L'équipe enseignante
 
 * Christophe Saint-Jean (Cours/TP - Resp.)
 * Laurent Mascarilla (TP)
@@ -18,17 +20,34 @@ Année 2018-2019
 
 ---
 
-## Organisation de l'UE
+### Communication
 
-_Dispositif horaire:_
+* Questions pédagogiques : [Moodle](https://moodle.univ-lr.fr/)
+  * Appronfondissement/Questions (Forum)
+  * Organisation de l'UE/Planning (Messages privés)
+* Questions administratives (Secrétariat)
+  * Appartenance groupes TD/TP
+  * Absences/Justifications
 
-* 5 cours de 1,5 heures (Amphithéatre)
+---
+
+### Dispositif horaire
+
+* 5 cours de 1,5 heures (Amphithéâtre)
 * 10 TPs de 1,5 heures (Sallles de TP)
 * 2 créneaux de 1,5h de TEA (Salles de TP)
 
-_Evaluation:_
+---
+
+### Evaluation
 
 $$Session~1 = \frac{CC~1+CC~2}{2} $$
+$$Session~2 = CC3$$
+
+Les CC se passent en TP sur machine:
+
+* Une partie QCM
+* Une partie évaluée par un enseignant
 
 ---
 
@@ -41,7 +60,7 @@ $$Session~1 = \frac{CC~1+CC~2}{2} $$
 
 *Sondage !*
 
-# Programmer
+## Programmer
 
 ```python
 import os
@@ -49,14 +68,14 @@ import os
 
 $$\alpha = 3$$
 
-# Les types de langages de programmation
+## Les types de langages de programmation
 
 * Langages impératifs (Python, C/C++)
 * Langages à objets
 * Langages fonctionnels (Javascript, OCAML, Haskell)
 * Langages déclaratifs (HTML)
 
-# Quelques exemples de code (Hello World)
+## Quelques exemples de code (Hello World)
 
 * En python:
 
