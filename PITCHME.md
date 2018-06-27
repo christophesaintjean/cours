@@ -60,6 +60,8 @@ Les CC se passent en TP sur machine:
 
 *Sondage !*
 
+---
+
 ## Programmer
 
 ```python
@@ -68,12 +70,16 @@ import os
 
 $$\alpha = 3$$
 
+---
+
 ## Les types de langages de programmation
 
 * Langages impératifs (Python, C/C++)
 * Langages à objets
 * Langages fonctionnels (Javascript, OCAML, Haskell)
 * Langages déclaratifs (HTML)
+
+---
 
 ## Quelques exemples de code (Hello World)
 
