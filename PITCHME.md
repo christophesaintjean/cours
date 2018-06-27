@@ -41,7 +41,8 @@ Année 2018-2019
 
 ### Evaluation
 
-$$Session~1 = \frac{CC_1+CC_2}     {2}$$
+$$Session~1 = \frac{CC_1+CC_2}{2}$$
+
 $$Session~2 = CC_3$$
 
 Les CC se passent en TP sur machine:
@@ -55,14 +56,24 @@ Les CC se passent en TP sur machine:
 
 * Découvrir les bases de la programmation informatique
 * Maîtriser des concepts
-* Appprendre un des langages support de votre formation
+* Appprendre le langage Python support de votre formation
 * Libérer votre créativité
-
-*Sondage !*
 
 ---
 
-## Programmer
+## Sondage !
+
+*Mettre ici les images*
+
+---
+
+## Le langage Python
+
+* Python un langage impératif
+  
+  Le programmeur décrit la séquence d'instructions à utiliser
+* Il favorise la programmation structurée
+  * Décomposition d'un problème en sous- 
 
 ```python
 import os
