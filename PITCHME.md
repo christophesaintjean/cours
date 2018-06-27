@@ -41,7 +41,7 @@ Année 2018-2019
 
 ### Evaluation
 
-$$Session~1 = \frac{CC_1+CC_2}{2} $$
+$$Session~1 = \frac{CC_1+CC_2}     {2}$$
 $$Session~2 = CC_3$$
 
 Les CC se passent en TP sur machine:
@@ -85,16 +85,16 @@ $$\alpha = 3$$
 
 * En python:
 
-```python
-print('hello world')
-```
+  ```python
+  print('hello world')
+  ```
 
 * En java:
 
-```java
-public class HW {
-    public static void main(String[] args) {
+  ```java
+  public class HW {
+      public static void main(String[] args) {
         System.out.println('hello world');
-    }
-}
-```
+      }
+  }
+  ```
