@@ -41,8 +41,8 @@ Année 2018-2019
 
 ### Evaluation
 
-$$Session~1 = \frac{CC~1+CC~2}{2} $$
-$$Session~2 = CC3$$
+$$Session~1 = \frac{CC_1+CC_2}{2} $$
+$$Session~2 = CC_3$$
 
 Les CC se passent en TP sur machine:
 
