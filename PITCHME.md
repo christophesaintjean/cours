@@ -42,13 +42,14 @@ Année 2018-2019
 ### Evaluation
 
 $$Session~1 = \frac{CC_1+CC_2}{2}$$
-
 $$Session~2 = CC_3$$
 
 Les CC se passent en TP sur machine:
 
 * Une partie QCM
 * Une partie évaluée par un enseignant
+* Attention à la règle sur les absences
+* Le TEA sera pris en compte dans l'évaluation
 
 ---
 
@@ -56,30 +57,30 @@ Les CC se passent en TP sur machine:
 
 * Découvrir les bases de la programmation informatique
 * Maîtriser des concepts
-* Appprendre le langage Python support de votre formation
+* Appprendre un des langages support de votre formation
 * Libérer votre créativité
 
 ---
 
-## Sondage !
+## *Sondage !*
 
-*Mettre ici les images*
+![langages](images/langages.jpg)
 
 ---
 
-## Le langage Python
+## Langage humain vs langage informatique
 
-* Python un langage impératif
-  
-  Le programmeur décrit la séquence d'instructions à utiliser
-* Il favorise la programmation structurée
-  * Décomposition d'un problème en sous- 
+Communication humaine:
 
-```python
-import os
-```
+* Un certain vocabulaire, une orthographe, des règles de grammaire communes
+* Grande expressivité et diversité
+* Même si l'on commet des erreurs, nous sommes capables de comprendre "globalement"
 
-$$\alpha = 3$$
+Communication informatique:
+
+* Le vocabulaire est très réduit
+* Pas ou peu encore d'expressivité
+* Pas de tolérance aux erreurs de communication
 
 ---
 
@@ -109,3 +110,13 @@ $$\alpha = 3$$
       }
   }
   ```
+
+  ---
+
+## Programmer
+
+```python
+import os
+```
+
+$$\alpha = 3$$
