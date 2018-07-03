@@ -64,7 +64,7 @@ Les CC se passent en TP sur machine:
 
 ## *Sondage !*
 
-![langages](images/langages.jpg)
+<img src="images/langages.jpg" height="60%">
 
 ---
 
