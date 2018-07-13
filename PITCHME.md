@@ -1,4 +1,4 @@
-# Introduction à la programmation
+@title[Introduction à la programmation]
 
 Christophe Saint-Jean
 
@@ -7,6 +7,8 @@ Christophe Saint-Jean
 Année 2018-2019
 
 ---
+
+@transition[fade]
 
 ## Organisation de l'UE
 
@@ -33,9 +35,13 @@ Année 2018-2019
 
 ### Dispositif horaire
 
+@ul
+
 * 5 cours de 1,5 heures (Amphithéâtre)
 * 10 TPs de 1,5 heures (Sallles de TP)
 * 2 créneaux de 1,5h de TEA (Salles de TP)
+
+@ulend
 
 ---
 
@@ -53,7 +59,7 @@ Les CC se passent en TP sur machine:
 
 ---
 
-## Les objectifs de cet enseignement
+### Les objectifs de cet enseignement
 
 * Découvrir les bases de la programmation informatique
 * Maîtriser des concepts
@@ -62,34 +68,129 @@ Les CC se passent en TP sur machine:
 
 ---
 
-## *Sondage !*
+### *Sondage !*
 
-<img src="images/langages.jpg" height="60%">
+<img src="images/langages.jpg" height="20%">
 
 ---
 
-## Langage humain vs langage informatique
+## Programmer
 
-Communication humaine:
+### Langage humain
 
 * Un certain vocabulaire, une orthographe, des règles de grammaire communes
 * Grande expressivité et diversité
-* Même si l'on commet des erreurs, nous sommes capables de comprendre "globalement"
-
-Communication informatique:
-
-* Le vocabulaire est très réduit
-* Pas ou peu encore d'expressivité
-* Pas de tolérance aux erreurs de communication
+* Même si l'on commet des erreurs, nous sommes capables de comprendre "globalement" le message
 
 ---
 
-## Les types de langages de programmation
+### Langage informatique
+
+* La machine traite des informations binaires: 100110010101000110 ... (même si images, sons, *programmes*, ...)
+* Le vocabulaire d'instructions machine est très réduit
+* Pas ou peu (encore) d'expressivité
+* Pas de tolérance aux erreurs d'instructions
+
+---
+
+### Niveau d'un langage
+
+Différents niveaux d'abstraction par rapport aux instructions du processeur:
+* 100110010101000110 ... (Quasi-impossible)
+* Langages de bas niveau (Ex. Assembleur)
+* Langages de bas/haut niveau (Ex. C)
+* Langages de haut niveau (Ex. Python, Java, C++, R, ...)
+
+---
+
+### Code Source
+
+Un code source est un *texte* qui:
+
+* Utilise un certain nombre de conventions (nommage, opérations, ...),
+* Obéit à des régles de syntaxe, de grammaire,
+* Exécuté à la volée ou sauvegardé puis exécuté depuis un fichier.
+
+---
+
+## Les différentes sources d'erreur
+
+* Erreurs de syntaxe: Non respect des conventions du langage
+* Erreurs d'exécution (Runtime-Error): Opération non valide lors de l'exécution
+* Erreurs sémantiques: Résultat différent de celui désiré
+
+---
+
+### Etapes de la construction d'un programe
+
+Mettre ici un dessin
+
+---
+
+### Compilateur
+
+Mettre ici un dessin adapté
+
+* Analogie: Service de traduction intégrale à distance
+* Avantages:
+  * Rapidité
+  * vérification de la syntaxe à la compilation
+* Inconvénients: mono-cible
+
+---
+
+### Interpréteur
+
+Mettre ici un dessin adapté
+
+* Analogie: Traduction à la volée
+* Avantages: Flexibilité
+* Inconvénients:
+  * Lenteur (/compilateur)
+  * découverte d'erreurs à l'exécution
+
+---
+
+### Code intermédiaire (Byte)
+
+Mettre ici un dessin adapté
+
+Le meilleur des deux mondes:
+
+* Flexible, relativement rapide, multi-cible
+
+---
+
+### En pratique !
+
+* De nombreux langages disposent à la fois de compilateurs et d'interpréteurs.
+* C'est l'usage historique qui a fait penché la balance...
+
+ ```bash
+  // Compilation et exécution pour le compilateur gcc
+  gcc source.c -o executable
+  ./executable
+
+  // Exécution d un code Python
+  python source.py
+  ```
+
+---
+
+## Les outils d'édition du code
+
+Un environnement de développement intégré est 
+
+---
+
+### Quelques paradigmes de programmation
 
 * Langages impératifs (Python, C/C++)
 * Langages à objets
 * Langages fonctionnels (Javascript, OCAML, Haskell)
 * Langages déclaratifs (HTML)
+
+La plupart des langages sont multi-paradigmes.
 
 ---
 
@@ -111,7 +212,8 @@ Communication informatique:
   }
   ```
 
-  ---
+
+---
 
 ## Programmer
 
@@ -120,3 +222,6 @@ import os
 ```
 
 $$\alpha = 3$$
+
+---
+

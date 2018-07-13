@@ -1,3 +1,4 @@
-# cours
+# Cours "Introduction à la programmation"
 
-Il s'agit d'un test de gitpitch
+Première année - Semestre 1
+Université de La Rochelle
