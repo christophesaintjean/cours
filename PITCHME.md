@@ -1,4 +1,4 @@
-@title[Introduction à la programmation]
+# Introduction à la programmation
 
 Christophe Saint-Jean
 
@@ -20,7 +20,7 @@ Année 2018-2019
 * Renaud Péteri (TP)
 * *Etc*
 
----
++++
 
 ### Communication
 
@@ -31,7 +31,7 @@ Année 2018-2019
   * Appartenance groupes TD/TP
   * Absences/Justifications
 
----
++++
 
 ### Dispositif horaire
 
@@ -43,7 +43,7 @@ Année 2018-2019
 
 @ulend
 
----
++++
 
 ### Evaluation
 
@@ -57,7 +57,7 @@ Les CC se passent en TP sur machine:
 * Attention à la règle sur les absences
 * Le TEA sera pris en compte dans l'évaluation
 
----
++++
 
 ### Les objectifs de cet enseignement
 
@@ -66,11 +66,11 @@ Les CC se passent en TP sur machine:
 * Appprendre un des langages support de votre formation
 * Libérer votre créativité
 
----
++++
 
 ### *Sondage !*
 
-<img src="images/langages.jpg" height="20%">
+![images/langages.jpg](Sondage)
 
 ---
 
@@ -82,7 +82,7 @@ Les CC se passent en TP sur machine:
 * Grande expressivité et diversité
 * Même si l'on commet des erreurs, nous sommes capables de comprendre "globalement" le message
 
----
++++
 
 ### Langage informatique
 
@@ -91,55 +91,62 @@ Les CC se passent en TP sur machine:
 * Pas ou peu (encore) d'expressivité
 * Pas de tolérance aux erreurs d'instructions
 
----
++++
 
 ### Niveau d'un langage
 
 Différents niveaux d'abstraction par rapport aux instructions du processeur:
+
 * 100110010101000110 ... (Quasi-impossible)
 * Langages de bas niveau (Ex. Assembleur)
 * Langages de bas/haut niveau (Ex. C)
 * Langages de haut niveau (Ex. Python, Java, C++, R, ...)
 
----
++++
 
-### Code Source
+### Programme Source (ou Code)
 
-Un code source est un *texte* qui:
+Un programme source est un *texte* qui dépend du langage:
 
 * Utilise un certain nombre de conventions (nommage, opérations, ...),
-* Obéit à des régles de syntaxe, de grammaire,
-* Exécuté à la volée ou sauvegardé puis exécuté depuis un fichier.
+* Obéit à des régles de syntaxe, de grammaire
+* En génerale, sauvegardé puis exécuté depuis un fichier.
 
----
+Le mode d'exécution du programme est variable (compilation, interprétation, ...)
 
-## Les différentes sources d'erreur
++++
+
+### Les différentes sources d'erreur
+
+@ul
 
 * Erreurs de syntaxe: Non respect des conventions du langage
 * Erreurs d'exécution (Runtime-Error): Opération non valide lors de l'exécution
 * Erreurs sémantiques: Résultat différent de celui désiré
 
----
+@ulend
 
-### Etapes de la construction d'un programe
++++
 
-Mettre ici un dessin
+### Exécution d'un programme (Compilation)
 
----
+![images/compilation.png](Compilation)
 
-### Compilateur
-
-Mettre ici un dessin adapté
+@ul
 
 * Analogie: Service de traduction intégrale à distance
 * Avantages:
   * Rapidité
-  * vérification de la syntaxe à la compilation
-* Inconvénients: mono-cible
+  * Vérification de la syntaxe à la compilation
+* Inconvénients:
+  * Temps de compilation (une fois)
+  * Mono-cible
+
+@ulend
 
 ---
 
-### Interpréteur
+### Exécution d'un programme (Interprétation)
 
 Mettre ici un dessin adapté
 
@@ -151,7 +158,7 @@ Mettre ici un dessin adapté
 
 ---
 
-### Code intermédiaire (Byte)
+### Exécution d'un programme (Hybride)
 
 Mettre ici un dessin adapté
 
@@ -179,7 +186,7 @@ Le meilleur des deux mondes:
 
 ## Les outils d'édition du code
 
-Un environnement de développement intégré est 
+Un environnement de développement intégré est
 
 ---
 
@@ -212,10 +219,9 @@ La plupart des langages sont multi-paradigmes.
   }
   ```
 
-
 ---
 
-## Programmer
+## Vrac
 
 ```python
 import os
@@ -224,4 +230,3 @@ import os
 $$\alpha = 3$$
 
 ---
-
