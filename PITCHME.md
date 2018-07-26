@@ -16,10 +16,10 @@ Année 2018-2019
 
 ### L'équipe enseignante
 
-* Christophe Saint-Jean (Cours/TP - Resp.)
-* Sanae Boutarfass 5(TP)
+* Sanae Boutarfass (TP)
 * Laurent Mascarilla (TP)
 * Matthieu Robert (TP)
+* **Christophe Saint-Jean** (Cours/TP - Resp.)
 * El Hadi Zahzah (TP)
 * _Etc_
 
@@ -50,7 +50,7 @@ Année 2018-2019
 
 ### Evaluation
 
-$S_1 = \frac{CC_1+CC_2}{2}$
+$S_1 = (CC_1+CC_2)/2$
 
 $S_2 = CC_3$
 
@@ -236,7 +236,20 @@ Le meilleur des deux mondes:
  > python HelloWorld.py
 ```
 
-[Arguments techniques - hors cdare de l'UE](http://autourducode.com/le-bytecode-python.html)
+[Arguments techniques - hors cadre de l'UE](http://autourducode.com/le-bytecode-python.html)
+
+---
+
+### Les outils d'édition du code
+
+Un "bon" environnement de développement intégré est un programme qui:
+
+* Facilite l'édition du code (coloration syntaxique, saisie prédictive, ...)
+* Intègre les règles de bonnes pratiques d'un langage (Ex.: PEP8 pour Python)
+* Détecte les erreurs de syntaxe
+* Permet de compiler/d'interpreter un code source par un clic
+* Donne accès à des outils de débogage (valeurs des variables, point d'arrêt, ...)
+* Gestion de projets, des versions, lancement du code à distance, ...
 
 ---
 
@@ -366,7 +379,7 @@ Exemple: page HTML5 minimaliste
 
 @transition[fade]
 
-## Le langage Python
+## Généralités sur le langage Python
 
 ---
 
@@ -383,20 +396,7 @@ Créé en 1991, Python est un langage multi-paradigme:
 
 ---
 
-## Les outils d'édition du code
-
-Un "bon" environnement de développement intégré est un programme qui:
-
-* Facilite l'édition du code (coloration syntaxique, saisie prédictive, ...)
-* Intègre les règles de bonnes pratiques d'un langage (Ex.: PEP8 pour Python)
-* Détecte les erreurs de syntaxe
-* Permet de compiler/d'interpreter un code source par un clic
-* Donne accès à des outils de débogage (valeurs des variables, point d'arrêt, ...)
-* Gestion de projets, des versions, lancement du code à distance, ...
-
-+++
-
-### Quelques éditeurs de code Python
+### Outils d'édition du code Python
 
 * *Thonny* (cette UE)
 * *Visual Code*
@@ -405,3 +405,185 @@ Un "bon" environnement de développement intégré est un programme qui:
 * *Jupyter Notebook* (voir TEA)
 
 [Liste complète](https://wiki.python.org/moin/IntegratedDevelopmentEnvironments)
+
+---
+
+### Exemple d'un programme Python
+
+```Python
+print('Hello World!!')
+```
+
+Test via Thonny:
+
+* en mode interactif
+* en mode script
+
+> Les scripts Python ont pour extension *.py*
+
+---
+
+@transition[fade]
+
+## Les variables
+
+---
+
+### Variable (définition)
+
+Une variable est une zone de la mémoire dans laquelle une valeur est stockée.
+
+Elle est désignée par:
+
+* un **nom** pour le programmeur
+* une **adresse** pour l'ordinateur
+
+La fonction *id* renvoie un nombre unique (~ adresse) qui qualifie une variable.
+
+---
+
+### Type d'une variable
+
+Le **type** d'une variable définit les opérations valides pour elle.
+
+Types élémentaires:
+
+* Les nombres entiers
+* Les nombres réels
+* Les chaînes de caractères
+* Les booléens
+
+La fonction *type* renvoie le type d'une variable.
+
+### Déclaration d'un variable
+
+En Python, la **déclaration** et l'**initialisation** d'une variable se fait de manière simultanée.
+
+```python
+In [1]: a = 2
+
+In [2]: type(a)
+Out[2]: int
+
+In [3]: id(a)
+Out[3]: 4525733248
+```
+
+---
+
+#### Remarques sur le typage 1/2
+
+* Le type d'une variable est donné par le type de l'expression à droite du = (*Inférence de type*)
+* Toute variable a un type qui peut changer lors de l'éxécution (*Typage dynamique fort*)
+
+---
+
+##### Remarques sur le typage 2/2
+
+```python
+In [1]: a = 2
+
+In [2]: type(a)
+Out[2]: int
+
+In [3]: a = 3.14159
+
+In [4]: type(a)
+Out[4]: float
+
+In [5]: type(3.14159)
+Out[5]: float
+```
+
+---
+
+## Les types de base de Python
+
+---
+
+### Les types numériques: *int*
+
+* entier avec précision arbitraire
+* attention, le type *long* existait dans les versions précédentes
+
+```python
+In [1]: type(2)
+Out[1]: int
+
+In [2]: 2**1024
+Out[2]: 179769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357658789768814416622492847430639474124377767893424865485276302219601246094119453082952085005768838150682342462881473913110540827237163350510684586298239947245938479716304835356329624224137216
+```
+
+---
+
+### Les types numériques: *float*
+
+* nombre à virgule avec une précision fixe
+  $$[2.2250738585072014*10^{-308}, 1.7976931348623157*10^{308}]$$
+* Attention tous les nombres réels ne sont pas représentables...
+
+```python
+In [1]: 1.79e308
+Out[1]: 1.79e+308
+
+In [2]: 1.79e308*10
+Out[2]: inf
+
+In [3]: type(1.79e308*10)
+Out[3]: float
+
+In [4]: 1e20 + 1
+Out[4]: 1e+20
+```
+
+---
+
+### Autres types numériques
+
+Seront également évoqués si besoin en TP:
+
+* *complex* : les nombres complexes
+* *decimal* : les nombres décimaux
+* *fraction* : les nombres rationnels
+  
+pour mémoire:
+*float* $\subset$ *decimal* $\subset$ *fraction*
+
+---
+
+### Opérations sur les types numériques
+
+* Arithmétique usuelle: +, -, *, /
+* Division entière: a // b (arrondi vers $-\infty$)
+* Reste de la division entière: a // b
+* Puissance: a ** b  ou  pow(a,b)
+* Valeur absolue: abs(a)
+
+---
+
+### Les chaines de caractères 1/2
+
+Les chaînes de caractères sont délimitées par les simples ou doubles guillemets.
+
+L'opération de **concaténation** de deux chaînes est effectuée par le symbole *+*.
+
+---
+
+### Les chaines de caractères 2/2
+
+---
+
+### Conversion entre types
+
+---
+
+### Ecriture non formatée/formatée
+
+---
+
+### Saisie Utilisateur
+
+---
+
+## Saut conditionnel : If$
+
