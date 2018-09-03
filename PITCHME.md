@@ -50,16 +50,13 @@ Année 2018-2019
 
 ### Evaluation
 
-$S_1 = (CC_1+CC_2)/2$
-
-$S_2 = CC_3$
+$S_1 = (CC_1+CC_2)/2~~~S_2 = CC_3$
 
 Les CC se passent en TP sur machine:
 
 * Une partie QCM
 * Une partie évaluée par un enseignant
 * Attention à la règle sur les absences
-* Le TEA sera pris en compte dans l'évaluation
 
 +++
 
@@ -74,7 +71,7 @@ Les CC se passent en TP sur machine:
 
 ### *Sondage !*
 
-![Sondage](images/langages.jpg)
+![Sondage](images/langages.png)
 
 ---
 
