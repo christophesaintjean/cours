@@ -16,11 +16,11 @@ Année 2018-2019
 
 ### L'équipe enseignante
 
-* Sanae Boutarfass (TP)
-* Laurent Mascarilla (TP)
-* Matthieu Robert (TP)
 * **Christophe Saint-Jean** (Cours/TP - Resp.)
 * El Hadi Zahzah (TP)
+* Laurent Mascarilla (TP)
+* Matthieu Robert (TP)
+* Sanae Boutarfass (TP)
 * _Etc_
 
 +++
