@@ -1478,7 +1478,11 @@ age: 30  ;  affiliation: La Rochelle  ;
 
 #### Exercice sur les dictionnaires
 
+---
+
 ## Fonctions
+
+Les fonctions sont un moyen d’exécuter un ensemble d’instructions en les nommant.
 
 Syntaxe de base:
 
@@ -1487,21 +1491,122 @@ def <nom_de_la_fonction>(<parametre_1>, <parametre_2>, ..., <parametre_n>):
     <instructions>
 ```
 
-* Une fonction
-Les blocs d'instructions nous courent après aussi, quel enfer. Si l'on décortique la ligne de définition de la fonction, on trouve dans l'ordre :
+Si l’exécution de ces instructions dépend de certaines valeurs, on parlera de fonction des *paramètres*.
 
-def, mot-clé qui est l'abréviation de « define » (définir, en anglais) et qui constitue le prélude à toute construction de fonction.
+Les parenthèses sont obligatoires, même si la fonction n'a pas aucun paramètre.
 
-Le nom de la fonction, qui se nomme exactement comme une variable (nous verrons par la suite que ce n'est pas par hasard). N'utilisez pas un nom de variable déjà instanciée pour nommer une fonction.
++++
 
-La liste des paramètres qui seront fournis lors d'un appel à la fonction. Les paramètres sont séparés par des virgules et la liste est encadrée par des parenthèses ouvrante et fermante (là encore, les espaces sont optionnels mais améliorent la lisibilité).
+### Exemple de fonction
 
-Les deux points, encore et toujours, qui clôturent la ligne.
+```python
+In [1]: def somme_n_entiers(n):
+          som = 0
+          for i in range(1, n+1):
+            som += i
+          print('La somme des', n, 'premiers entiers: ', som, sep=' ')
 
-Les parenthèses sont obligatoires, quand bien même votre fonction n'attendrait aucun paramètre.
+In [2]: somme_n_entiers(10)
+La somme des 10 premiers entiers:  55
+```
+
+### L'instruction *return* 1/2
+
+*return* indique ce que renvoie la fonction.
+
+```python
+In [1]: def somme_n_entiers(n):
+            som = 0
+            for i in range(1, n+1):
+              som += i
+            return som
+In [2]: s = somme_n_entiers(10)
+
+In [3]: print('La somme des', 10, 'premiers entiers: ', s, sep=' ')
+La somme des 10 premiers entiers:  55
+```
+
+### L'instruction *return* 2/2
+
+Pour retourner plusieurs valeurs, on utilisera un tuple (ou une liste) ou dictionnaire:
+
+```python
+In [1]: def decomposition(n, m):
+          a = n // m
+          b = n % m
+          return (a,b)  # ou return {'quotient': a, 'reste': b}
+
+In [2]: a, b = decomposition (43, 7)
+
+In [3]: print('43 =', a, '* 7 +',b)
+43 = 6 * 7 + 1
+
+```
+
+### Valeurs par défaut
+
+On peut donner des valeurs par défaut à certains paramètres que l'on positionne à droite:
+
+```python
+In [1]: def f(a,b=2):
+          return a**b
+In [2]: f(2)
+Out[2]: 4
+
+In [3]: f(4,3)
+Out[3]: 64
+
+In [4]: def f(b=2, a):
+          return a**b
+  File "<ipython-input-6-8d9bc7ce0f4b>", line 1
+    def f(b=2, a):
+         ^
+SyntaxError: non-default argument follows default argument
+```
+
+### Tout peut être paramètre !
+
+```python
+In [1]: def f(x):
+          return x**2
+
+In [2]: def mon_map(L,fun):
+          res = []
+          for l in L:
+            res.append(fun(l))
+          return res
+
+In [3]: L = [1, 0, 3, 2, -3]
+
+In [4]: print(mon_map(L, f))
+[1, 0, 9, 4, 9]
+```
+
+### La récursivité
+
+Une fonction est dite récursive si elle se calcule en faisant appel à elle même.
+
+```python
+def factorielle(n):
+  if n < 2:
+    return 1
+  return n * factorielle(n-1)
+```
+
+## Portée des variables
+
+## La documentation
+
+## Modules
+
+### directive import
+
+### Les modules de Python
+
+## Fichiers
 
 ## Pour aller plus loin
 
 * Listes, dictionnaires en compréhension
 * *args, **Kwargs
-* itertools
+* zip, itertools
