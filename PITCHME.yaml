@@ -1,6 +1,6 @@
 # Layout
-layout : center-left
-#layout : top-left
+#layout : center-left
+layout : top-left
 
 # Look-and-Feel
 logo : assets/images/logo.png
@@ -19,11 +19,11 @@ transition : fade
 published : true
 
 # Plugins
-charts : true
+charts : false
 mathjax : TeX-MML-AM_CHTML
 #mathjax : TeX-MML-AM_HTMLorMML-full
 
-code-line-numbers : true
+code-line-numbers : false
 print-fragments : false
 published : false
 loop : false
