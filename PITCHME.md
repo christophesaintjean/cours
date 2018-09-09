@@ -452,6 +452,8 @@ Types élémentaires:
 
 La fonction *type* renvoie le type d'une variable.
 
++++
+
 ### Déclaration d'un variable
 
 En Python, la **déclaration** et l'**initialisation** d'une variable se fait de manière simultanée.
@@ -473,7 +475,7 @@ Out[3]: 4525733248
 * Le type d'une variable est donné par le type de l'expression à droite du = (*Inférence de type*)
 * Toute variable a un type qui peut changer lors de l'éxécution (*Typage dynamique fort*)
 
----
++++
 
 ##### Remarques sur le typage 2/2
 
@@ -1507,6 +1509,8 @@ In [2]: somme_n_entiers(10)
 La somme des 10 premiers entiers:  55
 ```
 
++++
+
 ### L'instruction *return* 1/2
 
 *return* indique ce que renvoie la fonction.
@@ -1522,6 +1526,8 @@ In [2]: s = somme_n_entiers(10)
 In [3]: print('La somme des', 10, 'premiers entiers: ', s, sep=' ')
 La somme des 10 premiers entiers:  55
 ```
+
++++
 
 ### L'instruction *return* 2/2
 
@@ -1539,6 +1545,25 @@ In [3]: print('43 =', a, '* 7 +',b)
 43 = 6 * 7 + 1
 
 ```
+
++++
+
+### Une fonction sans return ?!
+
+Une fonction sans *return* explicite retournera la valeur spéciale *None*
+
+```python
+In [1]: def f(a, b):
+          c = a + b
+In [2]: res = f(4, 3)
+
+In [3]: res   #None n'affiche rien !
+
+In [4]: print(res)
+None
+```
+
++++
 
 ### Valeurs par défaut
 
@@ -1561,6 +1586,8 @@ In [4]: def f(b=2, a):
 SyntaxError: non-default argument follows default argument
 ```
 
++++
+
 ### Tout peut être paramètre !
 
 ```python
@@ -1579,6 +1606,8 @@ In [4]: print(mon_map(L, f))
 [1, 0, 9, 4, 9]
 ```
 
++++
+
 ### La récursivité
 
 Une fonction est dite récursive si elle se calcule en faisant appel à elle même.
@@ -1592,9 +1621,167 @@ def factorielle(n):
 
 ## Portée des variables
 
-## La documentation
+Quand et comment mes variables sont accessibles ?
+
+---
+
+### Cas simples 1/2
+
+On a déjà vu que les variables n'existent que si elles ont été assignées (valeur ou *None*)
+
+```python
+In [1]: a
+NameError: name 'a' is not defined
+
+In [2]: a = 3
+
+In [3]: a
+Out[3]: 3
+```
+
++++
+
+### Cas simple 2/2
+
+Et dans un bloc:
+
+```python
+In [1]: for i in range(10):
+          a=3
+In [2]: print(a)
+3
+```
+
+On parle du niveau global ou principal.
+
++++
+
+### Portée des variables: Fonctions 1/
+
+```python
+In [1]: def f(b):
+          a = 3
+In [2]: a
+NameError: name 'a' is not defined
+
+In [3]: b
+NameError: name 'b' is not defined
+```
+
+Les variables **locales** et les **paramètres** n'existent pas à l'extérieur d'une fonction.
+
++++
+
+### Portée des variables: Fonctions 2/
+
+```python
+In [1]: a = 1
+
+In [2]: def f():
+          print(a)
+
+In [3]: f()
+1
+```
+
+* Les variables du niveau supérieur sont utilisables dans la fonction
+* C'est considéré comme une *mauvaise pratique* si $f$ est paramétrée par a
+
++++
+
+### Portée des variables: Fonctions 3/
+
+```python
+In [1]: a = 1
+
+In [2]: def f():
+          a = 2
+
+In [3]: f()
+
+In [4]: a
+Out[4]: 1
+1
+```
+
+L'affectation = dans une fonction ne change pas la valeur d'une variable.
+
++++
+
+### Portée des variables: Fonctions 4/
+
+```python
+In [1]: a = 1
+
+In [2]: def f(b):
+          b = 2
+
+In [3]: f(a)
+
+In [4]: a
+Out[4]: 1
+```
+
+Idem si c'est un paramètre.
+
++++
+
+### Portée des variables: Fonctions et listes
+
+On peut modifier des objets en passant par des méthodes (Ex.: append pour une liste)
+
+```python
+In [1]: l = [1, 2, 3]
+
+In [2]: def f(liste):
+          liste.append(4)
+
+In [3]: l
+Out[3]: [1, 2, 3]
+
+In [4]: f(l)
+
+In [5]: l
+Out[5]: [1, 2, 3, 4]
+```
+
++++
+
+### Bonus: Python et références
+
+```python
+In [1]: l1 = [1, 2, 3]
+
+In [2]: l2 = l1
+
+In [3]: l2.append(4)
+
+In [4]: l1
+Out[4]: [1, 2, 3, 4]
+
+In [5]: id(l1), id(l2)
+Out[5]: (4520736584, 4520736584)
+```
+
+* Les variables *l1* et *l2* **référencent** le même objet.
+* On peut créer une copie (entre autres) par: <br>
+      l2 = l1[:] ou   l2 = l1.copy()
 
 ## Modules
+
+
+random   : fonctions permettant de travailler avec des valeurs aléatoires
+math     : toutes les fonctions utiles pour les opérations mathématiques (cosinus,sinus,exp,etc.)
+sys      : fonctions systèmes
+os       : fonctions permettant d'interagir avec le système d'exploitation
+time     : fonctions permettant de travailler avec le temps
+calendar : fonctions de calendrier
+
+urllib2  : fonctions permettant de récupérer des informations sur internet
+re       : fonctions permettant de travailler sur des expressions régulières
+
+## La documentation
+
 
 ### directive import
 
