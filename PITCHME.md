@@ -53,11 +53,15 @@ Année 2018-2019
 $$S_1 = (CC_1+CC_2)/2$$
 $$S_2 = CC_3$$
 
-Les CC se passent en TP sur machine:
+Les CC se passent en TP (5/6 et 10) sur machine:
+
+@ul
 
 * Une partie QCM
 * Une partie évaluée par un enseignant
 * Attention à la règle sur les absences
+
+@ulend
 
 +++
 
@@ -120,13 +124,14 @@ Différents niveaux d'abstraction par rapport aux instructions du processeur:
 
 ### Programme Source (ou Code)
 
-Un programme source est un ___texte___ qui dépend du langage de programmation:
+Un programme source est un ___texte___ qui:
 
+* Dépend d'un *langage de programmation*
 * Utilise un certain nombre de _conventions_ (nommage, opérations, ...),
-* Obéit à des règles de _syntaxe_, de _grammaire_
+* Obéit à des règles de _syntaxe_, de _grammaire_.
 * En géneral, sauvegardé puis exécuté depuis un fichier.
 
-Le mode d'exécution du programme est variable (compilation, interprétation, ...)
+Le mode d'exécution du programme est variable (compilation, interprétation, hybride)
 
 +++
 
@@ -159,17 +164,17 @@ Compilation et exécution pour le compilateur gcc:
 
 ![Compilation](images/compilation.png)
 
-@ul
+
 
 Analogie: Service de traduction intégrale à distance
 
-* Avantages:
-  * Rapidité
-  * Vérification de la syntaxe à la compilation
-* Inconvénients:
-  * Temps de compilation (une fois)
-  * Mono-cible
+Propriétés:
 
+@ul
+
+* Cible un type de machine (rapide)
+* Vérification de la syntaxe à la compilation (Temps de compilation long)
+  
 @ulend
 
 ---
@@ -197,12 +202,15 @@ Exemple ligne de commande Unix (bash):
 
 Analogie: Traduction à la volée puis exécution
 
-* Avantages:
-  * Flexibilité
-  * Multi-cible (lié à l'interpréteur)
-* Inconvénients:
-  * Lenteur (/compilateur)
-  * découverte d'erreurs à l'exécution
+Propriétés:
+
+@ul
+
+* Flexible car pas de cible (c'est l'interpréteur)
+* Cycle Vérification + Exécution (lent)
+* Découverte d'erreurs à l'exécution
+
+@ulend
 
 ---
 
@@ -246,16 +254,31 @@ Le meilleur des deux mondes:
 
 ---
 
-### Les outils d'édition du code
+### Les outils d'édition du code 1/2
 
-Un "bon" environnement de développement intégré est un programme qui:
+Un "bon" _environnement de développement intégré_ est un programme qui:
+
+@ul
 
 * Facilite l'édition du code (coloration syntaxique, saisie prédictive, ...)
 * Intègre les règles de bonnes pratiques d'un langage (Ex.: PEP8 pour Python)
-* Détecte les erreurs de syntaxe
+* Détecte les erreurs de syntaxe lors de l'édition
+
+@ulend
+
++++
+
+### Les outils d'édition du code 2/2
+
+Un "bon" _environnement de développement intégré_ est un programme qui:
+
+@ul
+
 * Permet de compiler/d'interpreter un code source par un clic
 * Donne accès à des outils de débogage (valeurs des variables, point d'arrêt, ...)
 * Gestion de projets, des versions, lancement du code à distance, ...
+
+@ulend
 
 ---
 
@@ -274,43 +297,32 @@ On peut catégoriser les langages suivants des propriétés qui les caractérise
 * Langages à objets
 * Langages déclaratifs
 
-[et bien d'autres ...](https://fr.wikipedia.org/wiki/Paradigme_(programmation))
+[et bien d'autres ...](https://fr.wikipedia.org/wiki/Paradigme_programmation)
 
 La plupart des langages sont multi-paradigmes.
 
 +++
 
-### Langage impératif 1/3
+### Langage impératif 1/2
 
 Un langage est dit impératif lorsque le programme correspond à une succession d'instructions:
-> Instruction 1
->
-> Instruction 2
->
->...
->
-> Instruction n
+
+```python
+Instruction 1
+Instruction 2
+...
+Instruction n
+```
 
 Chaque instruction tient compte de l'état du système (mémoire, E/S, ...) et peut le modifier.
 
 +++
 
-### Langage impératif 2/3
+### Langage impératif 2/2
 
 On y trouve le même genre d'instructions:
 
-* Affectations d'une valeur à une variable
-* Le saut conditionnel "If"
-* Les répétitives "Pour" et "Tant que"
-* Optionnel: le saut inconditionnel "Goto"
-
-+++
-
-### Langage impératif 3/3
-
-C'est le type de langage qui domine depuis plus de 30 ans !
-
-* Affectations d'une valeur à une variable
+* Affectations d'une valeur à une _variable_
 * Le saut conditionnel "If"
 * Les répétitives "Pour" et "Tant que"
 * Optionnel: le saut inconditionnel "Goto"
@@ -321,12 +333,13 @@ C'est le type de langage qui domine depuis plus de 30 ans !
 
 Il s'agit simplement de pouvoir regrouper un ensemble d'instructions nommé __procédure__ (ou *routine* ou *sous-routine*).
 
-> __Procédure Quelconque__
-> > Instruction 1
-> >
-> > ...
-> >
-> > Instruction n
+```python
+Procédure Quelconque:
+    Instruction 1
+    Instruction 2
+    ...
+    Instruction n
+```
 
 On parle de __programme modulaire__ lorsque regroupe thématiquement des procédures dans un *module* (ou *bibliothèque* ou *paquet*)
 
@@ -334,7 +347,7 @@ On parle de __programme modulaire__ lorsque regroupe thématiquement des procéd
 
 ### Langage orienté objet 1/2
 
-Dans ce type de langage, les programmes sont organisés autour de briques logicielles appelées *Objets* qui
+Dans ce type de langage, les programmes sont organisés autour de briques logicielles appelées *Objets* qui:
 
 * représente un concept, une entité réelle ou non
 * possède une représentation interne (*attributs* ou *slots*)
@@ -425,7 +438,7 @@ Test via Thonny:
 * en mode interactif
 * en mode script
 
-> Les scripts Python ont pour extension *.py*
+_Par convention, les scripts Python ont pour extension **\*.py**_
 
 ---
 
@@ -455,7 +468,7 @@ Le **type** d'une variable définit les opérations valides pour elle.
 Types élémentaires:
 
 * Les nombres entiers
-* Les nombres réels
+* Les nombres "réels" ou "à virgule"
 * Les chaînes de caractères
 * Les booléens
 
@@ -482,7 +495,7 @@ Out[3]: 4525733248
 #### Remarques sur le typage 1/2
 
 * Le type d'une variable est donné par le type de l'expression à droite du = (*Inférence de type*)
-* Toute variable a un type qui peut changer lors de l'éxécution (*Typage dynamique fort*)
+* Toute variable a un type (*Typage fort*) (qui peut changer lors de l'éxécution (*Typage dynamique*)
 
 +++
 
@@ -527,8 +540,9 @@ Out[2]: 179769313486231590772930519078902473361797697894230657273430081157732675
 ### Les types numériques: *float*
 
 * nombre à virgule avec une précision **fixe**
-  $$[2.2250738585072014*10^{-308}, 1.7976931348623157*10^{308}]$$
-* Attention tous les nombres réels ne sont pas représentables...
+  $$[2.26.. * 10^{-308}, 1.79.. * 10^{308}]$$
+
+* Tous les nombres réels ne sont pas représentables par le type _float_
 
 ```python
 In [1]: 1.79e308
@@ -557,7 +571,7 @@ Seront également évoqués si besoin en TP:
 pour mémoire:
 *float* $\subset$ *decimal* $\subset$ *fraction* $\subset$ $\mathbb{R}$
 
-*int* := $\mathbb{N}$
+type *int* := $\mathbb{Z}$
 
 ---
 
@@ -575,9 +589,9 @@ pour mémoire:
 
 * Il permet de représenter les valeurs de vérité *True* ou *False*
 * Opérations sur les booléens (priorité décroissante):
-  * *not* négation logique
-  * *and* "et" logique
-  * *or*  "ou" logique
+  * *not*: négation logique
+  * *and*: "et" logique
+  * *or*:  "ou" logique
 
 ```python
 In [1]: type(True)
@@ -642,23 +656,34 @@ OverflowError: int too large to convert to float
 
 ---
 
-### Conversion implicite entre types
+### Conversion implicite entre types 1/2
 
-Par **convention**, le *True* "équivaut" à 1 et *False* à 0.
+Par **convention**, le *True* "équivaut" à 1 et *False* à 0 dans les calculs numériques.
 
 ```python
 In [1]: True * 2
 Out[1]: 2
 ```
 
-A l'opposé, *0* ou *None* sont considérées comme *False*, sinon *True*.
++++
 
----
+### Conversion implicite entre types 2/2
+
+A l'opposé, *0* ou *None* sont considérées comme *False*, sinon *True* dans les expressions booléennes.
+
+```python
+In [1]: not 0
+Out[1]: True
+```
+
++++
 
 ### Conversion explicite entre types
 
 On peut forcer la conversion avec la syntaxe: </br>
- \<type\>(\<expression\>)
+```python
+    <type>(<expression>)
+```
 
 Exemples:
 
@@ -682,7 +707,10 @@ Out[3]: '4.7'
 ### Affichage à l'écran
 
 Syntaxe sur la fonction *print*:
-  >print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
+
+```python
+print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
+```
 
 * ... : *print* accepte une suite de valeurs converties en *str*
 * sep: le séparateur
@@ -728,7 +756,7 @@ On remarque:
 Fonction *input* :
 
 ```python
-  input(prompt=None, /)
+  input(prompt=None)
 ```
 
 retourne la chaîne de caractères saisie.
@@ -743,7 +771,7 @@ pi ? 3,14
 ValueError: could not convert string to float: '3,14'
 ```
 
-C'est la convention anglaise pour les nombres à virgule.
+C'est la convention anglaise pour les *float*.
 
 ---
 
@@ -759,23 +787,30 @@ if, else, elseif
 if <condition>:
   <instructions si True>
 [else:
-  <instructions si False>
+  <instructions si False>]
 ```
 
 * La partie else est optionnelle
-* **L'idendation est obligatoire car elle marque le début et la fin d'un bloc d'instructions**
+* **L'indendation est obligatoire car elle marque le début et la fin d'un bloc d'instructions**
 
 +++
 
-##### Condition dans un if
+##### Condition dans un if 1/2
 
-Une condition est:
+Une condition peut-être:
 
 * une expression booléenne construite par:
   * un opérateur de comparaison: <=,  <,  >,  >=
   * un opérateur d'égalité: ==, !=, <>
   * un opérateur d'identité: *is*, *is not*
   * un opérateur d'appartenance : *in*, *not in*
+
++++
+
+##### Condition dans un if 2/2
+
+Une condition peut-être aussi:
+
 * une valeur numérique: 0 équivaut à *False* sinon *True*
 * une chaine de caractères: '' équivaut à *False* sinon *True*
 * *None* équivaut à *False*
@@ -784,7 +819,6 @@ Une condition est:
 Les conditions peuvent être combinées par *not*, *and* et *or*
 
 +++
-
 #### Exemples if
 
 ```python
@@ -848,7 +882,7 @@ while <condition>:
   <instructions>
 ```
 
-La \<condition\> est évaluée **avant** chaque éxécution des \<instructions\>
+La <condition> est évaluée **avant** chaque éxécution des <instructions>
 
 Conditions de sortie du "while"
 
@@ -1787,7 +1821,6 @@ Out[5]: (4520736584, 4520736584)
 
 ## Modules
 
-
 random   : fonctions permettant de travailler avec des valeurs aléatoires
 math     : toutes les fonctions utiles pour les opérations mathématiques (cosinus,sinus,exp,etc.)
 sys      : fonctions systèmes
@@ -1799,7 +1832,6 @@ urllib2  : fonctions permettant de récupérer des informations sur internet
 re       : fonctions permettant de travailler sur des expressions régulières
 
 ## La documentation
-
 
 ### directive import
 
