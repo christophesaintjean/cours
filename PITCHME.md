@@ -18,10 +18,10 @@ Année 2018-2019
 
 * **Christophe Saint-Jean** (Cours/TP - Resp.)
 * El Hadi Zahzah (TP)
+* Jordan Calandre (TP)
 * Laurent Mascarilla (TP)
 * Matthieu Robert (TP)
 * Sanae Boutarfass (TP)
-* _Etc_
 
 +++
 
@@ -50,7 +50,8 @@ Année 2018-2019
 
 ### Evaluation
 
-$S_1 = (CC_1+CC_2)/2~~~S_2 = CC_3$
+$$S_1 = (CC_1+CC_2)/2$$
+$$S_2 = CC_3$$
 
 Les CC se passent en TP sur machine:
 
@@ -65,7 +66,7 @@ Les CC se passent en TP sur machine:
 * Découvrir les bases de la programmation informatique
 * Développer l'esprit logique par la pratique de la programmation
 * Appprendre un des langages support de votre formation
-* Libérer votre créativité
+* Libérer votre créativité !!
 
 +++
 
@@ -83,18 +84,26 @@ Les CC se passent en TP sur machine:
 
 ### Langage humain
 
+@ul
+
 * Un certain _vocabulaire_, _une orthographe_, des _règles de grammaire_ communes
 * Grande expressivité et diversité
 * Même si l'on commet des erreurs, nous sommes capables de comprendre "globalement" le message
+
+@ulend
 
 +++
 
 ### Langage informatique
 
+@ul
+
 * La machine traite des informations binaires: 100110010101000110 ... (même si images, sons, *programmes*, ...)
 * Le vocabulaire d'instructions machine est très réduit
 * Pas ou peu (encore) d'expressivité
 * Pas de tolérance aux erreurs d'instructions
+
+@ulend
 
 ---
 
@@ -578,13 +587,15 @@ In [2]: True and not False
 Out[2]: True
 ```
 
+---
+
 ### Les chaines de caractères 1/2
 
 Les chaînes de caractères sont délimitées par les simples ou doubles guillemets.
 
 L'opération de **concaténation** de deux chaînes est effectuée par le symbole *+*.
 
----
++++
 
 ### Les chaines de caractères 2/2
 
@@ -627,7 +638,7 @@ In [2]: 2**100000 + 5.
 OverflowError: int too large to convert to float
 ```
 
-**Ccl: calcul mixte int/float -> float**
+**Ccl**: calcul mixte int/float -> float
 
 ---
 
@@ -679,6 +690,8 @@ Syntaxe sur la fonction *print*:
 * file : flux de sortie (sys.stdout est l'écran)
 * flush : force à vider le flux immédiatement.
 
++++
+
 #### Exemples d'affichage 1/2
 
 ```python
@@ -690,6 +703,8 @@ In [2]: print(année)
 In [3: print('année', année)
 année 2018
 ```
+
++++
 
 #### Exemples d'affichage 2/2
 
@@ -711,7 +726,10 @@ On remarque:
 ### Saisie Utilisateur
 
 Fonction *input* :
-   > input(prompt=None, /)
+
+```python
+  input(prompt=None, /)
+```
 
 retourne la chaîne de caractères saisie.
 
