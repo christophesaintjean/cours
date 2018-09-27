@@ -1,0 +1,1 @@
+# Compter le nombre de entiers impairs entre 1 et 1000 divisibles par 3 mais pas par 7.

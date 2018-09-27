@@ -2,7 +2,9 @@
 
 Christophe Saint-Jean
 
-[https://gitpitch.com/christophesaintjean/cours/IntroProgS1](https://gitpitch.com/christophesaintjean/cours/IntroProgS1)
+[Transparents du cours](https://gitpitch.com/christophesaintjean/cours/IntroProgS1)
+
+[Code du cours](https://tinyurl.com/y92hrbqf)
 
 Année 2018-2019
 
@@ -630,13 +632,13 @@ Out[3]: 'abcdef'
 * Peut indiquer également "n'a pas de sens"
 
 ```python
-In [28]: a
+In [1: a
 ...
 NameError: name 'a' is not defined
 
-In [29]: a = None
+In [2]: a = None
 
-In [30]: a
+In [3]: a
 ```
 
 ---
@@ -882,19 +884,19 @@ while <condition>:
   <instructions>
 ```
 
-La <condition> est évaluée **avant** chaque éxécution des <instructions>
+La condition est évaluée **avant** chaque éxécution des instructions.
 
-Conditions de sortie du "while"
+Conditions de sortie du "while":
 
-* La condition n'est pas vérifiée
-* Une sortie explicite par *break*
+* La condition n'est pas vérifiée.
+* Une sortie explicite par *break*.
 * Crash du programme...
 
 +++
 
 ##### Cas fréquents d'utilisation *"Tant que"* 1/2
 
-* Répéter *n* fois \<instructions\>
+* Répéter *n* fois
 
 ```python
 a = 1
@@ -939,8 +941,10 @@ while True:
 ##### Petits exos sur "while"
 
 * Combien de fois peut on diviser un nombre par deux ?
-* Etant donné $n$, déterminer le plus grand nombre $r$ tel que $r^2 \leq n$.
-* Compter le nombre de entiers impairs divisibles par 3 mais pas par 7.
+* Compter le nombre de entiers impairs entre 1 et 1000 divisibles par 3 mais pas par 7.
+* Racine carrée entière:
+  Etant donné un entier $n$, déterminer le plus grand nombre entier $r$ tel que $r^2 \leq n$.
+
 
 ---
 
@@ -967,13 +971,17 @@ Le terme anglais est *iterable*.
 #### Instruction *range*
 
 Syntaxe:
-> range(start, stop[, step]) -> range object
+
+```python
+range(start, stop[, step]) -> range object
+```
 
 Cas d'utilisation:
 
-* range(i, j) produit i, i+1, i+2, ..., j-1.
-* range(i) produit 0, 1, ..., i-1.
-* step peut être négatif
+* range(i, j) -> i, i+1, i+2, ..., j-1.
+* range(i) -> 0, 1, ..., i-1..
+
+Attention, step peut être négatif.
 
 +++
 
@@ -1021,12 +1029,12 @@ $$ \lim_{n \rightarrow +\infty} 4 \sum_{k=0}^{n} \frac{(-1)^{k}}{2k+1} = \pi$$
 Ecrire un programme basé sur cette formule qui approxime $\pi$:
 
 ```Python
-In [1]: n = 10000; approx = 0
+In [1]: n = 10**6; som = 0
 
-In [2]: for k in range(n):
-          approx += 4*(-1)**k / (2*k+1)
+In [2]: for k in range(n+1):
+          som = som + (-1)**k / (2*k+1)
 
-In [3]: print(approx)
+In [3]: print(4*som)
 3.1414926535900345
 
 In [4]: import math; print(math.pi)
@@ -1035,7 +1043,7 @@ In [4]: import math; print(math.pi)
 
 +++
 
-### Bonus : instruction *continue*
+### Bonus: instruction *continue*
 
 *continue* permet d'interrompre une itération:
 
