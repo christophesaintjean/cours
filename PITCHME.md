@@ -13,7 +13,7 @@ Année 2018-2019
 @transition[fade]
 
 ## Organisation de l'UE
-
+git add 
 +++
 
 ### L'équipe enseignante
@@ -730,7 +730,7 @@ In [1]: année = 2018
 In [2]: print(année)
 2018
 
-In [3: print('année', année)
+In [3: print("année", année)
 année 2018
 ```
 
@@ -739,10 +739,10 @@ année 2018
 #### Exemples d'affichage 2/2
 
 ```python
-In [4]: print('l\'année ', année, end=''); print(' est un bon cru !!')
+In [4]: print("l'année", année, end=""); print(" est un bon cru !!")
 l'année  2018 est un bon cru !!
 
-In [5]: print(année, année*2, année / 2, type(année), sep=', ')
+In [5]: print(année, année*2, année / 2, type(année), sep=", ")
 2018, 4036, 1009.0, <class 'int'>
 ```
 
@@ -764,7 +764,7 @@ Fonction *input* :
 retourne la chaîne de caractères saisie.
 
 ```python
-In [1]: a = int(input('Nombre de pas ? '))
+In [1]: a = int(input("Nombre de pas ? "))
 Nombre de pas ? 12
 
 In [2]: b = float(input('pi ? '))
@@ -1439,6 +1439,8 @@ In [3]: a, b, c = 1, '2', '3.0'  ## syntaxe usuelle identique
 In [4]: a, b = b, a              ## échange de valeurs de variables
 ```
 
++++
+
 #### Retour sur *enumerate*
 
 ```python
@@ -1454,6 +1456,8 @@ In [2]: for el in enumerate(lettres):
 ```
 
 * *enumerate* renvoie une séquence de tuples (\<indice\>, \<valeur\>) que l'on a déplié.
+
+---
 
 ### Dictionnaire
 
@@ -1826,6 +1830,8 @@ Out[5]: (4520736584, 4520736584)
 * Les variables *l1* et *l2* **référencent** le même objet.
 * On peut créer une copie (entre autres) par: <br>
       l2 = l1[:] ou   l2 = l1.copy()
+
+---
 
 ## Modules
 
