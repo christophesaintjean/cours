@@ -1030,7 +1030,15 @@ Nombre de "e":  2
 
 #### Exercice d'application
 
+<<<<<<< HEAD
 $$\lim_{n \rightarrow +\infty} 4 \sum_{k=0}^{n} \frac{(-1)^{k}}{2k+1} = \pi$$
+=======
+<<<<<<< HEAD
+$\lim_{n \rightarrow +\infty} 4 \sum_{k=0}^{n} \frac{(-1)^{k}}{2k+1} = \pi$
+=======
+$$\lim_{n \rightarrow +\infty} 4 \sum_{k=0}^{n} \frac{(-1)^{k}}{2k+1} = \pi$$
+>>>>>>> 6c4b49c879d32548b07161d13604d621b5062950
+>>>>>>> b09009c13f05b16ac936f04434c566fc69b2d320
 
 Ecrire un programme basé sur cette formule qui approxime $\pi$:
 
