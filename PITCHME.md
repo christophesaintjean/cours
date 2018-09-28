@@ -13,7 +13,7 @@ Année 2018-2019
 @transition[fade]
 
 ## Organisation de l'UE
-git add 
+
 +++
 
 ### L'équipe enseignante
@@ -764,7 +764,7 @@ Fonction *input* :
 retourne la chaîne de caractères saisie.
 
 ```python
-In [1]: a = int(input("Nombre de pas ? "))
+In [1]: a = int(input('Nombre de pas ? ))
 Nombre de pas ? 12
 
 In [2]: b = float(input('pi ? '))
@@ -821,6 +821,7 @@ Une condition peut-être aussi:
 Les conditions peuvent être combinées par *not*, *and* et *or*
 
 +++
+
 #### Exemples if
 
 ```python
@@ -864,7 +865,7 @@ a est un nombre positif, impair et non divisible par 3
 
 ### Démonstration `!`
 
-* Conditions if imbriquées
+* Conditions if imbriquées : a $\in$ [0,1]
 * Année Bissextile
 
 ---
@@ -1025,7 +1026,8 @@ Nombre de "e":  2
 
 #### Exercice d'application
 
-$$ \lim_{n \rightarrow +\infty} 4 \sum_{k=0}^{n} \frac{(-1)^{k}}{2k+1} = \pi$$
+$$\lim_{n \rightarrow +\infty} 4 \sum_{k=0}^{n} \frac{(-1)^{k}}{2k+1} = \pi$$
+
 Ecrire un programme basé sur cette formule qui approxime $\pi$:
 
 ```Python
