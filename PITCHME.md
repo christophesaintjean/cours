@@ -764,7 +764,11 @@ Fonction *input* :
 retourne la chaîne de caractères saisie.
 
 ```python
+<<<<<<< HEAD
 In [1]: a = int(input('Nombre de pas ? '))
+=======
+In [1]: a = int(input('Nombre de pas ? ))
+>>>>>>> 6c4b49c879d32548b07161d13604d621b5062950
 Nombre de pas ? 12
 
 In [2]: b = float(input('pi ? '))
@@ -1026,7 +1030,11 @@ Nombre de "e":  2
 
 #### Exercice d'application
 
+<<<<<<< HEAD
 $\lim_{n \rightarrow +\infty} 4 \sum_{k=0}^{n} \frac{(-1)^{k}}{2k+1} = \pi$
+=======
+$$\lim_{n \rightarrow +\infty} 4 \sum_{k=0}^{n} \frac{(-1)^{k}}{2k+1} = \pi$$
+>>>>>>> 6c4b49c879d32548b07161d13604d621b5062950
 
 Ecrire un programme basé sur cette formule qui approxime $\pi$:
 
