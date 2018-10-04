@@ -166,8 +166,6 @@ Compilation et exécution pour le compilateur gcc:
 
 ![Compilation](images/compilation.png)
 
-
-
 Analogie: Service de traduction intégrale à distance
 
 Propriétés:
@@ -542,7 +540,7 @@ Out[2]: 179769313486231590772930519078902473361797697894230657273430081157732675
 ### Les types numériques: *float*
 
 * nombre à virgule avec une précision **fixe**
-  $$[2.26.. * 10^{-308}, 1.79.. * 10^{308}]$$
+  `$$[2.26.. * 10^{-308}, 1.79.. * 10^{308}]$$`
 
 * Tous les nombres réels ne sont pas représentables par le type _float_
 
@@ -682,7 +680,8 @@ Out[1]: True
 
 ### Conversion explicite entre types
 
-On peut forcer la conversion avec la syntaxe: </br>
+On peut forcer la conversion avec la syntaxe:
+
 ```python
     <type>(<expression>)
 ```
@@ -950,7 +949,6 @@ while True:
 * Racine carrée entière:
   Etant donné un entier $n$, déterminer le plus grand nombre entier $r$ tel que $r^2 \leq n$.
 
-
 ---
 
 ### Répétitive for
@@ -1030,15 +1028,7 @@ Nombre de "e":  2
 
 #### Exercice d'application
 
-<<<<<<< HEAD
-$$\lim_{n \rightarrow +\infty} 4 \sum_{k=0}^{n} \frac{(-1)^{k}}{2k+1} = \pi$$
-=======
-<<<<<<< HEAD
-$\lim_{n \rightarrow +\infty} 4 \sum_{k=0}^{n} \frac{(-1)^{k}}{2k+1} = \pi$
-=======
-$$\lim_{n \rightarrow +\infty} 4 \sum_{k=0}^{n} \frac{(-1)^{k}}{2k+1} = \pi$$
->>>>>>> 6c4b49c879d32548b07161d13604d621b5062950
->>>>>>> b09009c13f05b16ac936f04434c566fc69b2d320
+`$$\lim_{n \rightarrow +\infty} 4 \sum_{k=0}^{n} \frac{(-1)^{k}}{2k+1} = \pi$$`
 
 Ecrire un programme basé sur cette formule qui approxime $\pi$:
 
@@ -1422,6 +1412,8 @@ Comparaison *Liste*/*Tuple*:
 |   Rapidité  |     -     |   +   |
 |   Mémoire   |     -     |   +   |
 
++++
+
 #### Exemple stockage avec *tuple*
 
 ```python
@@ -1626,7 +1618,7 @@ In [3]: print('43 =', a, '* 7 +',b)
 
 +++
 
-### Une fonction sans return ?!
+### Une fonction sans return `?!`
 
 Une fonction sans *return* explicite retournera la valeur spéciale *None*
 
@@ -1666,7 +1658,7 @@ SyntaxError: non-default argument follows default argument
 
 +++
 
-### Tout peut être paramètre !
+### Tout peut être paramètre `!`
 
 ```python
 In [1]: def f(x):
@@ -1696,6 +1688,8 @@ def factorielle(n):
     return 1
   return n * factorielle(n-1)
 ```
+
+---
 
 ## Portée des variables
 
@@ -1843,12 +1837,13 @@ Out[5]: (4520736584, 4520736584)
 
 * Les variables *l1* et *l2* **référencent** le même objet.
 * On peut créer une copie (entre autres) par: <br>
-      l2 = l1[:] ou   l2 = l1.copy()
+      l2 = l1[:] ou l2 = l1.copy()
 
 ---
 
-## Modules
+## Fonctions externes et Modules
 
+---
 random   : fonctions permettant de travailler avec des valeurs aléatoires
 math     : toutes les fonctions utiles pour les opérations mathématiques (cosinus,sinus,exp,etc.)
 sys      : fonctions systèmes
