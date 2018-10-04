@@ -1844,6 +1844,7 @@ Out[5]: (4520736584, 4520736584)
 
 ## Fonctions externes et Modules
 
+---
 random   : fonctions permettant de travailler avec des valeurs aléatoires
 math     : toutes les fonctions utiles pour les opérations mathématiques (cosinus,sinus,exp,etc.)
 sys      : fonctions systèmes
