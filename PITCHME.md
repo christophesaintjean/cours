@@ -52,9 +52,9 @@ Année 2018-2019
 
 ### Evaluation
 
-`S_1 = (CC_1+CC_2)/2`
+$S_1 = \frac{CC_1+CC_2}{2}$
 
-`S_2 = CC_3`
+$S_2 = CC_3$
 
 Les CC se passent en TP (5/6 et 10) sur machine:
 
@@ -1293,6 +1293,8 @@ In [5]: couleurs.remove('vert')
 In [6]: couleurs
 Out[6]: ['rouge', 'bleu', 'vert', 'orange']
 ```
+
++++
 
 #### Parcours d'une liste par indice
 
