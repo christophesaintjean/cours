@@ -1168,7 +1168,7 @@ Quelques cas fréquents (L est une liste):
 * Eléments à partir de  l'indice 4:</br>
   L[4:]
 * Les 10 premiers éléments:</br>
-L[:10]
+  L[:10]
 
 +++
 
@@ -1416,7 +1416,9 @@ Syntaxe:
       (<valeur_1>, <valeur_2>, ..., <valeur_n>)
 ```
 
-Comparaison *Liste*/*Tuple*:
++++
+
+#### Comparaison *Liste*/*Tuple*:
 
 |             |   Liste   | Tuple |
 |:-----------:|:---------:|:-----:|
@@ -1457,8 +1459,12 @@ In [2]: print(a, b, c)
 1 2 3.0
 
 In [3]: a, b, c = 1, '2', '3.0'  ## syntaxe usuelle identique
+```
 
-In [4]: a, b = b, a              ## échange de valeurs de variables
+Echange de valeurs de variables
+
+```python
+In [1]: a, b = b, a
 ```
 
 +++
@@ -1477,7 +1483,7 @@ In [2]: for el in enumerate(lettres):
 (3, 'd')
 ```
 
-* *enumerate* renvoie une séquence de tuples (\<indice\>, \<valeur\>) que l'on a déplié.
+* *enumerate* renvoie une séquence de tuples (*indice*, *valeur*) que l'on a déplié.
 
 ---
 
@@ -1550,7 +1556,7 @@ KeyError: 'location'
 
 Trois façons de parcourir un dictionaire *d*:
 
-* *d.items()*: séquence de paires \<cle\>:\<value\>.
+* *d.items()*: séquence de paires *cle*:*valeur*.
 * *d.keys()* : séquence des clés.
 * *d.values()*: séquence des valeurs.
 
@@ -1560,6 +1566,8 @@ In [1]: for cle, valeur in Sam.items():
 ###
 age: 30  ;  affiliation: La Rochelle  ;
 ```
+
++++
 
 #### Exercice sur les dictionnaires
 
