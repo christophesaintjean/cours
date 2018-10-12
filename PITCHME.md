@@ -764,11 +764,7 @@ Fonction *input* :
 retourne la chaîne de caractères saisie.
 
 ```python
-<<<<<<< HEAD
 In [1]: a = int(input('Nombre de pas ? '))
-=======
-In [1]: a = int(input('Nombre de pas ? ))
->>>>>>> 6c4b49c879d32548b07161d13604d621b5062950
 Nombre de pas ? 12
 
 In [2]: b = float(input('pi ? '))
@@ -1129,13 +1125,15 @@ On peut rappeler un élément particulier d'une liste par son **indice**.</br>
 Pour une liste de longueur *n*, l'indice est un entier entre **0** et **n-1**.
 
 ```python
-In [1]: len(couleurs)   # longueur de la liste
-Out[1]: 3
+In [1]: couleurs = ['rouge', 'vert', 'bleu']
 
-In [2]: couleurs[0]
-Out[2]: 'rouge'
+In [2]: len(couleurs)   # longueur de la liste
+Out[2]: 3
 
-In [3]: couleurs[5]
+In [3]: couleurs[0]
+Out[3]: 'rouge'
+
+In [4]: couleurs[5]
 ...
 IndexError: list index out of range
 ```
@@ -1155,7 +1153,7 @@ Le dernier élément de la liste  toujours l'indice -1.
 
 +++
 
-#### Extraction d'une sous-liste 1/2
+#### Extraction d'une sous-liste 1/3
 
 Syntaxe ($\sim$ *range*):
 
@@ -1163,14 +1161,19 @@ Syntaxe ($\sim$ *range*):
        L[<start>:<stop>:<step>]
 ```
 
-Quelques cas fréquents (a est une liste):
+Quelques cas fréquents (L est une liste):
 
 * Eléments entre l'indice 2 (inclus) et l'indice 5 (exclus):</br>
   L[2:5]
 * Eléments à partir de  l'indice 4:</br>
   L[4:]
 * Les 10 premiers éléments:</br>
-  L[:10]
+L[:10]
+
++++
+
+#### Extraction d'une sous-liste 2/3
+
 * Duplication de la liste:</br>
   L[:]
 * Un élément sur 2:</br>
@@ -1178,7 +1181,7 @@ Quelques cas fréquents (a est une liste):
 
 +++
 
-#### Extraction d'une sous-liste 2/2
+#### Extraction d'une sous-liste 3/3
 
 Quelques cas fréquents avec indice négatif:
 
@@ -1227,6 +1230,8 @@ In [6]: L
 Out[6]: [4]
 ```
 
++++
+
 #### Insérer un élément : *insert*
 
 Syntaxe ($\sim$ *range*):
@@ -1246,7 +1251,9 @@ In [3]: couleurs
 Out[3]: ['rouge', 'vert', 'cyan', 'bleu']
 ```
 
-#### Concaténer deux listes
++++
+
+#### Concaténer deux listes 1/2
 
 Rappel: Concaténer c'est mettre bout à bout deux structures de données.
 
@@ -1260,7 +1267,13 @@ Deux syntaxes:
 ```python
 In [1]: ['rouge', 'vert', 'bleu'] + ['r', 'v', 'b']
 Out[1]: ['rouge', 'vert', 'bleu', 'r', 'v', 'b']
+```
 
++++
+
+#### Concaténer deux listes 2/2
+
+```python
 In [2]: couleurs = ['rouge', 'vert', 'bleu']
 
 In [3]: couleurs.extend(['r', 'v', 'b'])
