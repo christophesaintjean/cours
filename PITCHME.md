@@ -543,7 +543,7 @@ Out[2]: 179769313486231590772930519078902473361797697894230657273430081157732675
 * nombre à virgule avec une précision **fixe**
   `$$[2.26.. * 10^{-308}, 1.79.. * 10^{308}]$$`
 
-* Tous les nombres réels ne sont pas représentables par le type _float_
+* Tous les réels ne sont pas représentables par le type _float_
 
 ```python
 In [1]: 1.79e308
