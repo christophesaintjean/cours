@@ -17,9 +17,10 @@ while True:
     right(m)
     x = xcor()
     y = ycor()
+    # x, y = position()
     print(x, y, flush=True)
     #if x == 0. and y == 0.:
-    if abs(x) < 1e-6 and abs(y) < 1e-6:
+    if abs(x - 0.) < 1e-6 and abs(y - 0.) < 1e-6:
         break
 
 exitonclick()
