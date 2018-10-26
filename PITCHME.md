@@ -1010,7 +1010,7 @@ In [3]: for i in range(8, 0, -1):
 In [1]: for c in 'Python':
           print(c, end=', ')
 ###
-P, y, t, h, o, n,
+P, y, t, h, o, n, @
 
 In [2]: cpt = 0
         for c in 'Pythonneries':
@@ -1569,7 +1569,10 @@ age: 30  ;  affiliation: La Rochelle  ;
 
 +++
 
-#### Exercice sur les dictionnaires
+#### Exercices sur les dictionnaires
+
+* Compter le nombre d'occurrences d'une lettre de l'alphabet dans un texte.
+* Un truc fun
 
 ---
 
@@ -1644,7 +1647,7 @@ In [3]: print('43 =', a, '* 7 +',b)
 
 ### Une fonction sans return `?!`
 
-Une fonction sans *return* explicite retournera la valeur spéciale *None*
+Une fonction sans *return* explicite "retournera" la valeur spéciale *None*
 
 ```python
 In [1]: def f(a, b):
@@ -1752,7 +1755,7 @@ On parle du niveau global ou principal.
 
 +++
 
-### Portée des variables: Fonctions 1/
+### Portée des variables: Fonctions 1/4
 
 ```python
 In [1]: def f(b):
@@ -1768,7 +1771,7 @@ Les variables **locales** et les **paramètres** n'existent pas à l'extérieur 
 
 +++
 
-### Portée des variables: Fonctions 2/
+### Portée des variables: Fonctions 2/4
 
 ```python
 In [1]: a = 1
@@ -1785,7 +1788,7 @@ In [3]: f()
 
 +++
 
-### Portée des variables: Fonctions 3/
+### Portée des variables: Fonctions 3/4
 
 ```python
 In [1]: a = 1
@@ -1804,7 +1807,7 @@ L'affectation = dans une fonction ne change pas la valeur d'une variable.
 
 +++
 
-### Portée des variables: Fonctions 4/
+### Portée des variables: Fonctions 4/4
 
 ```python
 In [1]: a = 1
@@ -1865,9 +1868,101 @@ Out[5]: (4520736584, 4520736584)
 
 ---
 
+## La documentation
+
+Parce ce que:
+
+* Le programmeur n'a pas une mémoire infaillible
+* On peut espérer faire du code que les autres vont lire
+
+On peut documenter tous les niveaux du code: fonction, ~~classe~~, ~~module~~
+
+Il s'agit de placer une chaine de caractères au bon endroit ...
+
+Règles pour la documentation: [PEP 257](https://www.python.org/dev/peps/pep-0257/)
+
++++
+
+### Conventions pour la documenation simple
+
+* On utilise des triples guillemets pour commencer et finir la ligne.
+* La première lettre est en majuscule et on termine la ligne par un point.
+* Indentation identique au code.
+* On décrit ce que fait la fonction.
+
++++
+
+### Exemple de documentation simple
+
+```python
+In [1]: def carre(x):
+   ...:   """Calcul du carré d'un nombre."""
+   ...:   return x * x
+In [2]: print(carre.__doc__)
+Calcul du carré d'un nombre.
+
+In [2]: help(carre)
+```
+
++++
+
+### Pour une documentation plus longue
+
+```python
+"""La première ligne décrit la fonction.
+  
+   Description textuelle de la fonction.
+   Description textuelle de la fonction.
+   Description textuelle de la fonction.
+"""
+```
+
++++
+
+### Exemple de documentation plus riche 1/2
+
+```python
+def monpow(a, b):
+  """Calcule a à la puissance b
+  
+    Ici une explication longue de la puissance
+    d'un nombre :math:`a^b = aa..a` b fois
+
+    :param a: la valeur
+    :param b: l'exposant
+    :type a: int, float,...
+    :type b: int, float,...
+    :returns: a**b
+    :rtype: int, float
+```
+
++++
+
+### Exemple de documentation plus riche 2/2
+
+```python
+"""" suite ....
+
+    :Exemples:
+    >>>nompow(2, 3)
+    8
+    >>>nompow(2., 2)
+    4.0
+
+    .. note:: c'est une version accélérée de la puissance par multiplication successives
+    .. seealso:: pow
+    .. warning:: a et b sont des nombres
+    """
+    return a**b
+```
+
 ## Fonctions externes et Modules
 
+* Comment organiser son code pour le réutiliser ?
+* Comment utiliser du code Python fait par d'autres ?
+
 ---
+
 random   : fonctions permettant de travailler avec des valeurs aléatoires
 math     : toutes les fonctions utiles pour les opérations mathématiques (cosinus,sinus,exp,etc.)
 sys      : fonctions systèmes
@@ -1878,7 +1973,6 @@ calendar : fonctions de calendrier
 urllib2  : fonctions permettant de récupérer des informations sur internet
 re       : fonctions permettant de travailler sur des expressions régulières
 
-## La documentation
 
 ### directive import
 
