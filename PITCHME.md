@@ -87,7 +87,7 @@ Les CC se passent en TP (5/6 et 10) sur machine:
 
 ## Généralités sur la programmation
 
----
++++
 
 ### Langage humain
 
@@ -112,7 +112,7 @@ Les CC se passent en TP (5/6 et 10) sur machine:
 
 @ulend
 
----
++++
 
 ### Niveau d'un langage
 
@@ -148,7 +148,7 @@ Le mode d'exécution du programme est variable (compilation, interprétation, hy
 
 @ulend
 
----
++++
 
 ### Exécution d'un programme (Compilation) 1/2
 
@@ -178,7 +178,7 @@ Propriétés:
   
 @ulend
 
----
++++
 
 ### Exécution d'un programme (Interprétation) 1/2
 
@@ -213,7 +213,7 @@ Propriétés:
 
 @ulend
 
----
++++
 
 ### Exécution d'un programme (Hybride) 1/2
 
@@ -239,7 +239,7 @@ Le meilleur des deux mondes:
 * Multi-cible
 * Supprime les erreurs de syntaxe à la compilation
 
----
++++
 
 ### Mode d'exécution - Conclusion
 
@@ -253,7 +253,7 @@ Le meilleur des deux mondes:
 
 [Arguments techniques - hors cadre de l'UE](http://autourducode.com/le-bytecode-python.html)
 
----
++++
 
 ### Les outils d'édition du code 1/2
 
@@ -287,7 +287,7 @@ Un "bon" _environnement de développement intégré_ est un programme qui:
 
 ## Généralités sur les langages de programmation
 
----
++++
 
 ### Quelques paradigmes
 
@@ -328,7 +328,7 @@ On y trouve le même genre d'instructions:
 * Les répétitives "Pour" et "Tant que"
 * Optionnel: le saut inconditionnel "Goto"
 
----
++++
 
 ### Langage procédural
 
@@ -344,7 +344,7 @@ Procédure Quelconque:
 
 On parle de __programme modulaire__ lorsque regroupe thématiquement des procédures dans un *module* (ou *bibliothèque* ou *paquet*)
 
----
++++
 
 ### Langage orienté objet 1/2
 
@@ -377,7 +377,7 @@ Dans ce type de langage, les programmes sont organisés autour de briques logici
   }
 ```
 
----
++++
 
 ### Aparté : Langage déclaratif
 
@@ -401,7 +401,7 @@ Exemple: page HTML5 minimaliste
 
 ## Généralités sur le langage Python
 
----
++++
 
 ### Caractéristiques du langage
 
@@ -414,7 +414,7 @@ Créé en 1991, Python est un langage multi-paradigme:
 * qui dispose d'une grande bibliothèque de base (modules)
 * Version actuelle: **3.7.0** (ou *2.7.15*)
 
----
++++
 
 ### Outils d'édition du code Python
 
@@ -426,7 +426,7 @@ Créé en 1991, Python est un langage multi-paradigme:
 
 [Liste complète](https://wiki.python.org/moin/IntegratedDevelopmentEnvironments)
 
----
++++
 
 ### Exemple d'un programme Python
 
@@ -447,7 +447,7 @@ _Par convention, les scripts Python ont pour extension **\*.py**_
 
 ## Les variables
 
----
++++
 
 ### Variable (définition)
 
@@ -460,7 +460,7 @@ Elle est désignée par:
 
 La fonction *id* renvoie un nombre unique (~ adresse) qui qualifie une variable.
 
----
++++
 
 ### Type d'une variable
 
@@ -491,7 +491,7 @@ In [3]: id(a)
 Out[3]: 4525733248
 ```
 
----
++++
 
 #### Remarques sur le typage 1/2
 
@@ -521,7 +521,7 @@ Out[5]: float
 
 ## Les types de base de Python
 
----
++++
 
 ### Les types numériques: *int*
 
@@ -536,7 +536,7 @@ In [2]: 2**1024
 Out[2]: 179769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357658789768814416622492847430639474124377767893424865485276302219601246094119453082952085005768838150682342462881473913110540827237163350510684586298239947245938479716304835356329624224137216
 ```
 
----
++++
 
 ### Les types numériques: *float*
 
@@ -559,7 +559,7 @@ In [4]: 1e20 + 1
 Out[4]: 1e+20
 ```
 
----
++++
 
 ### Autres types numériques
 
@@ -574,7 +574,7 @@ pour mémoire:
 
 type *int* := $\mathbb{Z}$
 
----
++++
 
 ### Opérations sur les types numériques
 
@@ -584,7 +584,7 @@ type *int* := $\mathbb{Z}$
 * Puissance: a ** b  ou  pow(a,b)
 * Valeur absolue: abs(a)
 
----
++++
 
 ### Le type booléen
 
@@ -602,7 +602,7 @@ In [2]: True and not False
 Out[2]: True
 ```
 
----
++++
 
 ### Les chaines de caractères 1/2
 
@@ -623,7 +623,7 @@ In [3]: a + b
 Out[3]: 'abcdef'
 ```
 
----
++++
 
 ### Le type NoneType
 
@@ -640,7 +640,7 @@ In [2]: a = None
 In [3]: a
 ```
 
----
++++
 
 ### Conversion implicite entre types numériques
 
@@ -655,7 +655,7 @@ OverflowError: int too large to convert to float
 
 **Ccl**: calcul mixte int/float -> float
 
----
++++
 
 ### Conversion implicite entre types 1/2
 
@@ -874,7 +874,7 @@ a est un nombre positif, impair et non divisible par 3
 
 while, break, for, continue
 
-+++
+---
 
 ### Répétitive *"Tant que"*
 
@@ -1021,7 +1021,7 @@ In [2]: cpt = 0
 Nombre de "e":  2
 ```
 
----
++++
 
 #### Exercice d'application
 
@@ -1722,7 +1722,7 @@ def factorielle(n):
 
 Quand et comment mes variables sont accessibles ?
 
----
++++
 
 ### Cas simples 1/2
 
@@ -1956,29 +1956,41 @@ def monpow(a, b):
     return a**b
 ```
 
+--- 
+
 ## Fonctions externes et Modules
 
 * Comment organiser son code pour le réutiliser ?
 * Comment utiliser du code Python fait par d'autres ?
 
----
++++ 
 
-random   : fonctions permettant de travailler avec des valeurs aléatoires
-math     : toutes les fonctions utiles pour les opérations mathématiques (cosinus,sinus,exp,etc.)
-sys      : fonctions systèmes
-os       : fonctions permettant d'interagir avec le système d'exploitation
-time     : fonctions permettant de travailler avec le temps
-calendar : fonctions de calendrier
+### Quelques modules fournis avec Python
 
-urllib2  : fonctions permettant de récupérer des informations sur internet
-re       : fonctions permettant de travailler sur des expressions régulières
+* random: fonctions permettant de travailler avec des valeurs aléatoires
+* math: toutes les fonctions utiles pour les opérations mathématiques (cosinus,sinus,exp,etc.)
+* turtle: desssin à la tortue
+* sys: fonctions systèmes
+* os: fonctions permettant d'interagir avec le système d'exploitation
+time: fonctions permettant de travailler avec le temps
+* calendar: fonctions de calendrier
+* urllib: fonctions permettant de récupérer des informations sur internet
+* re: fonctions permettant de travailler sur des expressions régulières
+* tkinter: interface graphique
 
+[Liste complète](https://docs.python.org/3.6/library/index.html)
+
++++
 
 ### directive import
 
-### Les modules de Python
+---
 
 ## Fichiers
+
+* Comment ouvrir et charger un fichier dans une structure de données
+
+---
 
 ## Pour aller plus loin
 
