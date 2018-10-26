@@ -1572,7 +1572,7 @@ age: 30  ;  affiliation: La Rochelle  ;
 #### Exercices sur les dictionnaires
 
 * Compter le nombre d'occurrences d'une lettre de l'alphabet dans un texte.
-* Un truc fun
+* La Famille Simpson
 
 ---
 
