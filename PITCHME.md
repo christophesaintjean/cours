@@ -1583,7 +1583,7 @@ Les fonctions sont un moyen d’exécuter un ensemble d’instructions en les n
 Syntaxe de base:
 
 ```python
-def <nom_de_la_fonction>(<parametre_1>, <parametre_2>, ..., <parametre_n>):
+def <nom_de_la_fonction>(<parametre_1>, ..., <parametre_n>):
     <instructions>
 ```
 
