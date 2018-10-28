@@ -1,5 +1,3 @@
-## sélection des noms qui contiennent une voyelle en début ou en fin
-
 alphabet ='abcdefghijklmnopqrstuvwxyz'
 texte = 'le petit chat est mort'
 dico_cpt = {}  # également dico_cpt = dict()
