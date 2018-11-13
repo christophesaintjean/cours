@@ -3,8 +3,8 @@
 n = 97
 premier = True
 for i in range(2, n):
+    #print(i)
     if n % i == 0:
-        print(i)
         premier = False
         break
 if premier:
@@ -12,8 +12,10 @@ if premier:
 else:
     print(n, "n'est pas premier")
 
+
+
 # Liste des nombres premiers inférieurs à 1000
-n_max = 1000
+n_max = 40000
 P = []
 for n in range(2, n_max+1):
     premier = True
