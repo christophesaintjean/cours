@@ -1956,7 +1956,7 @@ def monpow(a, b):
     return a**b
 ```
 
---- 
+---
 
 ## Fonctions externes et Modules
 
@@ -1965,7 +1965,9 @@ def monpow(a, b):
 
 +++
 
-### Exemple: contenu du fichier "racine.py"
+### Exemple: importer une fonction 1/2
+
+Contenu du fichier "racine.py":
 
 ```python
 def racine_dicho(x):
@@ -1983,7 +1985,9 @@ def racine_dicho(x):
 
 +++
 
-### Exemple: contenu du fichier  "comp_rac.py"
+### Exemple: importer une fonction 2/2
+
+Contenu du fichier  "comp_rac.py":
 
 ```python
 import math
@@ -2000,17 +2004,16 @@ else:
 
 ### Directive import et ses conventions 1/2
 
-* Le module xxx est un fichier nommé xxx.py
-* Le module xxx à importer est dans le même répertoire que le module yyy qui importe
-* Dans yyy.py, on importe xxx par la directive import:
-* On peut utiliser la variable vvv ou la fonction fff avec la syntaxe:
-  
 ```python
 import xxx
 
 v = xxx.vvv
 a = xxx.fff(4) # directement
 ```
+
+* Le module xxx est un fichier nommé xxx.py
+* Le module xxx à importer est dans le même répertoire que le module yyy qui importe
+* Dans yyy.py, on importe xxx par la directive import
 
 +++
 
@@ -2025,8 +2028,7 @@ f = xxx.fff # indirectement: raccourci local
 a = f(4)
 ```
 
-* Le module créé par l'utilisateur est prioritaire.<br>
-  Exemple: votre module math dans votre fichier math.py masquera le module math de Python
+* Le module créé par l'utilisateur est prioritaire à celui fourni par Python.
 * Seul, le symbole xxx est importé, fff inconnu
 
 +++
@@ -2034,7 +2036,7 @@ a = f(4)
 ### Directive from ... import ... as ...
 
 * On peut décider de n'importer que certains symboles (variables, fonctions, ...)
-  
+
 ```python
 from racine import racine_dicho
 
@@ -2055,7 +2057,7 @@ a = mon_sqrt(4)
 ### Directive from ... import *
 
 * On peut décider de tout importer:
-  
+
 ```python
 from racine import *
 
@@ -2063,6 +2065,7 @@ a = racine_dicho(4)
 ```
 
 * Pratique déconseillée car on ne maîtrise pas totalement ce qui est importé.<br>
+  
   On devrait plutôt faire:
 
 ```python
@@ -2071,28 +2074,148 @@ from turtle import forward, left, right, done
 
 +++
 
-### Quelques modules fournis avec Python
+### Quelques modules fournis
 
-* random: fonctions permettant de travailler avec des valeurs aléatoires
-* math: toutes les fonctions utiles pour les opérations mathématiques (cosinus,sinus,exp,etc.)
+* random: fonctions pour produire des nombres aléatoires
+* math: opérations mathématiques basiques (cosinus,sinus,exp,etc.)
 * turtle: dessin à la tortue
 * sys: fonctions systèmes
 * os: fonctions permettant d'interagir avec le système d'exploitation
-time: fonctions permettant de travailler avec le temps
-* calendar: fonctions de calendrier
-* urllib: fonctions permettant de récupérer des informations sur internet
-* re: fonctions permettant de travailler sur des expressions régulières
+* time: fonctions permettant de travailler avec le temps
 * tkinter: interface graphique
 
 [Liste complète](https://docs.python.org/3.6/library/index.html)
+
++++
+
+### Autres modules populaires
+
+* Numpy, Scipy, Pandas: Calcul scientifique.
+* Matplotlib: Dessin 2d (courbes, histogrammes, *etc*).
+* Django, Flask: Faire des sites par programmation.
+* Pillow: Manipuler des images.
+
+Egalement, il existe des modules pour:
+
+* Interagir avec les réseaux sociaux.
+* Analyser les pages web.
+* ...
 
 ---
 
 ## Fichiers
 
-* Comment ouvrir et charger un fichier dans une structure de données
+* Comment ouvrir et charger un fichier texte.
+* Comment charger des fichiers au format .csv.
 
----
++++
+
+### Modes d'ouverture
+
+* ‘r’ : Lecture seule
+* ‘w’ : Lecture/Ecriture (Ecrase le fichier existant)
+* ‘a’ : Lecture/Ecriture à partir de la fin  
+
++++
+
+### Lecture d'un fichier texte
+
+```python
+f = open('fichier.txt', mode='r')
+```
+
+Méthodes de base:
+
+* f.read(n) : lire *n* caractères
+* f.readline() : lire une ligne
+* f.readlines() : tout lire
+
++++
+
+### Exemple : Lecture d'un fichier texte
+
+```python
+f = open('fichier.txt', mode='r')
+lignes = f.readlines()
+f.close()
+```
+
+ou encore
+
+```python
+with open('fichier.txt', mode='r') as f:
+    lignes = f.readlines()
+```
+
+* Fermeture automatique du fichier avec *with*
+* Remarque: Chaque ligne est terminée par '\n'
+
++++
+
+### Ecriture dans un fichier texte
+
+Méthodes de base:
+
+* n = f.write(chaine) : Ecrit la *chaine* dans *f* et retourne le nombre de caractères effectivement écrits.
+* print(*val1*, *val2*, file=f)
+
++++
+
+### Exemple : Ecriture d'un fichier texte
+
+```python
+f = open('fichier.txt', mode='w')
+n = f.write("une première ligne\n")
+print("La seconde ligne", file=f)
+f.close()
+```
+
+* Remarque: On peut également utiliser un *with*
+
++++
+
+### Lecture d'un fichier .csv
+
+CSV ("Comma-separated values") = des valeurs séparées par des virgules.
+
+Exemple: [place de parking disponibles](https://opendata.larochelle.fr/dataset/stationnement-places-disponibles-en-temps-reel/)
+
+```
+dp_id,dp_parc_id,dp_libelle,dp_place_disponible,dp_date,dp_nb_places,dp_x,dp_y
+8977068,5,VIEUX PORT OUEST,289,11-11-2018 18:39:18,420,"379378,696053463","6570179,2092431"
+8977069,4,ENCAN,366,11-11-2018 18:39:22,406,"379864,062986826","6569682,94080835"
+8977070,17,VIEUX PORT SUD,459,11-11-2018 18:39:23,500,"379925,99731268","6570032,62381534"
+8977071,16,VERDUN,424,11-11-2018 18:39:24,452,"379670,377120847","6570946,77561493"
+8977072,20,MAUBEC,65,11-11-2018 18:39:18,109,"380380,783303404","6570379,61800321"
+8977073,21,PORT NEUF,155,11-11-2018 18:39:16,172,"377155,700640437","6570849,71710348"
+```
+
++++
+
+### Exemple de lecture d'un fichier .csv
+
+```python
+import csv
+
+with open('fichier.csv', newline='') as f:
+  lecteur = csv.reader(f, delimiter=',', quotechar='"')
+  for ligne in lecteur:
+    print(ligne)
+```
+
++++
+
+### Exemple d'écriture d'un fichier .csv
+
+```python
+import csv
+
+with open('sortie.csv', 'w', newline='') as f:
+    writer = csv.writer(f)
+    writer.writerows(lignes)
+```
+
++++
 
 ## TEA
 
@@ -2102,9 +2225,10 @@ time: fonctions permettant de travailler avec le temps
 * Des activités, des questions amènent à écrire du code.
 * Le résultat du code est entré dans un test avec retour immédiat lorsque que cela est possible (réponse numérique, une chaine de caractère, sortie de print)
 * Nombre de réponses illimité
-* Assistance auprès de votre enseignant de TP via moodle.
+* Assistance auprès de votre enseignant de TP en présentiel ou via moodle.
 * Un code solution est donné à la fin du TEA.
 * Un super entrainement au CC2...
+* Participation à la note de CC2.
 
 @ulend
 
