@@ -1963,13 +1963,119 @@ def monpow(a, b):
 * Comment organiser son code pour le réutiliser ?
 * Comment utiliser du code Python fait par d'autres ?
 
-+++ 
++++
+
+### Exemple: contenu du fichier "racine.py"
+
+```python
+def racine_dicho(x):
+  min, max, eps = 0, x, 1e-10
+  while True:
+    r = (min + max) / 2
+    if abs(r*r - x) < eps:
+        break
+    elif r*r < a:
+        min = r
+    else:
+        max = r
+  return r
+```
+
++++
+
+### Exemple: contenu du fichier  "comp_rac.py"
+
+```python
+import math
+import racine
+
+x = float(input('x ?'))
+if abs(math.sqrt(x) - racine.racine_dicho(x)) < 1e-16:
+  print("Les valeurs sont les mêmes")
+else:
+  print("Roger, on a un problème !!!")
+```
+
++++
+
+### Directive import et ses conventions 1/2
+
+* Le module xxx est un fichier nommé xxx.py
+* Le module xxx à importer est dans le même répertoire que le module yyy qui importe
+* Dans yyy.py, on importe xxx par la directive import:
+* On peut utiliser la variable vvv ou la fonction fff avec la syntaxe:
+  
+```python
+import xxx
+
+v = xxx.vvv
+a = xxx.fff(4) # directement
+```
+
++++
+
+### Directive import et ses conventions 2/2
+
+* On doit préciser le nom du module chaque fois à moins de faire un raccourci:
+
+```python
+import xxx
+
+f = xxx.fff # indirectement: raccourci local
+a = f(4)
+```
+
+* Le module créé par l'utilisateur est prioritaire.<br>
+  Exemple: votre module math dans votre fichier math.py masquera le module math de Python
+* Seul, le symbole xxx est importé, fff inconnu
+
++++
+
+### Directive from ... import ... as ...
+
+* On peut décider de n'importer que certains symboles (variables, fonctions, ...)
+  
+```python
+from racine import racine_dicho
+
+a = racine_dicho(4)
+```
+
+* Egalement les renommer localement
+
+```python
+from racine import racine_dicho as mon_sqrt
+from math import sqrt as py_sqrt, exp as py_exp
+
+a = mon_sqrt(4)
+```
+
++++
+
+### Directive from ... import *
+
+* On peut décider de tout importer:
+  
+```python
+from racine import *
+
+a = racine_dicho(4)
+```
+
+* Pratique déconseillée car on ne maîtrise pas totalement ce qui est importé.<br>
+  On devrait plutôt faire:
+
+```python
+from turtle import forward, left, right, done
+```
+
++++
 
 ### Quelques modules fournis avec Python
 
 * random: fonctions permettant de travailler avec des valeurs aléatoires
 * math: toutes les fonctions utiles pour les opérations mathématiques (cosinus,sinus,exp,etc.)
-* turtle: desssin à la tortue
+* turtle: dessin à la tortue
 * sys: fonctions systèmes
 * os: fonctions permettant d'interagir avec le système d'exploitation
 time: fonctions permettant de travailler avec le temps
@@ -1980,10 +2086,6 @@ time: fonctions permettant de travailler avec le temps
 
 [Liste complète](https://docs.python.org/3.6/library/index.html)
 
-+++
-
-### directive import
-
 ---
 
 ## Fichiers
@@ -1991,6 +2093,20 @@ time: fonctions permettant de travailler avec le temps
 * Comment ouvrir et charger un fichier dans une structure de données
 
 ---
+
+## TEA
+
+@ul
+
+* Un fichier .csv à charger
+* Des activités, des questions amènent à écrire du code.
+* Le résultat du code est entré dans un test avec retour immédiat lorsque que cela est possible (réponse numérique, une chaine de caractère, sortie de print)
+* Nombre de réponses illimité
+* Assistance auprès de votre enseignant de TP via moodle.
+* Un code solution est donné à la fin du TEA.
+* Un super entrainement au CC2...
+
+@ulend
 
 ## Pour aller plus loin
 
