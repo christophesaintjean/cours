@@ -1747,8 +1747,8 @@ Et dans un bloc:
 ```python
 In [1]: for i in range(10):
           a=3
-In [2]: print(a)
-3
+In [2]: print(a, i)
+3 9
 ```
 
 On parle du niveau global ou principal.
@@ -2104,15 +2104,20 @@ Egalement, il existe des modules pour:
 
 ## Fichiers
 
-* Comment ouvrir et charger un fichier texte.
+* Comment charger un fichier texte.
+* Comment écrire des données dans un fichier texte
 * Comment charger des fichiers au format .csv.
 
 +++
 
 ### Modes d'ouverture
 
+```python
+f = open('fichier.txt', mode='r')
+```
+
 * ‘r’ : Lecture seule
-* ‘w’ : Lecture/Ecriture (Ecrase le fichier existant)
+* ‘w’ : Lecture/Ecriture (écrase le fichier existant)
 * ‘a’ : Lecture/Ecriture à partir de la fin  
 
 +++
@@ -2156,9 +2161,9 @@ with open('fichier.txt', mode='r') as f:
 Méthodes de base:
 
 ```python
-# Ecrit la *chaine* dans *f* et retourne le nombre de caractères écrits
+# Ecrit une chaine dans f et retourne le nombre de caractères écrits
 n = f.write(chaine)
-# Autre possiblité
+# Autre possibilité
 print(3, 'Chaine', file=f)
 ```
 
@@ -2235,6 +2240,8 @@ with open('sortie.csv', 'w', newline='') as f:
 * Un code solution est donné à la fin du TEA.
 * Un super entrainement au CC2...
 * Participation à la note de CC2.
+
+---
 
 ## Pour aller plus loin
 
