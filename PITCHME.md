@@ -2079,10 +2079,9 @@ from turtle import forward, left, right, done
 * random: fonctions pour produire des nombres aléatoires
 * math: opérations mathématiques basiques (cosinus,sinus,exp,etc.)
 * turtle: dessin à la tortue
-* sys: fonctions systèmes
-* os: fonctions permettant d'interagir avec le système d'exploitation
-* time: fonctions permettant de travailler avec le temps
-* tkinter: interface graphique
+* os: Interagir avec le système d'exploitation
+* time: La date, heure, ...
+* tkinter: Créer une interface graphique
 
 [Liste complète](https://docs.python.org/3.6/library/index.html)
 
@@ -2156,8 +2155,12 @@ with open('fichier.txt', mode='r') as f:
 
 Méthodes de base:
 
-* n = f.write(chaine) : Ecrit la *chaine* dans *f* et retourne le nombre de caractères effectivement écrits.
-* print(*val1*, *val2*, file=f)
+```python
+# Ecrit la *chaine* dans *f* et retourne le nombre de caractères écrits
+n = f.write(chaine)
+# Autre possiblité
+print(3, 'Chaine', file=f)
+```
 
 +++
 
