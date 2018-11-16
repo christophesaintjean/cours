@@ -2218,15 +2218,20 @@ with open('sortie.csv', 'w', newline='') as f:
     writer.writerows(lignes)
 ```
 
-+++
+---
 
-## TEA
+## TEA 1/2
 
 * Un fichier .csv à charger
 * Des activités, des questions amènent à écrire du code.
 * Le résultat du code est entré dans un test avec retour immédiat lorsque que cela est possible (réponse numérique, une chaine de caractère, sortie de print)
 * Nombre de réponses illimité
 * Assistance auprès de votre enseignant de TP en présentiel ou via moodle.
+
++++
+
+### TEA 2/2
+
 * Un code solution est donné à la fin du TEA.
 * Un super entrainement au CC2...
 * Participation à la note de CC2.
