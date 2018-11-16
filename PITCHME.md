@@ -2222,8 +2222,6 @@ with open('sortie.csv', 'w', newline='') as f:
 
 ## TEA
 
-@ul
-
 * Un fichier .csv à charger
 * Des activités, des questions amènent à écrire du code.
 * Le résultat du code est entré dans un test avec retour immédiat lorsque que cela est possible (réponse numérique, une chaine de caractère, sortie de print)
@@ -2232,8 +2230,6 @@ with open('sortie.csv', 'w', newline='') as f:
 * Un code solution est donné à la fin du TEA.
 * Un super entrainement au CC2...
 * Participation à la note de CC2.
-
-@ulend
 
 ## Pour aller plus loin
 
