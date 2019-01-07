@@ -1,0 +1,17 @@
+
+\documentclass{article}
+\usepackage[frenchb]{babel}
+\usepackage[utf8]{inputenc}
+%\usepackage[french,titlenotnumbered,shortend,algonl,resetcount,boxedruled,vlined]{algorithm2e}
+\usepackage[french, linesnumbered, vlined,algoruled]{algorithm2e}
+\begin{document}
+\begin{algorithm}[H]
+\caption{Calcul de l'élément maximal}%
+\Donnees{T un tableau de n entiers}
+\Res{$i_{\max}$ et $\max$ tel que $T[i_{\max}]=\max$ avec max comme la plus grande valeur de T}
+$i_{\max} \leftarrow 1$\;
+$\max \leftarrow T[1]$\;
+\Pour{i $\leftarrow$ 2 à n}
+{\Si{$T[i]>\max$}{$\max \leftarrow T[i]$\;$i_{\max} \leftarrow i$\;}}
+\end{algorithm}%
+\end{document}

@@ -115,7 +115,7 @@ On doit décrire chaque fonction (sous-algorithmes) et structures de données em
 
 **_Méthode de calcul_**
 
-Il ne peut résoudre que des problèmes calculables. 
+Il ne peut résoudre que des problèmes calculables.
 On démontre que certains problèmes ne sont pas calculables (décidables).
 
 Ex.: Problème de l'arrêt
@@ -151,6 +151,10 @@ L'algorithme apporte t'il une solution au problème posé ?
 
 d'après "Al Khwarizmi", surnom du mathématicien arabe [Muhammad Ibn Musa](https://fr.wikipedia.org/wiki/Al-Khw%C3%A2rizm%C3%AE) (IX siècle).
 
++++
+
+### Algorithmique (Histoire)
+
 L'algorithmique et les algorithmes sont bien antérieurs à l'informatique:
 
 * Abaques grecques, romaines, [PGCD d'Euclide](https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide) (IIIème siècle av. J.-C.)
@@ -161,22 +165,18 @@ L'algorithmique et les algorithmes sont bien antérieurs à l'informatique:
 
 ### Questions de l’algorithmique
 
-* L’algorithme A est t'il correct ?
-* Se termine t’il ?
-* Est t’il plus efficace qu’un algorithme B ?
+1. L’algorithme A est t'il correct ?
+2. L’algorithme A se termine t’il ?
+3. L’algorithme A est t’il plus efficace qu’un algorithme B ?
 
 Parallèlement, des questions plus fondamentales:
 
-* Un problème P est il décidable ?
-* Si, oui existe t’il un algorithme efficace pour résoudre P ?
+* Est il possible de trouver un algorithme qui resoud un problème P ? (Décidabilité)
+* Si, oui existe t’il un algorithme efficace pour le résoudre ? (Classes de complexité)
 
 +++
 
-### Exemple d'algorithme (cf. semestre 1) 1/2
-
-Certains problèmes d’algorithmique sont des problèmes d’analyse numérique.
-
-Exemple : Calcul de π à partir des k premiers termes d’une série.
+### Exemple d'algorithme (cf. S1)
 
 ```
 Algorithme : Approx. π
@@ -188,9 +188,104 @@ Pour k<-0 à n-1 Faire:
 Retourner S;
 ```
 
-* Correction : Convergence de la série (math)
-* Terminaison : Oui.
+* Correction: Convergence de la série (math)
+* Terminaison: Oui.
 * Efficacité: La vitesse de convergence (math).
+
+---
+
+@transition[fade]
+
+## Description d'un algorithme
+
+On utilisera un langage de description d'un algorithme appelé **pseudo-code**.
+
++++
+
+### Caractérisques du pseudo-code
+
+* Il ne doit pas être attaché la syntaxe d'un langage informatique particulier.
+* Il doit être lisible par un non-programmeur.
+* Être capable de décrire les structures de contrôle des langages impératifs (If, While, For, ...).
+
++++
+
+### Décrire l'interface de l'algorithme
+
+* Quelques sont les entrées attendues par l'algorithme ?
+  * Type : Nombre, Tableau, Liste, Arbre, etc ...
+  * Taille : nombre de bits, nombre d'éléments du tableau, nombre de feuilles, ...
+  * Propriétés : entiers positifs, tableau trié, ...
+* Que fait/produit l'algorithme ?
+  * _Idem_ que sur les entrées
+  * Description textuelle (éventuelle) de l'algorithme
+
++++
+
+### Les types utilisables
+
+Types de données élémentaires :
+
+* Variables simples : booléen, entier, réel, caractère
+* Tableaux
+* *Pointeurs*
+
+Cela permet de d ́efinir des structures de plus haut niveau:
+
+* Chaîne de caractères
+* Ensemble, Collection
+* Liste, *table de hachage*
+* *Graphes, ...*
+
++++
+
+### Quelques instructions du pseudo-code 1/2
+
+* Affectation : <-
+* Test : =
+* Opérations arithm ́etiques : +,-,*,/
+* Séparateur d’instructions : ” ;”
+* Elements d’un tableau T : ”T[i]” (convention 1..n !!)
+* Adresse d’une variable ”@”
+* Instruction de retour : Retourner <val. sortie>
+
++++
+
+### Quelques instructions du pseudo-code 2/2
+
+* Le branchement conditionnel :
+  
+  ```
+  Si <condition> alors  
+    <blocsi>  
+  sinon  
+    <blocsinon>
+  finSi
+  ```
+
+* Les itératives et les répétitives :  
+  
+  ```
+  Pour i <- 1 à n [par pas de 1] faire  
+     <bloc>  
+  finPour
+  
+  Tant que <condition> faire
+     <bloc>  
+  finTq
+ ```
+
++++
+
+### Exemple 1
+
+![Maximum](images/max.png)
+
++++
+
+### Exemple 2
+
+![Maximum Trié](images/max_trie.png)
 
 ---
 
