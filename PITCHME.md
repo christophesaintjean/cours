@@ -115,7 +115,7 @@ On doit décrire chaque fonction (sous-algorithmes) et structures de données em
 
 ### Algorithme 2/4
 
-```Un algorithme est la description d’une méthode de calcul qui, à partir d’un ensemble de données d’entrée (problème) et une suite finie d'étapes, produit un ensemble de données en sortie (solution).```
+```Un algorithme est la description d’une méthode de calcul ...```
 
 **_Méthode de calcul_**
 
@@ -128,7 +128,7 @@ Ex.: Problème de l'arrêt
 
 ### Algorithme 3/4
 
-```Un algorithme est la description d’une méthode de calcul qui, à partir d’un ensemble de données d’entrée (problème) et une suite finie d'étapes, produit un ensemble de données en sortie (solution).```
+```Un algorithme est .... et une suite finie d'étapes, produit un ensemble de données en sortie (solution).```
 
 **_Une suite finie d'étapes_**
 
@@ -141,7 +141,7 @@ Attention, ne pas confondre:
 
 ### Algorithme 4/4
 
-```Un algorithme est la description d’une méthode de calcul qui, à partir d’un ensemble de données d’entrée (problème) et une suite finie d'étapes, produit un ensemble de données en sortie (solution).```
+```Un algorithme est ... , produit un ensemble de données en sortie (solution).```
 
 **_Solution_**
 
@@ -234,7 +234,7 @@ Types de données élémentaires :
 * Tableaux
 * *Pointeurs*
 
-Cela permet de d ́efinir des structures de plus haut niveau:
+Cela permet de définir des structures de plus haut niveau:
 
 * Chaîne de caractères
 * Ensemble, Collection
@@ -243,7 +243,7 @@ Cela permet de d ́efinir des structures de plus haut niveau:
 
 +++
 
-### Quelques instructions du pseudo-code 1/2
+### Quelques instructions du pseudo-code 1/3
 
 * Affectation : <-
 * Test : =
@@ -255,7 +255,7 @@ Cela permet de d ́efinir des structures de plus haut niveau:
 
 +++
 
-### Quelques instructions du pseudo-code 2/2
+### Quelques instructions du pseudo-code 2/3
 
 * Le branchement conditionnel :
   
@@ -266,6 +266,10 @@ Cela permet de d ́efinir des structures de plus haut niveau:
     <blocsinon>
   finSi
   ```
+
++++
+
+### Quelques instructions du pseudo-code 3/3
 
 * Les itératives et les répétitives :  
   
@@ -309,7 +313,8 @@ Il est question de prouver que l'algorithme fait ce qu'il dit faire !
 On utilise souvent un invariant de boucle et la preuve par récurrence.
 
 ```
-Un invariant de boucle est une propriété qui est vraie avant et après chaque répétition
+Un invariant de boucle est une propriété
+qui est vraie avant et après chaque répétition
 ```
 
 Rappel récurrence: Initialisation et Hérédité.
@@ -321,12 +326,16 @@ Rappel récurrence: Initialisation et Hérédité.
 L'algorithme est il rapide ?
 
 Pour un tableau T de taille *n*, la rapidité *devrait* dépendre de:
+
 @ul
+
 * *n* la taille *T*.
 * d'une propriété, du contenu de *T*.
 * du langage de programmation ?
 
 @ulend
+
++++
 
 ### Analyse : Complexité algorithmique 2/2
 
