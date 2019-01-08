@@ -269,7 +269,7 @@ Cela permet de d ́efinir des structures de plus haut niveau:
 
 * Les itératives et les répétitives :  
   
-  ```
+```
   Pour i <- 1 à n [par pas de 1] faire  
      <bloc>  
   finPour
@@ -277,7 +277,7 @@ Cela permet de d ́efinir des structures de plus haut niveau:
   Tant que <condition> faire
      <bloc>  
   finTq
- ```
+```
 
 +++
 
@@ -287,6 +287,55 @@ Cela permet de d ́efinir des structures de plus haut niveau:
 
 +++
 
+### Analyse: Preuve de terminaison
+
+@ul
+
+* Vérifier que chaque instruction simple se termine:
+    * calcul simple, affectation OK
+    * affichage OK
+    * Appel de fonction -> à vérifier
+* Pour les boucles for,  s'assurer que la séquence parcourue est taille finie.
+* Pour la répétitive While, s'assurer que dans tous les cas que la condition de continuation sera fausse au moins une fois. 
+
+@ulend
+
++++
+
+### Analyse : Preuve de correction
+
+Il est question de prouver que l'algorithme fait ce qu'il dit faire !
+
+On utilise souvent un invariant de boucle et la preuve par récurrence.
+
+```
+Un invariant de boucle est une propriété qui est vraie avant et après chaque répétition
+```
+
+Rappel récurrence: Initialisation et Hérédité.
+
++++
+
+### Analyse : Complexité algorithmique 1/2
+
+L'algorithme est il rapide ?
+
+Pour un tableau T de taille *n*, la rapidité *devrait* dépendre de:
+@ul
+* *n* la taille *T*.
+* d'une propriété, du contenu de *T*.
+* du langage de programmation ?
+
+@ulend
+
+### Analyse : Complexité algorithmique 2/2
+
+Les outils du jour:
+
+* Mesurer le temps d'exécution du programme implémentant l'algorithme (module time)
+* Tracer une courbe (module matplotlib)
+* Le module tqdm
+
 ### Exemple 2
 
 ![Maximum Trié](images/max_trie.png)
@@ -295,4 +344,323 @@ Cela permet de d ́efinir des structures de plus haut niveau:
 
 @transition[fade]
 
-## Listes, Tableaux
+## Tableaux et Listes
+
++++
+
+### Liste
+
+Une **liste** est une structure de données qui contient une séquence de valeurs.
+
+Syntaxe:
+
+```python
+[<valeur_1>, <valeur_2>, ..., <valeur_n>]
+```
+
+* Les valeurs ne sont pas nécessairement de même type.
+* Une liste est une séquence
+
++++
+
+#### Exemples de listes
+
+```python
+In [1]: couleurs = ['rouge', 'vert', 'bleu']
+
+In [2]: Sam = [28 , 'Toronto', False, None]
+
+In [3]: Jeff = [70, 'Cambridge', True, 25]
+
+In [4]: People = [Sam, Jeff]
+
+In [5]: print(People)
+[[28, 'Toronto', False, None], [70, 'Cambridge', True, 25]]
+```
+
++++
+
+#### Utilisation d'une liste
+
+On peut rappeler un élément particulier d'une liste par son **indice**.</br>
+Pour une liste de longueur *n*, l'indice est un entier entre **0** et **n-1**.
+
+```python
+In [1]: couleurs = ['rouge', 'vert', 'bleu']
+
+In [2]: len(couleurs)   # longueur de la liste
+Out[2]: 3
+
+In [3]: couleurs[0]
+Out[3]: 'rouge'
+
+In [4]: couleurs[5]
+...
+IndexError: list index out of range
+```
+
++++
+
+#### Liste: Indiçage négatif
+
+Pour faciliter l'accès des derniers éléments d'une liste, *Python* a introduit l'indiçage négatif.
+
+|liste| 'h' | 'e' | 'l' | 'l' | 'o' |
+|-|-----|-----|-----|-----|-----|
+|indice positif| 0   | 1   | 2   | 3   | 4   |
+|indice négatif| -5  | -4  | -3  | -2  | -1  |
+
+Le dernier élément de la liste  toujours l'indice -1.
+
++++
+
+#### Extraction d'une sous-liste 1/3
+
+Syntaxe ($\sim$ *range*):
+
+```python
+       L[<start>:<stop>:<step>]
+```
+
+Quelques cas fréquents (L est une liste):
+
+* Eléments entre l'indice 2 (inclus) et l'indice 5 (exclus):</br>
+  L[2:5]
+* Eléments à partir de  l'indice 4:</br>
+  L[4:]
+* Les 10 premiers éléments:</br>
+  L[:10]
+
++++
+
+#### Extraction d'une sous-liste 2/3
+
+* Duplication de la liste:</br>
+  L[:]
+* Un élément sur 2:</br>
+  L[::2]
+
++++
+
+#### Extraction d'une sous-liste 3/3
+
+Quelques cas fréquents avec indice négatif:
+
+* Les 5 derniers éléments:</br>
+  L[-5:]
+* Tout sauf les derniers 3 éléments:</br>
+  L[:-3]
+* Duplication de *a* dans l'ordre inverse:</br>
+  L[::-1]
+
++++
+
+#### Affecter une valeur à une liste existante
+
+```python
+In [1]: couleurs = ['rouge', 'vert', 'bleu']
+
+In [2]: couleurs[0] = 'jaune'
+
+In [3]: couleurs
+Out[3]: ['jaune', 'vert', 'bleu']
+
+In [4]: couleurs[:2]= [34, 48]
+
+In [5]: couleurs
+Out[5]: [34, 48, 'bleu']
+```
+
++++
+
+#### Insérer un élément en fin de liste : *append*
+
+```python
+In [1]: couleurs = ['rouge', 'vert', 'bleu']
+
+In [2]: couleurs.append('cyan')
+
+In [3]: couleurs
+Out[3]: ['rouge', 'vert', 'bleu', 'cyan']
+
+In [4]: L = []   ## liste vide !!!
+
+In [5]: L.append(4)
+
+In [6]: L
+Out[6]: [4]
+```
+
++++
+
+#### Insérer un élément : *insert*
+
+Syntaxe ($\sim$ *range*):
+
+```python
+    L.insert(<indice>, <element>)
+```
+
+Insère avec décalage vers la fin:
+
+```python
+In [1]: couleurs = ['rouge', 'vert', 'bleu']
+
+In [2]: couleurs.insert(2, 'cyan')
+
+In [3]: couleurs
+Out[3]: ['rouge', 'vert', 'cyan', 'bleu']
+```
+
++++
+
+#### Concaténer deux listes 1/2
+
+Rappel: Concaténer c'est mettre bout à bout deux structures de données.
+
+Deux syntaxes:
+
+```python
+    L = L1 + L2 ou L1+=L2
+    L1.extend(L2)
+```
+
+```python
+In [1]: ['rouge', 'vert', 'bleu'] + ['r', 'v', 'b']
+Out[1]: ['rouge', 'vert', 'bleu', 'r', 'v', 'b']
+```
+
++++
+
+#### Concaténer deux listes 2/2
+
+```python
+In [2]: couleurs = ['rouge', 'vert', 'bleu']
+
+In [3]: couleurs.extend(['r', 'v', 'b'])
+
+In [4]: print(couleurs)
+['rouge', 'vert', 'bleu', 'r', 'v', 'b']
+```
+
++++
+
+#### Suppression d'éléments: *del* ou *remove*
+
+```python
+    del L[3] ou del L[3:]    ## par indice
+    L.remove(5)              ## la première occurrence
+```
+
+```python
+In [1]: couleurs = ['rouge', 'vert', 'bleu']
+
+In [2]: del couleurs[1]
+
+In [3]: couleurs
+Out[3]: ['rouge', 'bleu']
+
+In [4]: couleurs = ['rouge', 'vert', 'bleu', 'vert', 'orange']
+
+In [5]: couleurs.remove('vert')
+
+In [6]: couleurs
+Out[6]: ['rouge', 'bleu', 'vert', 'orange']
+```
+
++++
+
+#### Parcours d'une liste par indice
+
+On peut utiliser les indices.
+
+```python
+In [1]: couleurs = ['rouge', 'vert', 'bleu']
+
+In [2]: for i in range(len(couleurs)):
+          print(couleurs[i].upper(), end=', ')
+###
+ROUGE, VERT, BLEU,
+```
+
+On peut très bien faire aussi avec un *while*
+
++++
+
+#### Parcours d'une liste par itérateur
+
+Rappel: *for* permet d'itérer toute séquence.
+
+```python
+In [1]: couleurs = ['rouge', 'vert', 'bleu']
+
+In [2]: for couleur in couleurs:
+          print(couleur.upper(), end=', ')
+###
+ROUGE, VERT, BLEU,
+```
+
+Très simple, mais on a perdu la position dans la liste !
+
++++
+
+#### Parcours d'une liste par *enumerate*
+
+```python
+In [1]: couleurs = ['rouge', 'vert', 'bleu']
+
+In [2]: for i, couleur in enumerate(couleurs):
+          print('indice:', i, 'valeur:', couleur.upper())
+###
+indice: 0 valeur: ROUGE
+indice: 1 valeur: VERT
+indice: 2 valeur: BLEU
+```
+
+C'est le meilleur choix si l'on a besoin de l'indice en plus de la valeur.
+
++++
+
+#### Exemple sur les listes 1/2
+
+A partir d'une liste de noms, sélectionner ceux qui commencent ou terminent par une voyelle.
+
+```python
+In [1]: voyelles = ['a', 'e', 'i', 'o', 'u', 'y']
+
+In [2]: noms = ['mila', 'mathis', 'anne', 'myriam', 'eloan', 'pierre', 'jules']
+
+In [3]: select = []
+
+In [4]: for nom in noms:
+          for voyelle in voyelles:
+            if nom[0] == voyelle or nom[-1]==voyelle:
+              select.append(nom)
+              break
+
+In [5]: select
+Out[5]: ['mila', 'anne', 'eloan', 'pierre']
+
+```
+
++++
+
+#### Exemple sur les listes 2/2
+
+Une version plus compacte:
+
+```python
+In [1]: voyelles = 'aeiouy'
+
+In [2]: noms = ['mila', 'mathis', 'anne', 'myriam', 'eloan', 'pierre', 'jules']
+
+In [3]: select = []
+
+In [4]: for nom in noms:
+          if nom[0] in voyelles or nom[-1] in voyelles:
+              select.append(nom)
+
+In [5]: select
+Out[5]: ['mila', 'anne', 'eloan', 'pierre']
+
+```
