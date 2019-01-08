@@ -345,6 +345,8 @@ Les outils du jour:
 * Tracer une courbe (module matplotlib)
 * Le module tqdm
 
++++
+
 ### Exemple 2
 
 ![Maximum Trié](images/max_trie.png)
