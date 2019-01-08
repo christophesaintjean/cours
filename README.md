@@ -1,4 +1,4 @@
-# Cours "Introduction à la programmation"
+# Cours "ALgorithme des tableaux"
 
-Première année - Semestre 1
+Première année - Semestre 2
 Université de La Rochelle
