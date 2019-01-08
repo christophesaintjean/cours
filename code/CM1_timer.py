@@ -1,7 +1,7 @@
-from time import time
+from time import time, sleep
 
 debut = time()
-a = 3
+sleep(2)
 fin = time()
 duree = fin - debut
 print("Duree: ", duree)
