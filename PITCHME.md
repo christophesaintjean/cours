@@ -600,5 +600,62 @@ soit **ordonnée**.
 
 ### Clé de tri
 
-Il 
+On parle de **clé de tri** pour désigner l'élément sur lequel l'ordre est mis en place.
 
+* Type de clé usuelles: nombre, chaine, liste
+* Clé définie par l'utilisateur
+* Clé simple dans une structure plus complexe (tuple)
+
++++
+
+### Classification des algorithmes de tri 1/3
+
+Définition: Tri en place ou non
+
+Un algorithme de tri est dit **en place** lorsque jamais plus d'un *nombre constant* d'éléments est stocké hors du tableau.
+
++++
+
+### Classification des algorithmes de tri 2/3
+
+Définition: Tri stable
+
+Un algorithme de tri est dit **stable** lorsque l'ordre des éléments ayant une *clé identique* est maintenu.
+
+On peut rendre stable un algorithme de tri en introduisant une clé secondaire.
+
++++
+
+### Classification des algorithmes de tri 3/3
+
+* Un algorithme de tri peut utiliser des comparaisons "<"
+* ou non...
+
++++
+
+### Tri par sélection
+
+![Tri par sélection](images/triselect.png)
+
++++
+
+### Caractéristiques: Tri par sélection
+
+Implementé tel quel, c'est un tri:
+
+@ul
+
+* en place
+* stable
+* par comparaison
+
+@ulend
+
++++
+
+### Analyse Tri par sélection
+
+* Terminaison
+* Correction
+* Nombre de d'éléments parcourus ?
+* Nombre d'échanges ?

@@ -1,0 +1,25 @@
+\documentclass{standalone}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french, linesnumbered, lined, algoruled, titlenotnumbered,shortend]{algorithm2e}
+\begin{document}
+\begin{algorithm}[H]
+\SetAlgoRefName{3}
+\caption{Tri par sélection}%
+\Donnees{T un tableau de n objets}
+\Res{T est trié}
+$n \leftarrow$  longueur(T)\;
+
+\Pour{i $\leftarrow$ 1 à n-1}
+{
+$imin\leftarrow i$\;
+\Pour{j $\leftarrow$ i+1 à n}
+{
+\lSi{$T[j]<T[imin]$}{$imin\leftarrow j$\;}
+}
+\lSi{$imin \neq i$}{Echanger T[i] et T[imin]\;}
+}
+\Return T\;
+\end{algorithm}%
+\end{document}
