@@ -385,7 +385,7 @@ Syntaxe:
 
 #### Tableau en mémoire
 
-* Usuellement un ensemble de cases **contigus** en mémoire
+* Usuellement un ensemble de cases **contigues** en mémoire
 * On fait de l'arithmétique avec la taille d'un objet pour trouver la position d'un élément
 * Avantage: Accès direct (rapide) à un élément
 * Inconvénient: Pas idéal pour des mises à jour (ajout, insertion, suppression)
@@ -457,10 +457,10 @@ Out[5]: 28
 
 ### Ajout en tête
 
-Quel est le meilleur ?
+Quel est la meilleure solution pour le "prepend" (ajout en tête)?
 
-* Insertion en position 0.
-* Append de chaque élement puis reverse.
+* Insertion systématique en position 0.
+* Append pour chaque élement puis reverse à la fin.
 
 +++
 
@@ -485,9 +485,13 @@ Classification (parcours, reallocation, cout)
   *Facteur de croissance de la taille de la liste* = [1,125](https://hg.python.org/cpython/file/tip/Objects/listobject.c)
 * Les listes doublement chainées existent (-> collections.dequeue)
 
+---
+
+## Compléments sur les listes
+
 +++
 
-#### Complément: Listes en compréhension 1/2
+### Complément: Listes en compréhension 1/2
 
 ```python
 L = [expression for x in iterable if condition]
@@ -501,7 +505,7 @@ où *iterable* est une séquence (liste, range, chaine, ...)
 
 +++
 
-#### Complément: Listes en compréhension 2/2
+### Complément: Listes en compréhension 2/2
 
 Quelques usages:
 
@@ -512,7 +516,7 @@ Quelques usages:
 
 +++
 
-#### Complément: Parcours simultané de plusieurs listes 1/4
+### Complément: Parcours simultané de plusieurs listes 1/4
 
 ```python
 zip(*iterables)
@@ -529,7 +533,7 @@ Out[1]: zip
 
 +++
 
-#### Complément: Parcours simultané de plusieurs listes 2/4
+### Complément: Parcours simultané de plusieurs listes 2/4
 
 ```python
 In [1]: L1 = [2, 3, 5]
@@ -546,7 +550,7 @@ In [3]: for x in zip(L1, L2):
 
 +++
 
-#### Complément: Parcours simultané de plusieurs listes 3/4
+### Complément: Parcours simultané de plusieurs listes 3/4
 
 L'usage classique est:
 
@@ -561,7 +565,7 @@ In [4]: for x1, x2 in zip(L1, L2):
 
 +++
 
-#### Complément: Parcours simultané de plusieurs listes 4/4
+### Complément: Parcours simultané de plusieurs listes 4/4
 
 On s'arrête sur la plus courte séquence:
 
@@ -586,5 +590,5 @@ In [6]: for x1, x2 in zip(L1, L2):
 
 On définit le problème du tri comme:
 
-> Entrée: une séquence de valeurs
+> Entrée: une séquence de valeurs 
 
