@@ -163,7 +163,7 @@ L'algorithmique et les algorithmes sont bien antérieurs à l'informatique:
 
 * Abaques grecques, romaines, [PGCD d'Euclide](https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide) (IIIème siècle av. J.-C.)
 * [Boulier chinois](https://fr.wikipedia.org/wiki/Soroban) (XIIIème siècle)
-* [Pascaline](Pascalinehttps://fr.wikipedia.org/wiki/Pascaline) (1646)
+* [Pascaline](https://fr.wikipedia.org/wiki/Pascaline) (1646)
 
 +++
 
@@ -373,305 +373,218 @@ Syntaxe:
 * Une liste est une séquence
 
 +++
+ 
+#### Organisation de la mémoire
 
-#### Exemples de listes
+* La mémoire peut être vue comme un long ruban avec des zones protégées
+* Chaque case mémoire (un octet) dispose d'une adresse propre.
+* Le stockage d'une valeur peut prendre plusieurs octets.
+* Certaines valeurs peuvent être de type "adresse" (8 octets ?)
+
++++
+
+#### Tableau en mémoire
+
+* Usuellement un ensemble de cases **contigus** en mémoire
+* On fait de l'arithmétique avec la taille d'un objet pour trouver la position d'un élément
+* Avantage: Accès direct (rapide) à un élément
+* Inconvénient: Pas idéal pour des mises à jour (ajout, insertion, suppression)
+
++++
+
+### Liste simplement (ou doublement) chainée
+
+* Chaque élément connait son successeur (et prédecesseur si doublement chainée).
+* Dispersion des éléments en mémoire
+* Une valeur spéciale indique la fin (et le début) de liste.
+* Avantage: idéal pour des mises à jour (ajout, insertion, suppression)
+* Inconvénient: Accès séquentiel à un élément (très lent si longue liste)
+
++++
+
+#### Tableau ou Liste ?
+
+On doit faire un compromis entre efficacité de l'accès et des mises à jour.
+
+* Dépend des langages de programmation (Python vs C)
+* Python est un langage orienté objet
+
+```
+Bytes    type        scaling notes
+28       int         +4 bytes about every 30 powers of 2
+64      list        +8 for each additional
+```
+
++++ 
+
+#### Organisation d'une liste en Python 1/2
+
+Même vide, une liste occupe de l'espace mémoire
 
 ```python
-In [1]: couleurs = ['rouge', 'vert', 'bleu']
-
-In [2]: Sam = [28 , 'Toronto', False, None]
-
-In [3]: Jeff = [70, 'Cambridge', True, 25]
-
-In [4]: People = [Sam, Jeff]
-
-In [5]: print(People)
-[[28, 'Toronto', False, None], [70, 'Cambridge', True, 25]]
+In [1]: import sys
+In [2]: sys.getsizeof([])
+Out[2]: 64
 ```
 
 +++
 
-#### Utilisation d'une liste
-
-On peut rappeler un élément particulier d'une liste par son **indice**.</br>
-Pour une liste de longueur *n*, l'indice est un entier entre **0** et **n-1**.
+#### Organisation d'un liste en Python 2/2
 
 ```python
-In [1]: couleurs = ['rouge', 'vert', 'bleu']
+In [3]: sys.getsizeof([1]), sys.getsizeof([1, 5])
+Out[3]: 72, 80
 
-In [2]: len(couleurs)   # longueur de la liste
-Out[2]: 3
+In [4]: L = [1, 5]
 
-In [3]: couleurs[0]
-Out[3]: 'rouge'
-
-In [4]: couleurs[5]
-...
-IndexError: list index out of range
+In [5]: sys.getsizeof(L[1])
+Out[5]: 28
 ```
 
 +++
 
-#### Liste: Indiçage négatif
+### Append
 
-Pour faciliter l'accès des derniers éléments d'une liste, *Python* a introduit l'indiçage négatif.
-
-|liste| 'h' | 'e' | 'l' | 'l' | 'o' |
-|-|-----|-----|-----|-----|-----|
-|indice positif| 0   | 1   | 2   | 3   | 4   |
-|indice négatif| -5  | -4  | -3  | -2  | -1  |
-
-Le dernier élément de la liste  toujours l'indice -1.
+![Append 10e8 éléments](images/append.png)
 
 +++
 
-#### Extraction d'une sous-liste 1/3
+### Insert
 
-Syntaxe ($\sim$ *range*):
+![Append 10e8 éléments](images/insert.png)
+
++++
+
+### Ajout en tête
+
+Quel est le meilleur ?
+
+* Insertion en position 0.
+* Append de chaque élement puis reverse.
+
++++
+
+### Conclusions 1/2
+
+Classification (parcours, reallocation, cout)
+
+* L[index]
+* append
+* insert(index, objet)
+* remove(valeur)
+* pop(index)
+* pop()
+* index(valeur)
+
++++
+
+### Conclusions 2/2
+
+* Les listes en Python fonctionnent comme des tableaux dynamiques
+  
+  *Facteur de croissance de la taille de la liste* = [1,125](https://hg.python.org/cpython/file/tip/Objects/listobject.c)
+* Les listes doublement chainées existent (-> collections.dequeue)
+
++++
+
+#### Complément: Listes en compréhension 1/2
 
 ```python
-       L[<start>:<stop>:<step>]
+L = [expression for x in iterable if condition]
 ```
 
-Quelques cas fréquents (L est une liste):
+où *iterable* est une séquence (liste, range, chaine, ...)
 
-* Eléments entre l'indice 2 (inclus) et l'indice 5 (exclus):</br>
-  L[2:5]
-* Eléments à partir de  l'indice 4:</br>
-  L[4:]
-* Les 10 premiers éléments:</br>
-  L[:10]
+* La condition est optionnelle.
+* Le résultat est une liste.
+* En général sur une seule ligne.
 
 +++
 
-#### Extraction d'une sous-liste 2/3
+#### Complément: Listes en compréhension 2/2
 
-* Duplication de la liste:</br>
-  L[:]
-* Un élément sur 2:</br>
-  L[::2]
+Quelques usages:
 
-+++
-
-#### Extraction d'une sous-liste 3/3
-
-Quelques cas fréquents avec indice négatif:
-
-* Les 5 derniers éléments:</br>
-  L[-5:]
-* Tout sauf les derniers 3 éléments:</br>
-  L[:-3]
-* Duplication de *a* dans l'ordre inverse:</br>
-  L[::-1]
+* Construire une liste à partir de *range*.
+* Créer une liste à partir d'une autre (filtrage)
+* Se substituer à un *for* simple.
+* Une liste de listes.
 
 +++
 
-#### Affecter une valeur à une liste existante
+#### Complément: Parcours simultané de plusieurs listes 1/4
 
 ```python
-In [1]: couleurs = ['rouge', 'vert', 'bleu']
-
-In [2]: couleurs[0] = 'jaune'
-
-In [3]: couleurs
-Out[3]: ['jaune', 'vert', 'bleu']
-
-In [4]: couleurs[:2]= [34, 48]
-
-In [5]: couleurs
-Out[5]: [34, 48, 'bleu']
+zip(*iterables)
 ```
 
-+++
+où *iterables désigne 0, 1, 2, ... objets iterables (liste, chaine, dict, ...)
 
-#### Insérer un élément en fin de liste : *append*
+* le type retourné est *zip* qui est iterable ;)
 
 ```python
-In [1]: couleurs = ['rouge', 'vert', 'bleu']
-
-In [2]: couleurs.append('cyan')
-
-In [3]: couleurs
-Out[3]: ['rouge', 'vert', 'bleu', 'cyan']
-
-In [4]: L = []   ## liste vide !!!
-
-In [5]: L.append(4)
-
-In [6]: L
-Out[6]: [4]
+In [1]: type(zip())
+Out[1]: zip
 ```
 
 +++
 
-#### Insérer un élément : *insert*
-
-Syntaxe ($\sim$ *range*):
+#### Complément: Parcours simultané de plusieurs listes 2/4
 
 ```python
-    L.insert(<indice>, <element>)
-```
+In [1]: L1 = [2, 3, 5]
 
-Insère avec décalage vers la fin:
+In [2]: L2 = ['m', 'e', 't']
 
-```python
-In [1]: couleurs = ['rouge', 'vert', 'bleu']
+In [3]: for x in zip(L1, L2):
+    ...:     print(x)
 
-In [2]: couleurs.insert(2, 'cyan')
-
-In [3]: couleurs
-Out[3]: ['rouge', 'vert', 'cyan', 'bleu']
+(2, 'm')
+(3, 'e')
+(5, 't')
 ```
 
 +++
 
-#### Concaténer deux listes 1/2
+#### Complément: Parcours simultané de plusieurs listes 3/4
 
-Rappel: Concaténer c'est mettre bout à bout deux structures de données.
-
-Deux syntaxes:
+L'usage classique est:
 
 ```python
-    L = L1 + L2 ou L1+=L2
-    L1.extend(L2)
-```
+In [4]: for x1, x2 in zip(L1, L2):
+    ...:     print(x1, '---', x2)
 
-```python
-In [1]: ['rouge', 'vert', 'bleu'] + ['r', 'v', 'b']
-Out[1]: ['rouge', 'vert', 'bleu', 'r', 'v', 'b']
+2 --- m
+3 --- e
+5 --- t
 ```
 
 +++
 
-#### Concaténer deux listes 2/2
+#### Complément: Parcours simultané de plusieurs listes 4/4
+
+On s'arrête sur la plus courte séquence:
 
 ```python
-In [2]: couleurs = ['rouge', 'vert', 'bleu']
+In [5]: L1 = [2, 3, 5, 6, 1, 4]
 
-In [3]: couleurs.extend(['r', 'v', 'b'])
+In [6]: for x1, x2 in zip(L1, L2):
+    ...:     print(x1, '---', x2)
 
-In [4]: print(couleurs)
-['rouge', 'vert', 'bleu', 'r', 'v', 'b']
+2 --- m
+3 --- e
+5 --- t
 ```
+
+---
+
+## Tris et rangs
 
 +++
 
-#### Suppression d'éléments: *del* ou *remove*
+### Définition
 
-```python
-    del L[3] ou del L[3:]    ## par indice
-    L.remove(5)              ## la première occurrence
-```
+On définit le problème du tri comme:
 
-```python
-In [1]: couleurs = ['rouge', 'vert', 'bleu']
+> Entrée: une séquence de valeurs
 
-In [2]: del couleurs[1]
-
-In [3]: couleurs
-Out[3]: ['rouge', 'bleu']
-
-In [4]: couleurs = ['rouge', 'vert', 'bleu', 'vert', 'orange']
-
-In [5]: couleurs.remove('vert')
-
-In [6]: couleurs
-Out[6]: ['rouge', 'bleu', 'vert', 'orange']
-```
-
-+++
-
-#### Parcours d'une liste par indice
-
-On peut utiliser les indices.
-
-```python
-In [1]: couleurs = ['rouge', 'vert', 'bleu']
-
-In [2]: for i in range(len(couleurs)):
-          print(couleurs[i].upper(), end=', ')
-###
-ROUGE, VERT, BLEU,
-```
-
-On peut très bien faire aussi avec un *while*
-
-+++
-
-#### Parcours d'une liste par itérateur
-
-Rappel: *for* permet d'itérer toute séquence.
-
-```python
-In [1]: couleurs = ['rouge', 'vert', 'bleu']
-
-In [2]: for couleur in couleurs:
-          print(couleur.upper(), end=', ')
-###
-ROUGE, VERT, BLEU,
-```
-
-Très simple, mais on a perdu la position dans la liste !
-
-+++
-
-#### Parcours d'une liste par *enumerate*
-
-```python
-In [1]: couleurs = ['rouge', 'vert', 'bleu']
-
-In [2]: for i, couleur in enumerate(couleurs):
-          print('indice:', i, 'valeur:', couleur.upper())
-###
-indice: 0 valeur: ROUGE
-indice: 1 valeur: VERT
-indice: 2 valeur: BLEU
-```
-
-C'est le meilleur choix si l'on a besoin de l'indice en plus de la valeur.
-
-+++
-
-#### Exemple sur les listes 1/2
-
-A partir d'une liste de noms, sélectionner ceux qui commencent ou terminent par une voyelle.
-
-```python
-In [1]: voyelles = ['a', 'e', 'i', 'o', 'u', 'y']
-
-In [2]: noms = ['mila', 'mathis', 'anne', 'myriam', 'eloan', 'pierre', 'jules']
-
-In [3]: select = []
-
-In [4]: for nom in noms:
-          for voyelle in voyelles:
-            if nom[0] == voyelle or nom[-1]==voyelle:
-              select.append(nom)
-              break
-
-In [5]: select
-Out[5]: ['mila', 'anne', 'eloan', 'pierre']
-
-```
-
-+++
-
-#### Exemple sur les listes 2/2
-
-Une version plus compacte:
-
-```python
-In [1]: voyelles = 'aeiouy'
-
-In [2]: noms = ['mila', 'mathis', 'anne', 'myriam', 'eloan', 'pierre', 'jules']
-
-In [3]: select = []
-
-In [4]: for nom in noms:
-          if nom[0] in voyelles or nom[-1] in voyelles:
-              select.append(nom)
-
-In [5]: select
-Out[5]: ['mila', 'anne', 'eloan', 'pierre']
-
-```
