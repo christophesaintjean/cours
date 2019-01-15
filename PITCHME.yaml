@@ -9,9 +9,9 @@ theme : none
 highlight : monokai-sublime
 
 # background
-background : assets/images/bg.png
-background-size : auto 90%
-background-opacity : 75
+background : assets/images/bg2.png
+background-size : auto 40%
+background-opacity : 20
 
 # Behavior
 transition : fade
