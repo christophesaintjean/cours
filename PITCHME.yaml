@@ -9,7 +9,7 @@ theme : none
 highlight : monokai-sublime
 
 # background
-background : assets/img/bg.png
+background : assets/images/bg.png
 background-size : auto 90%
 background-opacity : 75
 
