@@ -491,7 +491,7 @@ Classification (parcours, reallocation, cout)
 
 +++
 
-### Complément: Listes en compréhension 1/2
+### Listes en compréhension 1/2
 
 ```python
 L = [expression for x in iterable if condition]
@@ -505,7 +505,7 @@ où *iterable* est une séquence (liste, range, chaine, ...)
 
 +++
 
-### Complément: Listes en compréhension 2/2
+### Listes en compréhension 2/2
 
 Quelques usages:
 
@@ -516,7 +516,7 @@ Quelques usages:
 
 +++
 
-### Complément: Parcours simultané de plusieurs listes 1/4
+### Parcours simultané de plusieurs listes 1/4
 
 ```python
 zip(*iterables)
@@ -533,7 +533,7 @@ Out[1]: zip
 
 +++
 
-### Complément: Parcours simultané de plusieurs listes 2/4
+### Parcours simultané de plusieurs listes 2/4
 
 ```python
 In [1]: L1 = [2, 3, 5]
@@ -550,7 +550,7 @@ In [3]: for x in zip(L1, L2):
 
 +++
 
-### Complément: Parcours simultané de plusieurs listes 3/4
+### Parcours simultané de plusieurs listes 3/4
 
 L'usage classique est:
 
@@ -565,7 +565,7 @@ In [4]: for x1, x2 in zip(L1, L2):
 
 +++
 
-### Complément: Parcours simultané de plusieurs listes 4/4
+### Parcours simultané de plusieurs listes 4/4
 
 On s'arrête sur la plus courte séquence:
 
@@ -590,5 +590,10 @@ In [6]: for x1, x2 in zip(L1, L2):
 
 On définit le problème du tri comme:
 
-> Entrée: une séquence de valeurs 
+Entrée: une séquence de valeurs $a_1, a_2, ..., a_n$
+
+Sortie: une **permutation** $\sigma$ (un réarrangement) telle que
+$a_{\sigma(1)}, a_{\sigma(2)}, ..., a_{\sigma(n)}$ soit **ordonnée**.
+
+
 
