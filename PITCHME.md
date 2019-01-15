@@ -596,5 +596,9 @@ Sortie: une **permutation** $\sigma$ (un réarrangement) telle que
 $$a_{\sigma(1)}, a_{\sigma(2)}, ..., a_{ \sigma(n)}$$
 soit **ordonnée**.
 
++++
 
+### Clé de tri
+
+Il 
 
