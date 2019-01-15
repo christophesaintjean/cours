@@ -10,7 +10,7 @@ highlight : monokai-sublime
 
 # background
 background : assets/images/bg2.png
-background-size : auto 40%
+background-size : auto 100%
 background-opacity : 20
 
 # Behavior
