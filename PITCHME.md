@@ -593,7 +593,8 @@ On définit le problème du tri comme:
 Entrée: une séquence de valeurs $a_1, a_2, ..., a_n$
 
 Sortie: une **permutation** $\sigma$ (un réarrangement) telle que
-$a_{\sigma(1)}$, $a_{\sigma(2)}$, ..., $a_{\sigma(n)}$ soit **ordonnée**.
+$$a_{\sigma(1)}, a_{\sigma(2)}, ..., a_{ \sigma(n)}$$
+soit **ordonnée**.
 
 
 
