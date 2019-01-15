@@ -20,7 +20,7 @@ published : true
 
 # Plugins
 charts : false
-mathjax : TeX-MML-AM_CHTML
+mathjax : TeX-MML-AM_HTMLorMML-full
 
 code-line-numbers : false
 print-fragments : false
