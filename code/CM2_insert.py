@@ -3,8 +3,6 @@ import random
 from time import time
 
 
-L = [2, 5, 1, 4]
-
 for _ in tqdm_gui(range(10**8)):
     val = random.randint(0, 100)
     L.append(val)

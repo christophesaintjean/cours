@@ -616,7 +616,7 @@ Un algorithme de tri est dit **en place** lorsque jamais plus d'un *nombre const
 
 +++
 
-### Classification des algorithmes de tri 2/3
+### Classification des algorithmes de tri 2/4
 
 Définition: Tri stable
 
@@ -626,10 +626,16 @@ On peut rendre stable un algorithme de tri en introduisant une clé secondaire.
 
 +++
 
-### Classification des algorithmes de tri 3/3
+### Classification des algorithmes de tri 3/4
 
 * Un algorithme de tri peut utiliser des comparaisons "<"
 * ou non...
+
++++
+
+### Classification des algorithmes de tri 4/4
+
+* Un algorithme de tri est **incrémental** si il est succeptible de traitement les données une par une sans disposer du tableau en entier.
 
 +++
 
@@ -648,14 +654,21 @@ Implementé tel quel, c'est un tri:
 * en place
 * stable
 * par comparaison
+* non incrémental
 
 @ulend
 
 +++
 
-### Analyse Tri par sélection
+### Analyse du Tri par sélection
 
 * Terminaison
 * Correction
 * Nombre de d'éléments parcourus ?
 * Nombre d'échanges ?
+
+### Tri par insertion
+
+![Tri par insertion](images/triinsert.png)
+
++++
