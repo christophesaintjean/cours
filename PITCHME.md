@@ -635,7 +635,7 @@ On peut rendre stable un algorithme de tri en introduisant une clé secondaire.
 
 ### Classification des algorithmes de tri 4/4
 
-* Un algorithme de tri est **incrémental** si il est succeptible de traitement les données une par une sans disposer du tableau en entier.
+* Un algorithme de tri est **incrémental** si il est succeptible de traiter les données une par une sans disposer du tableau en entier.
 
 +++
 
@@ -667,8 +667,141 @@ Implementé tel quel, c'est un tri:
 * Nombre de d'éléments parcourus ?
 * Nombre d'échanges ?
 
++++
+
 ### Tri par insertion
 
 ![Tri par insertion](images/triinsert.png)
 
 +++
+
+### Tri par insertion (démo)
+
+![Démo Tri par insertion](images/triinsertdemo.gif)
+
+[source: Tri par insertion (Wikipédia)](https://fr.wikipedia.org/wiki/Tri_par_insertion)
+
++++
+
+### Caractéristiques: Tri par insertion
+
+Implementé tel quel, c'est un tri:
+
+@ul
+
+* en place
+* stable (car inf. strict)
+* par comparaison
+* incrémental
+
+@ulend
+
+---
+
+## Efficience d'un algorithme
+
++++
+
+### Taille d'un problème
+
+L'efficacité d'un algorithme dépend généralement la taille des données en entrée:
+
+* Taille d'un tableau ou d'une liste
+* Longueur d'une chaîne de caractères
+* Taille d'un fichier
+* Quantité d'informations (nombres de bits) pour coder une information
+
+**Il est donc pertinent d'étudier l'efficience d'un algorithme par rapport à la taille des données en entrée**.
+
++++
+
+### Cas où *n* est "petit"
+
+Pour des problèmes de taille petite:
+
+* L'architecture de la machine est prépondérante
+* Les "caches" (pré-calculs) sont utilisés implicitement pour accélérer les calculs.
+
+Il est difficile de comparer deux algorithmes dans ce cas là.
+
+=> Mesure fine du temps d'éxecution (ex.: module *timeit*).
+
++++
+
+### Cas où *n* est grand 1/4
+
+Pour des problèmes de grande taille:
+
+* Les "caches" sont insuffisants pour accélérer les calculs.
+* On doit l'évolution de *Ops* en fonction de *n*:
+  * Nombre de cases parcourues
+  * Nombre d'échanges pour un tri en place
+  * Nombre de comparaison
+
++++
+
+### Cas où *n* est grand 2/4
+
+Comme nos algorithmes ont
+
+* des branchements conditionnels
+* des boucles "Tant que"
+  
+**le nombre d'opérations élémentaires Ops(n) varie même pour n fixé**.
+
++++
+
+### Cas où *n* est grand 3/4
+
+On parlera donc de:
+
+* Borne sup : "pire des cas", ie trouver une configuration de la donnée qui maximise *Ops(n)*.
+* Borne inf : "meilleur des cas", ie trouver une configuration de la donnée qui minimise *Ops(n)*.
+  
+$$Meilleur <= Réaliste <= Pire$$
+
++++
+
+### Cas où *n* est grand 4/4
+
+On regarde ainsi l'évolution de ses bornes (cet encadrement) en fonction de *n*.
+
+On va se doter d'une notation pour décrire cet encadrement.
+
+On parle des notations de *Landau*.
+
++++
+
+## Notations de Landau
+
++++
+
+### Notation 'grand o' pour la borne sup.
+
+![Grand O](images/grando.png)
+
++++
+
+### Notation 'grand omega' pour la borne inf.
+
+![Grand Omega](images/grandomega.png)
+
++++
+
+### Notation 'grand theta'
+
+![Grand Theta](images/grandtheta.png)
+
++++
+
+### Echelle de comparaison
+
+| notation  |  grandeur au plus |
+|---|---|---|---|---|
+| O(1)  |  module majoré par une constante |
+| O(log(n))  |  logarithmique  |
+| O(n) |  linéaire  |
+| O(n log(n)) | quasi-linéaire |
+| O($n^2$) | quadratique |
+| O($n^c$)|	polynomial d'ordre c|
+| O($c^n$) | exponentiel |

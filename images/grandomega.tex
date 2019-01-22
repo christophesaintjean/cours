@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+ \usepackage{amsmath}
+ \usepackage{amsfonts}
+ \usepackage{amssymb}
+\usepackage[active,tightpage]{preview}
+
+ \newcommand{\bigO}[1]{\ensuremath{\mathop{}\mathopen{}O\mathopen{}\left(#1\right)}}
+ \newcommand{\reals} {\rm I\!R}
+  \newcommand{\nats} {\rm I\!N}
+
+\usepackage[french, linesnumbered, lined, algoruled, titlenotnumbered,shortend]{algorithm2e}
+\begin{document}
+\begin{preview}
+Notation $\Omega$: "grand omega"
+    $$\Omega(f(n)) := \{g: \mathbb{N} \rightarrow \mathbb{R}^* | \exists c \in \mathbb{R}^*, n_0 \in \mathbb{N} \backslash \forall n \geq n_0, g(n) \geq c~f(n)\}$$
+    $Ops(n) \in \Omega(n)$ dire "Ops(n) est en grand omega de n"\\
+    $\Rightarrow$ Borne inférieure asymptotique sur nombre d'opérations (au coef. mult. $c$ près)\\
+    %\vspace{3mm}
+    Ex:  $Ops(n) = 10 n^2 - 5 n + 2$
+    \begin{minipage}{0.5\textwidth}
+    \begin{itemize}
+        \item $Ops(n) \in \Omega(n^2)$
+        \item $Ops(n) \in \Omega(n)$
+        \item $Ops(n) \not\in \Omega(n^3)$
+    \end{itemize}
+    \end{minipage}
+ \end{preview}
+\end{document}

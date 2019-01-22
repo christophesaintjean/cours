@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+ \usepackage{amsmath}
+ \usepackage{amsfonts}
+ \usepackage{amssymb}
+\usepackage[active,tightpage]{preview}
+
+ \newcommand{\bigO}[1]{\ensuremath{\mathop{}\mathopen{}O\mathopen{}\left(#1\right)}}
+ \newcommand{\reals} {\rm I\!R}
+  \newcommand{\nats} {\rm I\!N}
+
+\usepackage[french, linesnumbered, lined, algoruled, titlenotnumbered,shortend]{algorithm2e}
+\begin{document}
+\begin{preview}
+Notation $\Theta$: "grand theta"
+    $$\Theta(f(n)) \sim \Omega(f(n)) \bigcap \mathcal{O}(f(n))$$
+    \begin{eqnarray*}
+    \Theta(f(n)) := &\{g: \mathbb{N} \rightarrow \mathbb{R}^* | & \exists (c_1,c_2) \in \mathbb{R}^* \times \mathbb{R}^*, n_0 \in \mathbb{N} \\
+    &\mbox{ tel que } \forall n \geq n_0, & c_1f(n) \leq g(n) \leq c_2f(n)\}
+    \end{eqnarray*}
+    $Ops(n) \in \Theta(n)$ dire "Ops(n) est en grand theta de n"\\
+    $\Rightarrow$ $Ops(n)$ est encadrée par $f(n)$ "de l'ordre exact de"\\
+    \vspace{3mm}
+    Ex:  $Ops(n) = 10 n^2 - 5 n + 2$
+    \begin{minipage}{0.5\textwidth}
+    \begin{itemize}
+        \item $Ops(n) \in \Theta(n^2)$
+        \item $Ops(n) \not\in \Theta(n)$
+        \item $Ops(n) \not\in \Theta(n^3)$
+    \end{itemize}
+    \end{minipage}
+ \end{preview}
+\end{document}
