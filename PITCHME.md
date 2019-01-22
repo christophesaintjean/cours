@@ -770,7 +770,7 @@ On va se doter d'une notation pour décrire cet encadrement.
 
 On parle des notations de *Landau*.
 
-+++
+---
 
 ## Notations de Landau
 
@@ -803,5 +803,20 @@ On parle des notations de *Landau*.
 | O(n) |  linéaire  |
 | O(n log(n)) | quasi-linéaire |
 | O($n^2$) | quadratique |
-| O($n^c$)|	polynomial d'ordre c|
+| O($n^c$)| polynomial d'ordre c|
 | O($c^n$) | exponentiel |
+
++++
+
+### Applications aux algorithmes déjà rencontrés
+
+@ul
+
+* Calcul du min/max: $\varTheta(n)$
+* Recherche d'un élément: $\varTheta(n)$
+* Tri par sélection: $\varTheta(n^2)$
+* Tri par insertion: $\varOmega(n)$ et $O(n^2)$
+  
+  moyenne : $n^2 / 4$
+
+@ulend

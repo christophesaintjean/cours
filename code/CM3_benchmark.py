@@ -5,10 +5,10 @@ from random import randint, seed
 from CM3_triinsert import triinsert
 from CM3_triselect import triselect
 
-seed(130)
+seed(13)
 
-rep = 100
-n = 5000
+rep = 30
+n = 20000
 
 TopsTS, TopsTI = [], []
 for _ in range(rep):
