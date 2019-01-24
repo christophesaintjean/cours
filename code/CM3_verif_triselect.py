@@ -16,10 +16,11 @@ T = [randint(1, 100) for _ in range(10)]
 T2 = triselect2(T)
 print("version 2 :", T2)
 
-
 seed(13)
 T = [randint(1, 100) for _ in range(3000)]
 print("Le tableau résultat est trié:", estTrie(triselect(T)))
+
+
 
 seed(13)
 T = [randint(1, 100) for _ in range(30000)]

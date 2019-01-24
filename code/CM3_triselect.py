@@ -3,9 +3,10 @@ def triselect(T):
     Version en place
     """
     for i in range(len(T)-1):
+        # print(T[0:i], T[i:])
         imin = i
         for j in range(i+1, len(T)):
-            if T[j] < T[imin]:
+            if T[j] <= T[imin]:
                 imin = j
         if imin != i:
             T[i], T[imin] = T[imin], T[i]
