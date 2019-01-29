@@ -816,7 +816,6 @@ On parle des notations de *Landau*.
 * Recherche d'un élément: $\varTheta(n)$
 * Tri par sélection: $\varTheta(n^2)$
 * Tri par insertion: $\varOmega(n)$ et $O(n^2)$
-  
   moyenne : $n^2 / 4$
 
 @ulend
