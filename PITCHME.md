@@ -637,9 +637,9 @@ On peut rendre stable un algorithme de tri en introduisant une clé secondaire.
 
 * Un algorithme de tri est **incrémental** si il est succeptible de traiter les données une par une sans disposer du tableau en entier.
 
-+++
+---
 
-### Tri par sélection
+## Tri par sélection
 
 ![Tri par sélection](images/triselect.png)
 
@@ -667,9 +667,9 @@ Implementé tel quel, c'est un tri:
 * Nombre de d'éléments parcourus ?
 * Nombre d'échanges ?
 
-+++
+---
 
-### Tri par insertion
+## Tri par insertion
 
 ![Tri par insertion](images/triinsert.png)
 
@@ -881,7 +881,7 @@ Principe:
 
 @ ul
 
-* Terminaison: Fin de la récursitivité
+* Terminaison: Fin de la récursivité
 * Correction de l'algorithme = Correction de la fusion
 * Efficience: Ops(n) $\in \varTheta(n \log n$)
 
@@ -897,5 +897,13 @@ Principe:
 * Tri stable
 * Tri qui n'est pas en place ...
   > Utilisation de la mémoire: $\varTheta(n)$
+* Donc un tri extrêmement efficace
 
 @ ulend
+
+---
+
+### Tri rapide (quicksort)
+
+* Utilisation du principe diviser pour régner
+*  

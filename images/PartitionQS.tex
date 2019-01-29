@@ -1,0 +1,21 @@
+\documentclass[convert]{standalone}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french, linesnumbered, lined, algoruled, titlenotnumbered,shortend]{algorithm2e}
+\begin{document}
+\begin{algorithm}[H]
+\SetAlgoRefName{6}
+\caption{Partitionnement}%
+\Donnees{T un tableau, deb, fin deux indices du tableau, un élément pivot (à défaut $T[fin]$)}
+    i $\leftarrow$   deb\;
+    \Pour{j $\leftarrow$ deb à fin-1} {
+        \Si{T[j] $\leq$ pivot}{
+            Echanger T[i] et T[j]\;
+           i $\leftarrow$   i+1\;
+           }
+    }
+    Echanger T[i] et T[fin]\;
+    \Return i\;
+\end{algorithm}%
+\end{document}

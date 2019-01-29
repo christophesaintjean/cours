@@ -7,8 +7,8 @@ from CM3_triselect import triselect
 
 seed(13)
 
-rep = 30
-pmax = 15
+rep = 10
+pmax = 16
 N = [2**p for p in range(pmax)]
 
 TopsTS_m, TopsTS_M = [], []
@@ -40,4 +40,5 @@ for n in N:
 plt.fill_between(N, TopsTS_m, TopsTS_M, label='Selection', alpha=0.5)
 plt.fill_between(N, TopsTI_m, TopsTI_M, label='Insertion', alpha=0.5)
 plt.legend()
+plt.xscale("log")
 plt.show()
