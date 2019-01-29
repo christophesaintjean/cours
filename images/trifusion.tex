@@ -1,0 +1,20 @@
+\documentclass[convert]{standalone}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french, linesnumbered, lined, algoruled, titlenotnumbered,shortend]{algorithm2e}
+\begin{document}
+\begin{algorithm}[H]
+\SetAlgoRefName{5}
+\caption{Fusion}%
+\Donnees{$T[g..d]$, $G=T[g \ldots milieu]$ et $D=T[milieu+1 \ldots d]$ trois tableaux}
+\Res{Le sous-tableau $T[g \ldots d]$ est trié par ordre croissant}
+i $\leftarrow$ g; j $\leftarrow$ milieu+1;k $\leftarrow$ g\;
+\Tq{$i \leq milieu$ et $j \leq d$}{
+    \uIf{$G[i] < D[j]$}{T[k] $\leftarrow$ G[i];k$\leftarrow$ k+1;i$\leftarrow$ i+1\;}
+    \Else{T[k] $\leftarrow$ D[j];k$\leftarrow$ k+1;j$\leftarrow$ j+1\;}
+}
+\lTq{$i \leq milieu$}{T[k] $\leftarrow$ G[i];k$\leftarrow$ k+1;i$\leftarrow$ i+1\;}
+\lTq{$j \leq d$}{T[k] $\leftarrow$ D[j];k$\leftarrow$ k+1;j$\leftarrow$ j+1\;}
+\end{algorithm}%
+\end{document}

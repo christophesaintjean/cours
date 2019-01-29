@@ -820,3 +820,82 @@ On parle des notations de *Landau*.
   moyenne : $n^2 / 4$
 
 @ulend
+
+---
+
+## Stratégie Diviser pour Régner
+
+* Simplifier un problème en tâches plus simples
+* Fusionner les résultats
+
++++
+
+### Tri par fusion (merge sort)
+
+Principe:
+
+* T est un tableau de taille n
+* Partitionner T en deux parties égales (taille n/2) -> Gauche, Droite
+* Trier récursivement **Gauche** et **Droite** (parallèle possible)
+* Fusionner **Gauche** et **Droite** en *T*
+
++++
+
+#### Tri Fusion: partitionnement 1/2
+
+* g, d les indices désignant un sous-tableau de *T*
+* Le milieu : mil = (g + d) / 2 (div entière)
+* On doit donc trier T[g..mil]  et T[mil+1..d]
+
++++
+
+#### Tri Fusion: partitionnement 2/2
+
+```python
+def partitionnement (T, g, d):
+    mil = (g + d) // 2
+    return T[g:mil],  T[mil+1:d]
+```
+
++++
+
+#### Tri Fusion: Fusion 1/2
+
+Principe:
+
+* Parcourir simultanément **Gauche** et **Droite**
+* Recopier l'élement minimal entre les deux valeurs courantes
+* Augmenter l'indice sur le tableau qui contenait ce minimum.
+* Continuer jusqu'a avoir recopier **Gauche** et **Droite**
+
++++
+
+#### Tri Fusion: Fusion 2/2
+
+![Fusion](images/trifusion.png)
+
+
++++
+
+#### Tri Fusion: Preuves
+
+@ ul
+
+* Terminaison: Fin de la récursitivité
+* Correction de l'algorithme = Correction de la fusion
+* Efficience: Ops(n) $\in \varTheta(n \log n$)
+
+@ ulend
+
++++
+
+#### Tri Fusion: Caractéristiques
+
+@ ul
+
+* Tri par comparaison
+* Tri stable
+* Tri qui n'est pas en place ...
+  > Utilisation de la mémoire: $\varTheta(n)$
+
+@ ulend
