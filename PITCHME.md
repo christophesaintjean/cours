@@ -906,4 +906,8 @@ Principe:
 ### Tri rapide (quicksort)
 
 * Utilisation du principe diviser pour régner
-*  
+* Basé sur un partitionnement guidé des données (par rapport à imposé pour tri fusion)
+
++++
+
+![PartitionQS](images/PartitionQS.png)
