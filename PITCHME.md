@@ -813,7 +813,7 @@ On parle des notations de *Landau*.
 @ul
 
 * Calcul du min/max: $\varTheta(n)$
-* Recherche d'un élément: $\varTheta(n)$
+* Recherche d'un élément: $\varOmega(1)$ et $O(n)$
 * Tri par sélection: $\varTheta(n^2)$
 * Tri par insertion: $\varOmega(n)$ et $O(n^2)$
   moyenne : $n^2 / 4$
@@ -900,6 +900,65 @@ Principe:
 
 @ ulend
 
++++
+
+#### Fusion sans tableau auxiliaire 1/4
+
+Astuce : l'arithmétique modulo n
+ou "Comment stocker 2 nombres en 1" ?
+
+Rappel du premier semestre:
+>Pour tout $n1, n2$,  on a  $n1 = ( n1 // n2 ) * n2 + ( n1 \% n2)$
+
+* $n1 // n2$ est le quotient
+* $n1 \% n2$ est le reste qui est **obligatoirement** dans $[0, n2-1]$.
+ 
++++
+
+#### Fusion sans tableau auxiliaire 2/4
+
+Soient a, b, m trois nombres tels que $a < m$  et $b < m$
+
+Si on exécute $c = a + (b \% m) * m$ alors
+
+* $c // m$ vaut b
+* $c \% m$ vaut a
+
+```python
+In [1]: a, b, m = 3, 5, 6                               
+In [2]: c = a + (b % m) * m                             
+In [3]: c // m, c % m                                   
+Out[3]: (5, 3)
+```
+
++++
+
+#### Fusion sans tableau auxiliaire 3/4
+
+Application à la fusion de deux tableaux triés:
+
+* Déterminer $m$ comme le plus grand élément + 1
+* En comparant T[i] (sous-tableau gauche) et T[j] (sous-tableau droite), on choisit $b$ comme le + petit des deux.
+* On stocke le résultat dans le quotient de T[k]:
+  
+   $$T[k] = T[k] + (b \% m) * m$$
+
++++
+
+#### Fusion sans tableau auxiliaire 4/4
+
+Résultats:
+
+* Tri Fusion standard:
+  * Fusion en 1 passe $\varTheta(n)$
+  * Mémoire supp.: une copie du tableau
+
+* Tri Fusion Bis:
+  * Fusion en 3 passes ... $\varTheta(n)$
+  * Mémoire supp.: aucune !
+
+Conclusion: Privilégier la méthode standard si la mémoire n'est pas un problème !
+
 ---
 
 ### Tri rapide (quicksort)
@@ -910,3 +969,138 @@ Principe:
 +++
 
 ![PartitionQS](images/PartitionQS.png)
+
++++
+
+### Partition: Invariant
+
+> Tous les éléments de $[deb, i[$ sont $\leq$ à pivot<br>
+> Tous les éléments de $[i, j[$ sont $>$ à pivot
+
+* Initialisation: i = j = deb OK
+* Récurrence:
+   * Si T[j] <= pivot:
+       * Echange de T[i] (> pivot) et T[j] ($\leq$ pivot)
+       * i = i + 1, j = j + 1 => Proprieté préservée
+   * Si T[j] > pivot:
+       * j = j + 1 => Proprieté préservée
+* En fin, échange de T[i] (> pivot) et T[fin] = pivot<br>
+=> Proprieté préservée
+
++++
+
+### Tri rapide
+
+```python
+def trirapide(T, g=0, d=None):
+    if d is None:
+        d = len(T)-1
+    if g < d:
+        ipivot = partition(T, g, d)
+        trirapide(T, g, ipivot-1)
+        trirapide(T, ipivot+1, d)
+```
+
++++
+
+### Tri rapide : Analyse partition
+
+@ul
+
+* Qu'est ce qu'un bon partitionnement pour le tri rapide ?<br>
+  Equilibré : n/2 éléments à gauche et à droite.
+* Qu'est ce qu'un mauvais partitionnement pour le tri rapide ?<br>
+  Deséquilibré : n-1 et 1 élements
+* Tout cela dépend:
+  * la stratégie de choix du pivot.
+  * du contenu tableau... humm pourquoi ?
+
+@ulend
+
++++
+
+### Tri rapide : Choix du pivot
+
+@ul
+
+* Choix systématique: premier, dernier élément => mauvais
+* Choix systématique: la valeur de l'élément au milieu => pourquoi pas ?
+* La médiane de trois nombres tirés au hasard => bien mieux
+
+@ulend
+
++++
+
+### Tri rapide : Analyse du tri
+
+@ul
+
+* Si le partitionnement est mauvais:
+  $$Ops(n) = Ops(n-1) + Ops(1) + n$$
+  $$... \Rightarrow Ops(n) \in O(n^2)$$
+* Si le partitionnement est parfait:
+  $$Ops(n) = 2 Ops(n/2) + n$$
+  $$... \Rightarrow Ops(n) \in \varOmega(n log_2(n))$$
+* [Analyse en moyenne (hors cadre du cours)](http://imss-www.upmf-grenoble.fr/prevert/Prog/Tris/triRapideEval.html)
+    $$E[Ops(n)] \in \varTheta(n log_2(n))$$
+  
+@ulend
+
++++
+
+### (Bonus) Tri rapide : Problème 1/2
+
+@ul
+
+* Question: existe t'il toujours une stratégie donnant lieu à un partitionnement équilibré ???
+* Réponse: Non !!! si le tableau contient de nombreux doublons
+* Conséquences: Explosion du nombre d'appels récursifs
+* Solution: Améliorer le partitionnement
+  
+@ulend
+
++++
+
+### (Bonus) Tri rapide : Problèmes 2/2
+
+Découper en trois parties:
+
+* les éléments <
+* les éléments =
+* les éléments >
+
+et ne trier récursivement que les deux extrémités.
+
+Exercice: Ecrire une telle fonction de partitionnement<br>
+(*Connu également sous le nom de "Drapeau holllandais"*)
+
++++
+
+### Tri rapide : Conclusion
+
+@ul
+
+* Tri par comparaison, stable, en place, récursif
+* Pire des cas: $O(n^2)$
+* Meilleur des cas: $\varOmega$(n log n)
+* Efficience proche de l'optimal (n log n) même en moyenne
+* Il existe de bonnes stratégies:
+  * de choix de pivot (Ex.: mediane de 2)
+  * de partionnement pour éviter les cas de doublons
+* Amélioration: pour des tableaux de petite taille -> Tri par insertion
+
+@ulend
+
+---
+
+## Conclusion sur les tris
+
+| Tri  |  pire | meilleur | Commentaires |
+|-|-|-|-|
+| par sélection  |  $n^2$ | $n^2$ | Inefficace |
+| par insertion  |  n | $n^2$  | Eff. petits tableaux |
+| à bulles |  n  | $n^2$ | Bcp. d'échanges |
+| fusion | n log n | n log n | Mémoire auxiliaire + dépl. |
+| rapide | n log n | $n^2$ | proche de l'opt., - dépl.|
+| [Timsort](https://hackernoon.com/timsort-the-fastest-sorting-algorithm-youve-never-heard-of-36b28417f399)| n  | n log n | meilleur mais mémoire auxiliaire.
+| par comptage | n+k | n+k | Pas de comp., mémoire auxiliaire
