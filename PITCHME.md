@@ -878,19 +878,19 @@ Principe:
 
 #### Tri Fusion: Preuves
 
-@ ul
+@ul
 
 * Terminaison: Fin de la récursivité
 * Correction de l'algorithme = Correction de la fusion
-* Efficience: Ops(n) $\in \varTheta(n \log n$)
+* Efficience: Ops(n) $\in \varTheta$(n log n)
 
-@ ulend
+@ulend
 
 +++
 
 #### Tri Fusion: Caractéristiques
 
-@ ul
+@ul
 
 * Tri par comparaison
 * Tri stable
@@ -898,7 +898,7 @@ Principe:
   > Utilisation de la mémoire: $\varTheta(n)$
 * Donc un tri extrêmement efficace
 
-@ ulend
+@ulend
 
 +++
 
@@ -1052,7 +1052,7 @@ def trirapide(T, g=0, d=None):
 
 @ul
 
-* Question: existe t'il toujours une stratégie donnant lieu à un partitionnement équilibré ???
+* Question: Existe t'il toujours une stratégie donnant lieu à un partitionnement équilibré ???
 * Réponse: Non !!! si le tableau contient de nombreux doublons
 * Conséquences: Explosion du nombre d'appels récursifs
 * Solution: Améliorer le partitionnement
@@ -1072,7 +1072,7 @@ Découper en trois parties:
 et ne trier récursivement que les deux extrémités.
 
 Exercice: Ecrire une telle fonction de partitionnement<br>
-(*Connu également sous le nom de "Drapeau holllandais"*)
+(*Connu également sous le nom de "Drapeau hollandais"*)
 
 +++
 
@@ -1085,7 +1085,7 @@ Exercice: Ecrire une telle fonction de partitionnement<br>
 * Meilleur des cas: $\varOmega$(n log n)
 * Efficience proche de l'optimal (n log n) même en moyenne
 * Il existe de bonnes stratégies:
-  * de choix de pivot (Ex.: mediane de 2)
+  * de choix de pivot (Ex.: médiane de 3)
   * de partionnement pour éviter les cas de doublons
 * Amélioration: pour des tableaux de petite taille -> Tri par insertion
 
@@ -1093,14 +1093,21 @@ Exercice: Ecrire une telle fonction de partitionnement<br>
 
 ---
 
-## Conclusion sur les tris
+## Conclusion sur les tris 1/2
 
 | Tri  |  pire | meilleur | Commentaires |
 |-|-|-|-|
 | par sélection  |  $n^2$ | $n^2$ | Inefficace |
 | par insertion  |  n | $n^2$  | Eff. petits tableaux |
 | à bulles |  n  | $n^2$ | Bcp. d'échanges |
-| fusion | n log n | n log n | Mémoire auxiliaire + dépl. |
+| fusion | n log n | n log n | Mém. aux. + dépl. |
+
++++
+
+## Conclusion sur les tris 2/2
+
+| Tri  |  pire | meilleur | Commentaires |
+|-|-|-|-|
 | rapide | n log n | $n^2$ | proche de l'opt., - dépl.|
-| [Timsort](https://hackernoon.com/timsort-the-fastest-sorting-algorithm-youve-never-heard-of-36b28417f399)| n  | n log n | meilleur mais mémoire auxiliaire.
-| par comptage | n+k | n+k | Pas de comp., mémoire auxiliaire
+| [Timsort](https://hackernoon.com/timsort-the-fastest-sorting-algorithm-youve-never-heard-of-36b28417f399)| n  | n log n | meilleur mais mém. aux.
+| par comptage | n+k | n+k | Pas de comp., mém. aux.

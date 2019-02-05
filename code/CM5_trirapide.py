@@ -47,6 +47,14 @@ def trirapide(T, g=0, d=None):
         trirapide(T, g, ipivot - 1)
         trirapide(T, ipivot + 1, d)
 
+def trirapide_bis(T):
+    if len(T) > 0:
+        pivot = T[pivot_median(T, 0, len(T)-1)]
+        Tg = [Ti for Ti in T if Ti < pivot]
+        Te = [Ti for Ti in T if Ti == pivot]
+        Td = [Ti for Ti in T if Ti > pivot]
+        return trirapide_bis(Tg) + Te + trirapide_bis(Td)
+    return []
 
 if __name__ == "__main__":
     T = [3, 6, 5, 3, 5, 6, 1, 7, 0.5, 8, 4]
@@ -59,5 +67,4 @@ if __name__ == "__main__":
     print(T)
 
     T = [3, 6, 5, 3, 5, 6, 1, 7, 0.5, 8, 4]
-    trirapide_bis(T)
-    print(T)
+    print(trirapide_bis(T))
