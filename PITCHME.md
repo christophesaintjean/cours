@@ -1008,9 +1008,14 @@ def trirapide(T, g=0, d=None):
 @ul
 
 * Qu'est ce qu'un bon partitionnement pour le tri rapide ?<br>
-  Equilibré : n/2 éléments à gauche et à droite.
+* Equilibré : n/2 éléments à gauche et à droite.
+
+@ulend
+
+@ul
+
 * Qu'est ce qu'un mauvais partitionnement pour le tri rapide ?<br>
-  Deséquilibré : n-1 et 1 élements
+* Deséquilibré : n-1 et 1 élements
 * Tout cela dépend:
   * la stratégie de choix du pivot.
   * du contenu tableau... humm pourquoi ?
