@@ -1,8 +1,8 @@
 from random import randint
 
 
-def pivot_dernier(T, g, d):
-    return d
+def pivot_premier(T, g, d):
+    return g
 
 
 def pivot_dernier(T, g, d):
@@ -24,7 +24,7 @@ def pivot_median(T, g, d):
 
 def partition(T, g, d, ipivot=None):
     if ipivot is None:
-        ipivot = pivot_dernier(T, g, d)
+        ipivot = pivot_median(T, g, d)
     if ipivot < d:
         T[ipivot], T[d] = T[d], T[ipivot]
         ipivot = d
@@ -47,14 +47,16 @@ def trirapide(T, g=0, d=None):
         trirapide(T, g, ipivot - 1)
         trirapide(T, ipivot + 1, d)
 
+
 def trirapide_bis(T):
     if len(T) > 0:
-        pivot = T[pivot_median(T, 0, len(T)-1)]
+        pivot = T[pivot_median(T, 0, len(T) - 1)]
         Tg = [Ti for Ti in T if Ti < pivot]
         Te = [Ti for Ti in T if Ti == pivot]
         Td = [Ti for Ti in T if Ti > pivot]
         return trirapide_bis(Tg) + Te + trirapide_bis(Td)
     return []
+
 
 if __name__ == "__main__":
     T = [3, 6, 5, 3, 5, 6, 1, 7, 0.5, 8, 4]

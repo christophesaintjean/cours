@@ -16,14 +16,14 @@ trirapide(T)
 print("Le tableau résultat est trié:", estTrie(T))
 
 seed(13)
-T = [randint(1, 10000) for _ in range(1000000)]
+T = [randint(1, 100000) for _ in range(1000000)]
 debut = time()
-trirapide(T)
+#trirapide(T)
 fin = time()
 print("Durée tri rapide: ", fin - debut)
 
 seed(13)
-T = [randint(1, 10000) for _ in range(1000000)]
+T = [randint(1, 1000) for _ in range(1000000)]
 debut = time()
 trirapide_bis(T)
 fin = time()
