@@ -1133,13 +1133,13 @@ Sortie: La valeur x appartenant à T tel que k-1 éléments de T sont inférieur
 
 +++
 
-### Exemples d'applications
+#### Exemples d'applications
 
 * Quel est l'âge médian en France ? (40,8 contre 41,7 en moy.)
 * Combien gagne les 10% les plus riches ?
 * Détection les événements rares
 
-+++
+---
 
 ### Exemples triviaux: Recherche min **ou** max
 
@@ -1157,7 +1157,7 @@ def minimum(T):
 
 Analyse: n-1 comparaisons au minimum
 
-+++
+---
 
 ### Exemples triviaux: Recherche min **et** max
 
@@ -1234,7 +1234,7 @@ Attention:
 
 @ulend
 
-+++
+---
 
 ### Recherche du 2ème plus petit élément 1/2
 
@@ -1262,7 +1262,7 @@ Analyse:
 
 * Au pire : 2*(n-2) + 1 comparaisons
 * Au mieux: n-1 comparaisons
-* C'est autant que la recherche du minimum
+* C'est 2 fois plus que la recherche du min mais cela reste linéaire
 * Que se passe t'il si on cherche le troisième plus petit ?
 * Que se passe t'il si on cherche le k-ième plus petit ?
 
@@ -1360,7 +1360,7 @@ Oui parfois !!
 
 +++
 
-## Recherche par Interpolation : Principe
+### Recherche par Interpolation : Principe
 
 Cette technique ne s'applique que pour les tableaux trié de nombres
 
@@ -1373,3 +1373,14 @@ Technique: interpolation par une droite
 * Arrondir à l'entier le + proche -> m
 * Tester m
 * Suivant résultat, chercher à droite ou à gauche (dichotomie !)
+
++++
+
+### Recherche par Interpolation : Analyse
+
+* Le partition est déterminée par heuristique
+* Mauvais cas: donnés inhomogènes -> O(n)
+* Meilleur cas: données homogènes -> O (log log n)
+* Plus d'infos:
+  * [Article Quora](https://www.quora.com/What-is-the-time-complexity-of-interpolation-search-and-why?awc=15748_1549964806_0e1797350d9e13b3e38677774aab1a88&uiv=6&txtv=8&source=awin&medium=ad&campaign=uad_mkt_en_acq_us_awin&set=awin)
+  * [Papier original + preuve](http://www.cs.technion.ac.il/~itai/publications/Algorithms/p550-perl.pdf)
