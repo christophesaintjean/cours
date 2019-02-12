@@ -1268,7 +1268,9 @@ Analyse:
 
 @ulend
 
-### Recherche du k-ième plus petit élément
+---
+
+### Recherche du k-ième plus petit élément (Quick-Select)
 
 Pour T un tableau de taille n:
 
@@ -1332,9 +1334,9 @@ Que dire de la position du pivot après partitionnement ?
 * Quick-Select est donc optimal pour le problème donné.
 * Sa qualité dépend de la stratégie de choix du pivot (comme Quick-Sort)
 
-+++
+---
 
-### Sélection basé Tri par comptage
+### Recherche du k-ième plus petit élément (Comptage)
 
 Nombre d'éléments parcourus:
 
