@@ -1319,12 +1319,12 @@ Que dire de la position du pivot après partitionnement ?
 * La dichotomie est effectuée est la position (vs valeur)
 * Nombre de comparaisons:
   * Pire des cas (mauvais part.):<br>
-    $Comp(n) = n + Comp(n-1)$ -> $env. n(n+1)/2 = n^2$
+    *Comp(n) = n + Comp(n-1)* -> *env. n(n+1)/2 = n^2*
   * Meilleur des cas :
-            $Comp(n) = n$
+            *Comp(n) = n*
   * [Cas moyen](https://stackoverflow.com/questions/5945193/average-runtime-of-quickselect):
-            $E[Comp(n)] \in O(n)$
-* Dichotomie sur le rang: $n + n/2 + ... + 4 + 2 + 1 \in O(n)$<br>
+            *E[Comp(n)]* $\in$ *O(n)*
+* Dichotomie sur le rang: *n + n/2 + ... + 4 + 2 + * $\in$ O(n)*<br>
   (Somme des termes d'une suite géométrique)
 
 @ulend
