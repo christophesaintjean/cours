@@ -1183,8 +1183,8 @@ Supposons T[i] et T[j] deux éléments de T.
 
 Dans l'algorithme précédent, 4 comparaisons pour calculer
 
-* minimum(T[i], [j], min) : 2 comp.
-* maximum(T[i], [j], max) : 2 comp.
+* minimum(T[i], T[j], min) : 2 comp.
+* maximum(T[i], T[j], max) : 2 comp.
 
 +++
 
@@ -1192,9 +1192,9 @@ Dans l'algorithme précédent, 4 comparaisons pour calculer
 
 Remarquons:
 
-* minimum(T[i], [j]) **et** maximum(T[i], [j]): 1 comp.
-* minimum(minimum(T[i], [j]), min): 1 comp.
-* maximum(maximum(T[i], [j]), max): 1 comp.
+* minimum(T[i], T[j]) **et** maximum(T[i], T[j]): 1 comp.
+* minimum(minimum(T[i], T[j]), min): 1 comp.
+* maximum(maximum(T[i], T[j]), max): 1 comp.
 
 Donc 3 comparaisons au lieu de 4 !
 
