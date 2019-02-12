@@ -1126,10 +1126,11 @@ Exercice: Ecrire une telle fonction de partitionnement<br>
 
 ## Recherche du k-ième élément
 
-Définition du problème:
+**Définition du problème**:
 
-Entrée: T un tableau de n éléments (distincts) et k un nombre tel que 1 <= k <= n
-Sortie: La valeur x appartenant à T tel que k-1 éléments de T sont inférieurs à x
+*Entrée*: T un tableau de n éléments (distincts) et k un nombre tel que 1 <= k <= n
+
+*Sortie*: La valeur x appartenant à T tel que k-1 éléments de T sont inférieurs à x
 
 +++
 
@@ -1176,7 +1177,7 @@ Analyse: 2*(n-1) comparaisons au minimum
 
 +++
 
-#### Recherche min **et** max : Faire mieux 1/3
+#### Recherche min **et** max : Faire mieux 1/4
 
 Supposons T[i] et T[j] deux éléments de T.
 
@@ -1184,6 +1185,10 @@ Dans l'algorithme précédent, 4 comparaisons pour calculer
 
 * minimum(T[i], [j], min) : 2 comp.
 * maximum(T[i], [j], max) : 2 comp.
+
++++
+
+#### Recherche min **et** max : Faire mieux 2/4
 
 Remarquons:
 
@@ -1195,9 +1200,9 @@ Donc 3 comparaisons au lieu de 4 !
 
 +++
 
-#### Recherche min **et** max : Faire mieux 2/3
+#### Recherche min **et** max : Faire mieux 3/4
 
-Stratégie:
+*Stratégie*:
 
 * Prendre deux éléments successifs T[i] et T[i+1]
 * Mettre à jour le min et max en 3 comparaisons
@@ -1209,13 +1214,13 @@ Stratégie:
 
 #### Recherche min **et** max : Faire mieux 3/3
 
-Analyse:
+*Analyse*:
 
-Pour tout couple: 3 comparaisons
+> Pour tout couple: 3 comparaisons
 
-Soit env. 3*(n//2)=1.5*n comp. au lieu de 2*n
+> Soit env. 3*(n//2)=1.5*n comp. au lieu de 2*n
 
-Attention:
+*Attention*:
 
 * les fonctions natives min et max de Python sont implementées en C
 * la fonction minmax n'existe pas dans le langage
@@ -1256,7 +1261,7 @@ def deuxieme(T):
 
 #### Recherche du 2ème plus petit élément 2/2
 
-Analyse:
+*Analyse*:
 
 @ul
 
@@ -1285,7 +1290,7 @@ _Efficacité_:
 
 @ul
 
-* Tri par comparaison: $\varOmega(n log n)$
+* Tri par comparaison: $\varOmega(n \log n)$
 * Tri par comptage: $\varTheta(n + k)$ où k est le nombre de clés.
 
 @ulend
@@ -1311,14 +1316,14 @@ Que dire de la position du pivot après partitionnement ?
 @ul
 
 * Cela ressemble à l'exécution partielle du tri rapide
-* La valeur sur la laquelle la dichotomie est effectuée est la position (au lieu de la valeur)
+* La dichotomie est effectuée est la position (vs valeur)
 * Nombre de comparaisons:
   * Pire des cas (mauvais part.):<br>
     $Comp(n) = n + Comp(n-1)$ -> $env. n(n+1)/2 = n^2$
   * Meilleur des cas :
             $Comp(n) = n$
   * [Cas moyen](https://stackoverflow.com/questions/5945193/average-runtime-of-quickselect):
-            $E[Comp(n)] \in O(n)$$
+            $E[Comp(n)] \in O(n)$
 * Dichotomie sur le rang: $n + n/2 + ... + 4 + 2 + 1 \in O(n)$<br>
   (Somme des termes d'une suite géométrique)
 
@@ -1329,8 +1334,8 @@ Que dire de la position du pivot après partitionnement ?
 #### Analyse du Quick-Select 2/2
 
 * La récursivité n'apporte pas de lisibilité supplémentaire
-* Trier par comparaison, c'est au minimum $n \log n$ comp.
-* C'est donc trop pour le problème de sélection: env. $n$ comp.
+* Trier par comparaison, c'est au minimum *n log n* comp.
+* C'est donc trop pour le problème de sélection: env. *n* comp.
 * Quick-Select est donc optimal pour le problème donné.
 * Sa qualité dépend de la stratégie de choix du pivot (comme Quick-Sort)
 
@@ -1342,13 +1347,13 @@ Nombre d'éléments parcourus:
 
 @ul
 
-* Calcul du min et max: $1.5*n$
-* Comptage des clés: $n$
-* Parcours des clés jusqu'à k: $k$ (au pire k=n)
+* Calcul du min et max: *1.5 n*
+* Comptage des clés: *n*
+* Parcours des clés jusqu'à k: *k* (au pire k=n)
 
 @ulend
 
-Conclusion: linéaire mais en pratique doit être inférieur à Quick-Select (env. $1.5*n$) 
+Conclusion: linéaire mais en pratique doit être inférieur à Quick-Select (env. *1.5 n*)
 
 ---
 
@@ -1360,11 +1365,15 @@ Oui parfois !!
 
 +++
 
-### Recherche par Interpolation : Principe
+### Recherche par Interpolation : Principe 1/2
 
 Cette technique ne s'applique que pour les tableaux trié de nombres
 
 Principe: On estime l'indice de la valeur cherchée à partir de g,T[g], d, T[d]
+
++++
+
+### Recherche par Interpolation : Principe 2/2
 
 Technique: interpolation par une droite
 
