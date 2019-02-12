@@ -24,7 +24,7 @@ Année 2018-2019
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Ce(tte) œuvre est mise à disposition selon les termes de la <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Licence Creative Commons Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 4.0 International</a>.
 
-+++ 
++++
 
 ### L'équipe enseignante
 
@@ -278,7 +278,7 @@ Cela permet de définir des structures de plus haut niveau:
 ### Quelques instructions du pseudo-code 3/3
 
 * Les itératives et les répétitives :  
-  
+
 ```
   Pour i <- 1 à n [par pas de 1] faire  
      <bloc>  
@@ -302,11 +302,11 @@ Cela permet de définir des structures de plus haut niveau:
 @ul
 
 * Vérifier que chaque instruction simple se termine:
-    * calcul simple, affectation OK
-    * affichage OK
-    * Appel de fonction -> à vérifier
+  * calcul simple, affectation OK
+  * affichage OK
+  * Appel de fonction -> à vérifier
 * Pour les boucles for,  s'assurer que la séquence parcourue est taille finie.
-* Pour la répétitive While, s'assurer que dans tous les cas que la condition de continuation sera fausse au moins une fois. 
+* Pour la répétitive While, s'assurer que dans tous les cas que la condition de continuation sera fausse au moins une fois.
 
 @ulend
 
@@ -379,7 +379,7 @@ Syntaxe:
 * Une liste est une séquence
 
 +++
- 
+
 #### Organisation de la mémoire
 
 * La mémoire peut être vue comme un long ruban avec des zones protégées
@@ -421,7 +421,7 @@ Bytes    type        scaling notes
 64      list        +8 for each additional
 ```
 
-+++ 
++++
 
 #### Organisation d'une liste en Python 1/2
 
@@ -782,13 +782,13 @@ On parle des notations de *Landau*.
 
 +++
 
-### Notation 'grand o' pour la borne sup.
+### Notation 'grand o' pour la borne sup
 
 ![Grand O](images/grando.png)
 
 +++
 
-### Notation 'grand omega' pour la borne inf.
+### Notation 'grand omega' pour la borne inf
 
 ![Grand Omega](images/grandomega.png)
 
@@ -879,7 +879,6 @@ Principe:
 
 ![Fusion](images/trifusion.png)
 
-
 +++
 
 #### Tri Fusion: Preuves
@@ -918,7 +917,7 @@ Rappel du premier semestre:
 
 * $n1 // n2$ est le quotient
 * $n1 \% n2$ est le reste qui est **obligatoirement** dans $[0, n2-1]$.
- 
+
 +++
 
 #### Fusion sans tableau auxiliaire 2/4
@@ -931,9 +930,9 @@ Si on exécute $c = a + (b \% m) * m$ alors
 * $c \% m$ vaut a
 
 ```python
-In [1]: a, b, m = 3, 5, 6                               
-In [2]: c = a + (b % m) * m                             
-In [3]: c // m, c % m                                   
+In [1]: a, b, m = 3, 5, 6
+In [2]: c = a + (b % m) * m
+In [3]: c // m, c % m
 Out[3]: (5, 3)
 ```
 
@@ -985,11 +984,11 @@ Conclusion: Privilégier la méthode standard si la mémoire n'est pas un probl�
 
 * Initialisation: i = j = deb OK
 * Récurrence:
-   * Si T[j] <= pivot:
-       * Echange de T[i] (> pivot) et T[j] ($\leq$ pivot)
-       * i = i + 1, j = j + 1 => Proprieté préservée
-   * Si T[j] > pivot:
-       * j = j + 1 => Proprieté préservée
+  * Si T[j] <= pivot:
+    * Echange de T[i] (> pivot) et T[j] ($\leq$ pivot)
+    * i = i + 1, j = j + 1 => Proprieté préservée
+  * Si T[j] > pivot:
+    * j = j + 1 => Proprieté préservée
 * En fin, échange de T[i] (> pivot) et T[fin] = pivot<br>
 => Proprieté préservée
 
@@ -1115,10 +1114,260 @@ Exercice: Ecrire une telle fonction de partitionnement<br>
 
 +++
 
-## Conclusion sur les tris 2/2
+### Conclusion sur les tris 2/2
 
 | Tri  |  pire | meilleur | Commentaires |
 |-|-|-|-|
 | rapide | n log n | $n^2$ | proche de l'opt., - dépl.|
 | [Timsort](https://hackernoon.com/timsort-the-fastest-sorting-algorithm-youve-never-heard-of-36b28417f399)| n  | n log n | meilleur mais mém. aux.
 | par comptage | n+k | n+k | Pas de comp., mém. aux.
+
+---
+
+## Recherche du k-ième élément
+
+Définition du problème:
+
+Entrée: T un tableau de n éléments (distincts) et k un nombre tel que 1 <= k <= n
+Sortie: La valeur x appartenant à T tel que k-1 éléments de T sont inférieurs à x
+
++++
+
+### Exemples d'applications
+
+* Quel est l'âge médian en France ? (40,8 contre 41,7 en moy.)
+* Combien gagne les 10% les plus riches ?
+* Détection les événements rares
+
++++
+
+### Exemples triviaux: Recherche min **ou** max
+
+* k = 1 -> min
+* k = n -> max
+
+```python
+def minimum(T):
+    x = T[0]
+    for e in T[1:]:
+        if e < x:
+            x = e
+    return x
+```
+
+Analyse: n-1 comparaisons au minimum
+
++++
+
+### Exemples triviaux: Recherche min **et** max
+
+```python
+def minmax(T):
+    min, max = T[0], T[0]
+    for e in T[1:]:
+        if e < min:
+            min = e
+        if e > max:
+            max = e
+    return min, max
+```
+
+Analyse: 2*(n-1) comparaisons au minimum
+
++++
+
+#### Recherche min **et** max : Faire mieux 1/3
+
+Supposons T[i] et T[j] deux éléments de T.
+
+Dans l'algorithme précédent, 4 comparaisons pour calculer
+
+* minimum(T[i], [j], min) : 2 comp.
+* maximum(T[i], [j], max) : 2 comp.
+
+Remarquons:
+
+* minimum(T[i], [j]) **et** maximum(T[i], [j]): 1 comp.
+* minimum(minimum(T[i], [j]), min): 1 comp.
+* maximum(maximum(T[i], [j]), max): 1 comp.
+
+Donc 3 comparaisons au lieu de 4 !
+
++++
+
+#### Recherche min **et** max : Faire mieux 2/3
+
+Stratégie:
+
+* Prendre deux éléments successifs T[i] et T[i+1]
+* Mettre à jour le min et max en 3 comparaisons
+* Gérer les cas limites:
+  * Tableau à 1 élément
+  * Nombre impair d'éléments
+
++++
+
+#### Recherche min **et** max : Faire mieux 3/3
+
+Analyse:
+
+Pour tout couple: 3 comparaisons
+
+Soit env. 3*(n//2)=1.5*n comp. au lieu de 2*n
+
+Attention:
+
+* les fonctions natives min et max de Python sont implementées en C
+* la fonction minmax n'existe pas dans le langage
+
++++
+
+#### Recherche min **et** max : approche récursive
+
+@ul
+
+* Découpage en 2 parties égales
+* Calcul des min et max  à gauche et à droite
+* Fusion des résultats
+* Simple, clair ...
+* Mais lent !!
+
+@ulend
+
++++
+
+### Recherche du 2ème plus petit élément 1/2
+
+```python
+def deuxieme(T):
+    if len(T) == 1: return None
+    if len(T) >= 2:
+        first, sec = (T[0], T[1]) if T[0] < T[1] else (T[1], T[0])
+    for e in T[2:]:
+        if e < sec:
+            if e < first:
+                first, sec = e, first
+            else:
+                sec = e
+    return sec
+```
+
++++
+
+#### Recherche du 2ème plus petit élément 2/2
+
+Analyse:
+
+@ul
+
+* Au pire : 2*(n-2) + 1 comparaisons
+* Au mieux: n-1 comparaisons
+* C'est autant que la recherche du minimum
+* Que se passe t'il si on cherche le troisième plus petit ?
+* Que se passe t'il si on cherche le k-ième plus petit ?
+
+@ulend
+
+### Recherche du k-ième plus petit élément
+
+Pour T un tableau de taille n:
+
+@ul
+
+* Trier le tableau T
+* Retourner l'élément en position k
+
+@ulend
+
+_Efficacité_:
+
+@ul
+
+* Tri par comparaison: $\varOmega(n log n)$
+* Tri par comptage: $\varTheta(n + k)$ où k est le nombre de clés.
+
+@ulend
+
++++
+
+#### Retour sur le partitionnement du Quicksort
+
+Que dire de la position du pivot après partitionnement ?
+
+@ul
+
+* i_pivot = k : le k-ième élément est trouvé
+* k < i_pivot : le k-ième élément se trouve dans le sous-tableau T[g..i_pivot-1]
+* k > i_pivot : le k-ième élément se trouve dans le sous-tableau T[i_pivot+1..d]
+
+@ulend
+
++++
+
+#### Analyse du Quick-Select 1/2
+
+@ul
+
+* Cela ressemble à l'exécution partielle du tri rapide
+* La valeur sur la laquelle la dichotomie est effectuée est la position (au lieu de la valeur)
+* Nombre de comparaisons:
+  * Pire des cas (mauvais part.):<br>
+    $Comp(n) = n + Comp(n-1)$ -> $env. n(n+1)/2 = n^2$
+  * Meilleur des cas :
+            $Comp(n) = n$
+  * [Cas moyen](https://stackoverflow.com/questions/5945193/average-runtime-of-quickselect):
+            $E[Comp(n)] \in O(n)$$
+* Dichotomie sur le rang: $n + n/2 + ... + 4 + 2 + 1 \in O(n)$<br>
+  (Somme des termes d'une suite géométrique)
+
+@ulend
+
++++
+
+#### Analyse du Quick-Select 2/2
+
+* La récursivité n'apporte pas de lisibilité supplémentaire
+* Trier par comparaison, c'est au minimum $n \log n$ comp.
+* C'est donc trop pour le problème de sélection: env. $n$ comp.
+* Quick-Select est donc optimal pour le problème donné.
+* Sa qualité dépend de la stratégie de choix du pivot (comme Quick-Sort)
+
++++
+
+### Sélection basé Tri par comptage
+
+Nombre d'éléments parcourus:
+
+@ul
+
+* Calcul du min et max: $1.5*n$
+* Comptage des clés: $n$
+* Parcours des clés jusqu'à k: $k$ (au pire k=n)
+
+@ulend
+
+Conclusion: linéaire mais en pratique doit être inférieur à Quick-Select (env. $1.5*n$) 
+
+---
+
+## Recherche par Interpolation
+
+Peut on faire mieux que la dichotomie pour la recherche dans un tableau trié ?
+
+Oui parfois !!
+
++++
+
+## Recherche par Interpolation : Principe
+
+Cette technique ne s'applique que pour les tableaux trié de nombres
+
+Principe: On estime l'indice de la valeur cherchée à partir de g,T[g], d, T[d]
+
+Technique: interpolation par une droite
+
+* [Déterminer l'équation de la droite passant par (g,T[g]) et (d, T[d])](https://www.mathforu.com/seconde/determiner-equation-droite/)
+* Résoudre x pour y égal à la valeur cherchée
+* Arrondir à l'entier le + proche -> m
+* Tester m
+* Suivant résultat, chercher à droite ou à gauche (dichotomie !)
