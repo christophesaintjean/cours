@@ -1,3 +1,4 @@
-# cours
+# Cours "???"
 
-Il s'agit d'un test de gitpitch
+xxx année - Semestre xxxx
+Université de La Rochelle

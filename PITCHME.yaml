@@ -1,0 +1,27 @@
+# Layout
+#layout : center-left
+layout : top-left
+
+# Look-and-Feel
+logo : assets/images/logo.png
+logo-position : top-right
+theme : none
+highlight : monokai-sublime
+
+# background
+background : assets/images/bg3.png
+background-size : auto 100%
+
+# Behavior
+transition : fade
+#transition : none
+published : true
+
+# Plugins
+charts : false
+mathjax : TeX-MML-AM_HTMLorMML-full
+
+code-line-numbers : false
+print-fragments : false
+published : false
+loop : false
