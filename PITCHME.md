@@ -2,21 +2,13 @@
 .reveal section img { background:none; border:none; box-shadow:none; }
 </style>
 
-# Algorithmique des tableaux
+# Cours "Python Ecole Doctorale"
+
+Construire des pipelines scientifiques avec Luigi
 
 Christophe Saint-Jean
 
-[Transparents du cours](https://gitpitch.com/christophesaintjean/cours/AlgoTabS2)
-
-[Code du cours](https://tinyurl.com/ycq9smp7)
-
-Année 2018-2019
-
----
-
-@transition[fade]
-
-## Organisation de l'UE
+Année 2019
 
 +++
 
@@ -24,49 +16,23 @@ Année 2018-2019
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Ce(tte) œuvre est mise à disposition selon les termes de la <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Licence Creative Commons Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 4.0 International</a>.
 
-+++
+---
 
-### L'équipe enseignante
+## Introduction 1
 
-* **Christophe Saint-Jean** (CM/TD/TP - Resp.)
+La plupart d'entre nous (tous) utilisons des pipelines scientifiques pour nos travaux:
 
-
-+++
-
-### Communication
-
-* Questions pédagogiques : [Moodle](https://moodle.univ-lr.fr/)
-  * Appronfondissement/Questions (Forum)
-  * Organisation de l'UE/Planning (Messages privés)
-* Questions administratives (Secrétariat)
-  * Appartenance groupes TD/TP
-  * Absences/Justifications
+* Génération ou recueil (manuel ou automatisé) de données
+* Assemblage de plusieurs sources
+* Exploration des données recueillies (statistiques, graphiques, ...)
+* Analyse(s) des données, Méthodes numériques
+* Production de graphiques, tableaux de résultats 
 
 +++
 
-### Dispositif horaire
+## Introduction 2
 
-@ul
+Un flot de calcul correspond à un enchaînement de ces tâches qui:
 
-* 6 cours de 1,5 heures (Amphithéâtre)
-* 4 TDs de 1,5 heures
-* 5 TPs de 1,5 heures (Sallles de TP)
-* 4 créneaux de 1,5h de TEA (Salles de TP)
-
-@ulend
-
-+++
-
-### Evaluation
-
-$$S_1 = \frac{CC_1+CC_2}{2}$$
-
-$$S_2 = CC_3$$
-
-Les CC se passent *a priori* en TP 3 et 5 sur machine.
-Attention à la règle sur les absences
-
-+++
-
-### Les objectifs de cet enseignement
-
+* dépendent les unes des autres
+* peuvent être ré-exécuter à intervalles réguliers

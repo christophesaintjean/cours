@@ -1,4 +1,5 @@
-# Cours "???"
+# Cours "Python Ecole Doctorale"
 
-xxx année - Semestre xxxx
+Construire des pipelines scientifiques avec Luigi
+Année 2019
 Université de La Rochelle
