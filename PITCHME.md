@@ -2,7 +2,7 @@
 
 Christophe Saint-Jean
 
-[Transparents](https://gitpitch.com/christophesaintjean/cours/IntroProgS1) / [Code](https://tinyurl.com/y92hrbqf) du cours 2018-2019
+[Transparents](https://gitpitch.com/christophesaintjean/cours/IntroProgS1) / [Code](https://tinyurl.com/y92hrbqf) du cours 2019-2020
 
 ---
 
@@ -21,7 +21,6 @@ Christophe Saint-Jean
 ### L'équipe enseignante
 
 * **Christophe Saint-Jean** (Cours/TP - Resp.)
-* El Hadi Zahzah (TP)
 * Jordan Calandre (TP)
 * Laurent Mascarilla (TP)
 * Matthieu Robert (TP)
