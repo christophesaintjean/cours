@@ -2,7 +2,7 @@
 
 Christophe Saint-Jean
 
-[Transparents](https://gitpitch.com/christophesaintjean/cours/IntroProgS1) / [Code](https://tinyurl.com/y92hrbqf) du cours 2019-2020
+[Transparents](https://gitpitch.com/christophesaintjean/cours/IntroProgS12019) / [Code](https://tinyurl.com/y92hrbqf) du cours 2019-2020
 
 ---
 
