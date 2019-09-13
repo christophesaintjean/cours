@@ -97,11 +97,12 @@ Les CC se passent en TP (5/6 et 12) sur machine:
 * Un certain _vocabulaire_, _une orthographe_, des _règles de grammaire_ communes
 * Grande expressivité et diversité
 * Même si l'on commet des erreurs, nous sommes capables de comprendre "globalement" le message
-```
-  le noir chats, mur promèment sur le
-```
 
 @ulend
+
+```
+le noir chats, mur promèment sur le
+```
 
 +++
 
@@ -164,6 +165,8 @@ class HelloWorld {
 }
 ```
 
++++
+
 ### Exemples : Hello World 2/2
 
 Python 3 (CM1_helloworld.py):
@@ -174,7 +177,7 @@ print("Hello World")
 
 Pour aller plus loin [Hello World Collection](http://helloworldcollection.de/) !!
 
-
++++
 
 ### Les différentes sources d'erreur
 
@@ -580,18 +583,15 @@ Out[2]: 179769313486231590772930519078902473361797697894230657273430081157732675
 * nombre à virgule avec une précision **fixe**
   `$$[2.26.. * 10^{-308}, 1.79.. * 10^{308}]$$`
 
-* Tous les réels ne sont pas représentables par le type _float_
+* Tous les réels **ne sont pas représentables** par le type _float_
 
 ```python
 In [1]: 1.79e308
 Out[1]: 1.79e+308
-
 In [2]: 1.79e308*10
 Out[2]: inf
-
 In [3]: type(1.79e308*10)
 Out[3]: float
-
 In [4]: 1e20 + 1
 Out[4]: 1e+20
 ```
