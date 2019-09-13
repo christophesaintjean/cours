@@ -20,11 +20,11 @@ Christophe Saint-Jean
 
 ### L'équipe enseignante
 
-* **Christophe Saint-Jean** (Cours/TP - Resp.)
+* Sanae Boutarfass (TP)
 * Jordan Calandre (TP)
 * Laurent Mascarilla (TP)
 * Matthieu Robert (TP)
-* Sanae Boutarfass (TP)
+* **Christophe Saint-Jean** (Cours/TP - Resp.)
 
 +++
 
@@ -44,8 +44,8 @@ Christophe Saint-Jean
 @ul
 
 * 5 cours de 1,5 heures (Amphithéâtre)
-* 10 TPs de 1,5 heures (Sallles de TP)
-* 2 créneaux de 1,5h de TEA (Salles de TP)
+* 12 TPs de 1,5 heures (Salles de TP)
+* Pas de TEA.
 
 @ulend
 
@@ -57,7 +57,7 @@ $S_1 = \frac{CC_1+CC_2}{2}$
 
 $S_2 = CC_3$
 
-Les CC se passent en TP (5/6 et 10) sur machine:
+Les CC se passent en TP (5/6 et 12) sur machine:
 
 @ul
 
@@ -71,9 +71,9 @@ Les CC se passent en TP (5/6 et 10) sur machine:
 
 ### Les objectifs de cet enseignement
 
-* Découvrir les bases de la programmation informatique
-* Développer l'esprit logique par la pratique de la programmation
-* Appprendre un des langages support de votre formation
+* Découvrir les bases de la programmation informatique.
+* Développer l'esprit logique par la pratique de la programmation.
+* Appprendre un des langages support de votre formation.
 * Libérer votre créativité !!
 
 +++
@@ -97,6 +97,9 @@ Les CC se passent en TP (5/6 et 10) sur machine:
 * Un certain _vocabulaire_, _une orthographe_, des _règles de grammaire_ communes
 * Grande expressivité et diversité
 * Même si l'on commet des erreurs, nous sommes capables de comprendre "globalement" le message
+```
+  le noir chats, mur promèment sur le
+```
 
 @ulend
 
@@ -107,22 +110,23 @@ Les CC se passent en TP (5/6 et 10) sur machine:
 @ul
 
 * La machine traite des informations binaires: 100110010101000110 ... (même si images, sons, *programmes*, ...)
-* Le vocabulaire d'instructions machine est très réduit
-* Pas ou peu (encore) d'expressivité
+* Le vocabulaire d'instructions machine est très réduit (arith, logique, mémoire, ...)
 * Pas de tolérance aux erreurs d'instructions
 
 @ulend
 
+Parler à une machine (et donc programmer), c'est s'adresser une entité efficace mais peu compréhensive ...
+
 +++
 
-### Niveau d'un langage
+### Niveau d'un langage de programmation
 
 Différents niveaux d'abstraction par rapport aux instructions du processeur:
 
 * 100110010101000110 ... (Quasi-impossible)
 * Langages de bas niveau (Ex. Assembleur)
 * Langages de bas/haut niveau (Ex. C)
-* Langages de haut niveau (Ex. Python, Java, C++, R, ...)
+* Langages de haut niveau (Ex. **Python**, Java, C++, R, ...)
 
 +++
 
@@ -138,6 +142,39 @@ Un programme source est un ___texte___ qui:
 Le mode d'exécution du programme est variable (compilation, interprétation, hybride)
 
 +++
+
+### Exemples : Hello World 1/2
+
+c (CM1_helloworld.c):
+
+```c
+#include <stdio.h>
+int main() {
+    printf("Hello World\n");
+}
+```
+
+Java (HelloWorld.java):
+
+```java
+class HelloWorld {
+  static public void main( String args[] ) {
+    System.out.println( "Hello World" );
+  }
+}
+```
+
+### Exemples : Hello World 2/2
+
+Python 3 (CM1_helloworld.py):
+
+```python
+print("Hello World")
+```
+
+Pour aller plus loin [Hello World Collection](http://helloworldcollection.de/) !!
+
+
 
 ### Les différentes sources d'erreur
 
@@ -322,7 +359,7 @@ Chaque instruction tient compte de l'état du système (mémoire, E/S, ...) et p
 
 ### Langage impératif 2/2
 
-On y trouve le même genre d'instructions:
+Exemples typiques d'instructions:
 
 * Affectations d'une valeur à une _variable_
 * Le saut conditionnel "If"
@@ -362,7 +399,7 @@ Dans ce type de langage, les programmes sont organisés autour de briques logici
 
 ### Langage orienté objet 2/2
 
-  ```java
+```java
  class Ballon {
     double rayon;  
     Ballon(double rayon) {
@@ -375,8 +412,7 @@ Dans ce type de langage, les programmes sont organisés autour de briques logici
       double rayon = (this.rayon + autre.rayon)/2;
       this.rayon = autre.rayon = rayon;
     }
-  }
-```
+  }```
 
 +++
 
@@ -413,7 +449,7 @@ Créé en 1991, Python est un langage multi-paradigme:
   * infère le type des variables lors de l'exécution (typage dynamique)
   * gère la mémoire automatiquement (ramasse-miettes)
 * qui dispose d'une grande bibliothèque de base (modules)
-* Version actuelle: **3.7.0** (ou *2.7.15*)
+* Version actuelle: **3.7** (ou *2.7*)
 
 +++
 
@@ -431,7 +467,7 @@ Créé en 1991, Python est un langage multi-paradigme:
 
 ### Exemple d'un programme Python
 
-```Python
+```python
 print('Hello World!!')
 ```
 
@@ -699,6 +735,9 @@ Out[2]: False
 
 In [3]: str(4.7)
 Out[3]: '4.7'
+
+In [4]: float('4.7')
+Out[4]: 4.7
 ```
 
 ---
@@ -726,13 +765,13 @@ print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
 #### Exemples d'affichage 1/2
 
 ```python
-In [1]: année = 2018
+In [1]: année = 2019
 
 In [2]: print(année)
-2018
+2019
 
 In [3: print("année", année)
-année 2018
+année 2019
 ```
 
 +++
@@ -741,10 +780,10 @@ année 2018
 
 ```python
 In [4]: print("l'année", année, end=""); print(" est un bon cru !!")
-l'année  2018 est un bon cru !!
+l'année  2019 est un bon cru !!
 
 In [5]: print(année, année*2, année / 2, type(année), sep=", ")
-2018, 4036, 1009.0, <class 'int'>
+2019, 4038, 1009.5, <class 'int'>
 ```
 
 On remarque:
@@ -868,1384 +907,3 @@ a est un nombre positif, impair et non divisible par 3
 
 * Conditions if imbriquées : a $\in$ [0,1]
 * Année Bissextile
-
----
-
-## Répétitives
-
-while, break, for, continue
-
----
-
-### Répétitive *"Tant que"*
-
-Syntaxe:
-
-```python
-while <condition>:
-  <instructions>
-```
-
-La condition est évaluée **avant** chaque éxécution des instructions.
-
-Conditions de sortie du "while":
-
-* La condition n'est pas vérifiée.
-* Une sortie explicite par *break*.
-* Crash du programme...
-
-+++
-
-##### Cas fréquents d'utilisation *"Tant que"* 1/2
-
-* Répéter *n* fois
-
-```python
-a = 1
-while a < 10:
-  <instructions>
-  a = a + 1
-```
-
-* Compter le nombre d'itérations
-
-```python
-cpt = 0
-while <condition>:
-  <instructions>
-  cpt += 1
-```
-
-+++
-
-#### Cas fréquents d'utilisation *"Tant que"* 2/2
-
-* Parcourir un intervalle de valeurs $[a,b]$ par pas de $eps$
-
-```python
-x = a
-while x <= b:
-  <instructions>
-  x += eps
-```
-
-* Une boucle d'événements
-
-```python
-while True:
-  <instructions>
-  if <événement particulier>:
-    break
-```
-
-+++
-
-##### Petits exos sur "while"
-
-* Combien de fois peut on diviser un nombre par deux ?
-* Compter le nombre de entiers impairs entre 1 et 1000 divisibles par 3 mais pas par 7.
-* Racine carrée entière:
-  Etant donné un entier $n$, déterminer le plus grand nombre entier $r$ tel que $r^2 \leq n$.
-
----
-
-### Répétitive for
-
-Syntaxe:
-
-```python
-for <variable> in <sequence>:
-   <instructions>
-```
-
-La séquence peut être:
-
-* Une plage de valeurs avec *range*
-* Une chaîne de caractères
-* Une liste, un tuple (plus tard)
-* personnalisée ...
-
-Le terme anglais est *iterable*.
-
-+++
-
-#### Instruction *range*
-
-Syntaxe:
-
-```python
-range(start, stop[, step]) -> range object
-```
-
-Cas d'utilisation:
-
-* range(i, j) -> i, i+1, i+2, ..., j-1.
-* range(i) -> 0, 1, ..., i-1..
-
-Attention, step peut être négatif.
-
-+++
-
-#### Exemples *for* avec *range*
-
-```python
-In [1]: for i in range(1,10):
-          print(i, end=' ')
-###
-1 2 3 4 5 6 7 8 9
-In [2]: for i in range(5):
-          print(i, end=' ')
-###
-0 1 2 3 4
-In [3]: for i in range(8, 0, -1):
-          print(i, end=' ')
-###
-8 7 6 5 4 3 2 1
-```
-
-+++
-
-#### Exemple *for* avec *str*
-
-```Python
-In [1]: for c in 'Python':
-          print(c, end=', ')
-###
-P, y, t, h, o, n, @
-
-In [2]: cpt = 0
-        for c in 'Pythonneries':
-            if c == 'e':
-              cpt += 1
-        print('Nombre de "e": ', cpt)
-###
-Nombre de "e":  2
-```
-
-+++
-
-#### Exercice d'application
-
-`$$\lim_{n \rightarrow +\infty} 4 \sum_{k=0}^{n} \frac{(-1)^{k}}{2k+1} = \pi$$`
-
-Ecrire un programme basé sur cette formule qui approxime $\pi$:
-
-```Python
-In [1]: n = 10**6; som = 0
-
-In [2]: for k in range(n+1):
-          som = som + (-1)**k / (2*k+1)
-
-In [3]: print(4*som)
-3.1414926535900345
-
-In [4]: import math; print(math.pi)
-3.141592653589793
-```
-
-+++
-
-### Bonus: instruction *continue*
-
-*continue* permet d'interrompre une itération:
-
-* On retourne au test de la condition dans *while*
-* Prochaine itération dans *for*
-
-```python
-In [1]: for i in range(10):
-          if i % 2 == 0:
-            continue
-          print(i, end=' ')
-###
-1 3 5 7 9
-```
-
-+++
-
-### Bonus: *else* dans *while* et *for*
-
-* *else* est exécuté si:
-  * la condition du *while* est *False*
-  * *for* a parcouru toute la séquence
-* *else* n'est pas exécuté si interruption par un *break*.
-
-```python
-In [2]: for i in range(10):
-          print(i, end=' ')
-        else:
-          print('\nTerminé')
-###
-0 1 2 3 4 5 6 7 8 9
-Terminé
-```
-
----
-
-## Structures de donnnées
-
-liste, tuple, dictionnaire
-
----
-
-### Liste
-
-Une **liste** est une structure de données qui contient une séquence de valeurs.
-
-Syntaxe:
-
-```python
-[<valeur_1>, <valeur_2>, ..., <valeur_n>]
-```
-
-* Les valeurs ne sont pas nécessairement de même type.
-* Une liste est une séquence
-
-+++
-
-#### Exemples de listes
-
-```python
-In [1]: couleurs = ['rouge', 'vert', 'bleu']
-
-In [2]: Sam = [28 , 'Toronto', False, None]
-
-In [3]: Jeff = [70, 'Cambridge', True, 25]
-
-In [4]: People = [Sam, Jeff]
-
-In [5]: print(People)
-[[28, 'Toronto', False, None], [70, 'Cambridge', True, 25]]
-```
-
-+++
-
-#### Utilisation d'une liste
-
-On peut rappeler un élément particulier d'une liste par son **indice**.</br>
-Pour une liste de longueur *n*, l'indice est un entier entre **0** et **n-1**.
-
-```python
-In [1]: couleurs = ['rouge', 'vert', 'bleu']
-
-In [2]: len(couleurs)   # longueur de la liste
-Out[2]: 3
-
-In [3]: couleurs[0]
-Out[3]: 'rouge'
-
-In [4]: couleurs[5]
-...
-IndexError: list index out of range
-```
-
-+++
-
-#### Liste: Indiçage négatif
-
-Pour faciliter l'accès des derniers éléments d'une liste, *Python* a introduit l'indiçage négatif.
-
-|liste| 'h' | 'e' | 'l' | 'l' | 'o' |
-|-|-----|-----|-----|-----|-----|
-|indice positif| 0   | 1   | 2   | 3   | 4   |
-|indice négatif| -5  | -4  | -3  | -2  | -1  |
-
-Le dernier élément de la liste  toujours l'indice -1.
-
-+++
-
-#### Extraction d'une sous-liste 1/3
-
-Syntaxe ($\sim$ *range*):
-
-```python
-       L[<start>:<stop>:<step>]
-```
-
-Quelques cas fréquents (L est une liste):
-
-* Eléments entre l'indice 2 (inclus) et l'indice 5 (exclus):</br>
-  L[2:5]
-* Eléments à partir de  l'indice 4:</br>
-  L[4:]
-* Les 10 premiers éléments:</br>
-  L[:10]
-
-+++
-
-#### Extraction d'une sous-liste 2/3
-
-* Duplication de la liste:</br>
-  L[:]
-* Un élément sur 2:</br>
-  L[::2]
-
-+++
-
-#### Extraction d'une sous-liste 3/3
-
-Quelques cas fréquents avec indice négatif:
-
-* Les 5 derniers éléments:</br>
-  L[-5:]
-* Tout sauf les derniers 3 éléments:</br>
-  L[:-3]
-* Duplication de *a* dans l'ordre inverse:</br>
-  L[::-1]
-
-+++
-
-#### Affecter une valeur à une liste existante
-
-```python
-In [1]: couleurs = ['rouge', 'vert', 'bleu']
-
-In [2]: couleurs[0] = 'jaune'
-
-In [3]: couleurs
-Out[3]: ['jaune', 'vert', 'bleu']
-
-In [4]: couleurs[:2]= [34, 48]
-
-In [5]: couleurs
-Out[5]: [34, 48, 'bleu']
-```
-
-+++
-
-#### Insérer un élément en fin de liste : *append*
-
-```python
-In [1]: couleurs = ['rouge', 'vert', 'bleu']
-
-In [2]: couleurs.append('cyan')
-
-In [3]: couleurs
-Out[3]: ['rouge', 'vert', 'bleu', 'cyan']
-
-In [4]: L = []   ## liste vide !!!
-
-In [5]: L.append(4)
-
-In [6]: L
-Out[6]: [4]
-```
-
-+++
-
-#### Insérer un élément : *insert*
-
-Syntaxe ($\sim$ *range*):
-
-```python
-    L.insert(<indice>, <element>)
-```
-
-Insère avec décalage vers la fin:
-
-```python
-In [1]: couleurs = ['rouge', 'vert', 'bleu']
-
-In [2]: couleurs.insert(2, 'cyan')
-
-In [3]: couleurs
-Out[3]: ['rouge', 'vert', 'cyan', 'bleu']
-```
-
-+++
-
-#### Concaténer deux listes 1/2
-
-Rappel: Concaténer c'est mettre bout à bout deux structures de données.
-
-Deux syntaxes:
-
-```python
-    L = L1 + L2 ou L1+=L2
-    L1.extend(L2)
-```
-
-```python
-In [1]: ['rouge', 'vert', 'bleu'] + ['r', 'v', 'b']
-Out[1]: ['rouge', 'vert', 'bleu', 'r', 'v', 'b']
-```
-
-+++
-
-#### Concaténer deux listes 2/2
-
-```python
-In [2]: couleurs = ['rouge', 'vert', 'bleu']
-
-In [3]: couleurs.extend(['r', 'v', 'b'])
-
-In [4]: print(couleurs)
-['rouge', 'vert', 'bleu', 'r', 'v', 'b']
-```
-
-+++
-
-#### Suppression d'éléments: *del* ou *remove*
-
-```python
-    del L[3] ou del L[3:]    ## par indice
-    L.remove(5)              ## la première occurrence
-```
-
-```python
-In [1]: couleurs = ['rouge', 'vert', 'bleu']
-
-In [2]: del couleurs[1]
-
-In [3]: couleurs
-Out[3]: ['rouge', 'bleu']
-
-In [4]: couleurs = ['rouge', 'vert', 'bleu', 'vert', 'orange']
-
-In [5]: couleurs.remove('vert')
-
-In [6]: couleurs
-Out[6]: ['rouge', 'bleu', 'vert', 'orange']
-```
-
-+++
-
-#### Parcours d'une liste par indice
-
-On peut utiliser les indices.
-
-```python
-In [1]: couleurs = ['rouge', 'vert', 'bleu']
-
-In [2]: for i in range(len(couleurs)):
-          print(couleurs[i].upper(), end=', ')
-###
-ROUGE, VERT, BLEU,
-```
-
-On peut très bien faire aussi avec un *while*
-
-+++
-
-#### Parcours d'une liste par itérateur
-
-Rappel: *for* permet d'itérer toute séquence.
-
-```python
-In [1]: couleurs = ['rouge', 'vert', 'bleu']
-
-In [2]: for couleur in couleurs:
-          print(couleur.upper(), end=', ')
-###
-ROUGE, VERT, BLEU,
-```
-
-Très simple, mais on a perdu la position dans la liste !
-
-+++
-
-#### Parcours d'une liste par *enumerate*
-
-```python
-In [1]: couleurs = ['rouge', 'vert', 'bleu']
-
-In [2]: for i, couleur in enumerate(couleurs):
-          print('indice:', i, 'valeur:', couleur.upper())
-###
-indice: 0 valeur: ROUGE
-indice: 1 valeur: VERT
-indice: 2 valeur: BLEU
-```
-
-C'est le meilleur choix si l'on a besoin de l'indice en plus de la valeur.
-
-+++
-
-#### Exemple sur les listes 1/2
-
-A partir d'une liste de noms, sélectionner ceux qui commencent ou terminent par une voyelle.
-
-```python
-In [1]: voyelles = ['a', 'e', 'i', 'o', 'u', 'y']
-
-In [2]: noms = ['mila', 'mathis', 'anne', 'myriam', 'eloan', 'pierre', 'jules']
-
-In [3]: select = []
-
-In [4]: for nom in noms:
-          for voyelle in voyelles:
-            if nom[0] == voyelle or nom[-1]==voyelle:
-              select.append(nom)
-              break
-
-In [5]: select
-Out[5]: ['mila', 'anne', 'eloan', 'pierre']
-
-```
-
-+++
-
-#### Exemple sur les listes 2/2
-
-Une version plus compacte:
-
-```python
-In [1]: voyelles = 'aeiouy'
-
-In [2]: noms = ['mila', 'mathis', 'anne', 'myriam', 'eloan', 'pierre', 'jules']
-
-In [3]: select = []
-
-In [4]: for nom in noms:
-          if nom[0] in voyelles or nom[-1] in voyelles:
-              select.append(nom)
-
-In [5]: select
-Out[5]: ['mila', 'anne', 'eloan', 'pierre']
-
-```
-
----
-
-### Tuple
-
-Un **tuple** est une structure de données qui contient une séquence de valeurs.
-
-Syntaxe:
-
-```python
-      (<valeur_1>, <valeur_2>, ..., <valeur_n>)
-```
-
-+++
-
-#### Comparaison *Liste*/*Tuple*:
-
-|             |   Liste   | Tuple |
-|:-----------:|:---------:|:-----:|
-|    Taille   | dynamique |  fixe |
-|    Ajout    |    oui    |  non  |
-| Suppression |    oui    |  non  |
-|   Parcours  |    oui    |  oui  |
-|  Test 'in'  |    oui    |  oui  |
-|   Rapidité  |     -     |   +   |
-|   Mémoire   |     -     |   +   |
-
-+++
-
-#### Exemple stockage avec *tuple*
-
-```python
-In [1]: t = ('a', 5000, 'c', 234)
-
-In [2]: t[2:4]
-Out[2]: ('c', 234)
-
-In [3]: t = t[:2] + ('b', 858) + t[2:]
-
-In [4]: t
-Out[4]: ('a', 5000, 'b', 858, 'c', 234)
-```
-
-+++
-
-#### Dépliement (unpacking) d'un tuple
-
-Permet de faire l'affectation multiple de valeurs
-
-```python
-In [1]: (a, b, c) = (1, '2', '3.0')
-
-In [2]: print(a, b, c)
-1 2 3.0
-
-In [3]: a, b, c = 1, '2', '3.0'  ## syntaxe usuelle identique
-```
-
-Echange de valeurs de variables
-
-```python
-In [1]: a, b = b, a
-```
-
-+++
-
-#### Retour sur *enumerate*
-
-```python
-In [1]: lettres = 'abcd'
-
-In [2]: for el in enumerate(lettres):
-            print(el)
-####
-(0, 'a')
-(1, 'b')
-(2, 'c')
-(3, 'd')
-```
-
-* *enumerate* renvoie une séquence de tuples (*indice*, *valeur*) que l'on a déplié.
-
----
-
-### Dictionnaire
-
-Un **dictionnaire** est une structure de données qui contient une séquence de couples (clé, valeur).
-
-Syntaxe:
-
-```python
-    {<cle_1>: <valeur_1>, ..., <cle_n>: <valeur_n>}
-```
-
-Exemple:
-
-```python
-In [1]: Sam = { 'age': 28, 'location': 'Toronto', 'active': False, 'phd': None}
-
-In [2]: Sam['age']   # ou Sam.get('age')
-Out[2]: 28
-```
-
-+++
-
-#### Propriétés d'un dictionnaire
-
-* Les clés sont uniques, les valeurs peuvent être mutiples.
-* Les clés sont immuables (chaînes, nombres, tuples) i.e. ne sont pas modifiables.
-* Les valeurs peuvent être mise à jour.
-
-+++
-
-#### Ajout/Mise à jour
-
-```python
-In [1]: Sam = {'age': 28}
-
-In [2]: Sam['affiliation'] = 'La Rochelle'
-
-In [3]: Sam['age'] = 29
-
-In [4]: Sam
-Out[n4]: {'age': 29, 'affiliation': 'La Rochelle'}
-```
-
-+++
-
-#### Mise à jour/Suppression
-
-```python
-In [1]: Sam = {'age': 29, 'affiliation': 'La Rochelle'}
-
-In [2]: Sam.update({ 'age': 30, 'location': 'Toronto'})
-
-In [3]: Sam
-Out[3]: {'age': 30, 'affiliation': 'La Rochelle', 'location': 'Toronto'}
-
-In [4]: del Sam['location']
-
-In [5]: 'location' in Sam
-Out[5]: False
-
-In [6]: Sam['location']
-KeyError: 'location'
-```
-
-+++
-
-#### Parcours d'un dictionnaire
-
-Trois façons de parcourir un dictionaire *d*:
-
-* *d.items()*: séquence de paires *cle*:*valeur*.
-* *d.keys()* : séquence des clés.
-* *d.values()*: séquence des valeurs.
-
-```python
-In [1]: for cle, valeur in Sam.items():
-          print(cle, valeur, sep=': ', end='  ;  ')
-###
-age: 30  ;  affiliation: La Rochelle  ;
-```
-
-+++
-
-#### Exercices sur les dictionnaires
-
-* Compter le nombre d'occurrences d'une lettre de l'alphabet dans un texte.
-* La Famille Simpson
-
----
-
-## Fonctions
-
-Les fonctions sont un moyen d’exécuter un ensemble d’instructions en les nommant.
-
-Syntaxe de base:
-
-```python
-def <nom_de_la_fonction>(<parametre_1>, ..., <parametre_n>):
-    <instructions>
-```
-
-Si l’exécution de ces instructions dépend de certaines valeurs, on parlera de fonction des *paramètres*.
-
-Les parenthèses sont obligatoires, même si la fonction n'a pas aucun paramètre.
-
-+++
-
-### Exemple de fonction
-
-```python
-In [1]: def somme_n_entiers(n):
-          som = 0
-          for i in range(1, n+1):
-            som += i
-          print('La somme des', n, 'premiers entiers: ', som, sep=' ')
-
-In [2]: somme_n_entiers(10)
-La somme des 10 premiers entiers:  55
-```
-
-+++
-
-### L'instruction *return* 1/2
-
-*return* indique ce que renvoie la fonction.
-
-```python
-In [1]: def somme_n_entiers(n):
-            som = 0
-            for i in range(1, n+1):
-              som += i
-            return som
-In [2]: s = somme_n_entiers(10)
-
-In [3]: print('La somme des', 10, 'premiers entiers: ', s, sep=' ')
-La somme des 10 premiers entiers:  55
-```
-
-+++
-
-### L'instruction *return* 2/2
-
-Pour retourner plusieurs valeurs, on utilisera un tuple (ou une liste) ou dictionnaire:
-
-```python
-In [1]: def decomposition(n, m):
-          a = n // m
-          b = n % m
-          return (a,b)  # ou return {'quotient': a, 'reste': b}
-
-In [2]: a, b = decomposition (43, 7)
-
-In [3]: print('43 =', a, '* 7 +',b)
-43 = 6 * 7 + 1
-
-```
-
-+++
-
-### Une fonction sans return `?!`
-
-Une fonction sans *return* explicite "retournera" la valeur spéciale *None*
-
-```python
-In [1]: def f(a, b):
-          c = a + b
-In [2]: res = f(4, 3)
-
-In [3]: res   #None n'affiche rien !
-
-In [4]: print(res)
-None
-```
-
-+++
-
-### Valeurs par défaut
-
-On peut donner des valeurs par défaut à certains paramètres que l'on positionne à droite:
-
-```python
-In [1]: def f(a,b=2):
-          return a**b
-In [2]: f(2)
-Out[2]: 4
-
-In [3]: f(4,3)
-Out[3]: 64
-
-In [4]: def f(b=2, a):
-          return a**b
-  File "<ipython-input-6-8d9bc7ce0f4b>", line 1
-    def f(b=2, a):
-         ^
-SyntaxError: non-default argument follows default argument
-```
-
-+++
-
-### Tout peut être paramètre `!`
-
-```python
-In [1]: def f(x):
-          return x**2
-
-In [2]: def mon_map(L,fun):
-          res = []
-          for l in L:
-            res.append(fun(l))
-          return res
-
-In [3]: L = [1, 0, 3, 2, -3]
-
-In [4]: print(mon_map(L, f))
-[1, 0, 9, 4, 9]
-```
-
-+++
-
-### La récursivité
-
-Une fonction est dite récursive si elle se calcule en faisant appel à elle même.
-
-```python
-def factorielle(n):
-  if n < 2:
-    return 1
-  return n * factorielle(n-1)
-```
-
----
-
-## Portée des variables
-
-Quand et comment mes variables sont accessibles ?
-
-+++
-
-### Cas simples 1/2
-
-On a déjà vu que les variables n'existent que si elles ont été assignées (valeur ou *None*)
-
-```python
-In [1]: a
-NameError: name 'a' is not defined
-
-In [2]: a = 3
-
-In [3]: a
-Out[3]: 3
-```
-
-+++
-
-### Cas simple 2/2
-
-Et dans un bloc:
-
-```python
-In [1]: for i in range(10):
-          a=3
-In [2]: print(a, i)
-3 9
-```
-
-On parle du niveau global ou principal.
-
-+++
-
-### Portée des variables: Fonctions 1/4
-
-```python
-In [1]: def f(b):
-          a = 3
-In [2]: a
-NameError: name 'a' is not defined
-
-In [3]: b
-NameError: name 'b' is not defined
-```
-
-Les variables **locales** et les **paramètres** n'existent pas à l'extérieur d'une fonction.
-
-+++
-
-### Portée des variables: Fonctions 2/4
-
-```python
-In [1]: a = 1
-
-In [2]: def f():
-          print(a)
-
-In [3]: f()
-1
-```
-
-* Les variables du niveau supérieur sont utilisables dans la fonction
-* C'est considéré comme une *mauvaise pratique* si $f$ est paramétrée par a
-
-+++
-
-### Portée des variables: Fonctions 3/4
-
-```python
-In [1]: a = 1
-
-In [2]: def f():
-          a = 2
-
-In [3]: f()
-
-In [4]: a
-Out[4]: 1
-1
-```
-
-L'affectation = dans une fonction ne change pas la valeur d'une variable.
-
-+++
-
-### Portée des variables: Fonctions 4/4
-
-```python
-In [1]: a = 1
-
-In [2]: def f(b):
-          b = 2
-
-In [3]: f(a)
-
-In [4]: a
-Out[4]: 1
-```
-
-Idem si c'est un paramètre.
-
-+++
-
-### Portée des variables: Fonctions et listes
-
-On peut modifier des objets en passant par des méthodes (Ex.: append pour une liste)
-
-```python
-In [1]: l = [1, 2, 3]
-
-In [2]: def f(liste):
-          liste.append(4)
-
-In [3]: l
-Out[3]: [1, 2, 3]
-
-In [4]: f(l)
-
-In [5]: l
-Out[5]: [1, 2, 3, 4]
-```
-
-+++
-
-### Bonus: Python et références
-
-```python
-In [1]: l1 = [1, 2, 3]
-
-In [2]: l2 = l1
-
-In [3]: l2.append(4)
-
-In [4]: l1
-Out[4]: [1, 2, 3, 4]
-
-In [5]: id(l1), id(l2)
-Out[5]: (4520736584, 4520736584)
-```
-
-* Les variables *l1* et *l2* **référencent** le même objet.
-* On peut créer une copie (entre autres) par: <br>
-      l2 = l1[:] ou l2 = l1.copy()
-
----
-
-## La documentation
-
-Parce ce que:
-
-* Le programmeur n'a pas une mémoire infaillible
-* On peut espérer faire du code que les autres vont lire
-
-On peut documenter tous les niveaux du code: fonction, ~~classe~~, ~~module~~
-
-Il s'agit de placer une chaine de caractères au bon endroit ...
-
-Règles pour la documentation: [PEP 257](https://www.python.org/dev/peps/pep-0257/)
-
-+++
-
-### Conventions pour la documenation simple
-
-* On utilise des triples guillemets pour commencer et finir la ligne.
-* La première lettre est en majuscule et on termine la ligne par un point.
-* Indentation identique au code.
-* On décrit ce que fait la fonction.
-
-+++
-
-### Exemple de documentation simple
-
-```python
-In [1]: def carre(x):
-   ...:   """Calcul du carré d'un nombre."""
-   ...:   return x * x
-In [2]: print(carre.__doc__)
-Calcul du carré d'un nombre.
-
-In [2]: help(carre)
-```
-
-+++
-
-### Pour une documentation plus longue
-
-```python
-"""La première ligne décrit la fonction.
-  
-   Description textuelle de la fonction.
-   Description textuelle de la fonction.
-   Description textuelle de la fonction.
-"""
-```
-
-+++
-
-### Exemple de documentation plus riche 1/2
-
-```python
-def monpow(a, b):
-  """Calcule a à la puissance b
-  
-    Ici une explication longue de la puissance
-    d'un nombre :math:`a^b = aa..a` b fois
-
-    :param a: la valeur
-    :param b: l'exposant
-    :type a: int, float,...
-    :type b: int, float,...
-    :returns: a**b
-    :rtype: int, float
-```
-
-+++
-
-### Exemple de documentation plus riche 2/2
-
-```python
-"""" suite ....
-
-    :Exemples:
-    >>>nompow(2, 3)
-    8
-    >>>nompow(2., 2)
-    4.0
-
-    .. note:: c'est une version accélérée de la puissance par multiplication successives
-    .. seealso:: pow
-    .. warning:: a et b sont des nombres
-    """
-    return a**b
-```
-
----
-
-## Fonctions externes et Modules
-
-* Comment organiser son code pour le réutiliser ?
-* Comment utiliser du code Python fait par d'autres ?
-
-+++
-
-### Exemple: importer une fonction 1/2
-
-Contenu du fichier "racine.py":
-
-```python
-def racine_dicho(x):
-  min, max, eps = 0, x, 1e-10
-  while True:
-    r = (min + max) / 2
-    if abs(r*r - x) < eps:
-        break
-    elif r*r < a:
-        min = r
-    else:
-        max = r
-  return r
-```
-
-+++
-
-### Exemple: importer une fonction 2/2
-
-Contenu du fichier  "comp_rac.py":
-
-```python
-import math
-import racine
-
-x = float(input('x ?'))
-if abs(math.sqrt(x) - racine.racine_dicho(x)) < 1e-16:
-  print("Les valeurs sont les mêmes")
-else:
-  print("Roger, on a un problème !!!")
-```
-
-+++
-
-### Directive import et ses conventions 1/2
-
-```python
-import xxx
-
-v = xxx.vvv
-a = xxx.fff(4) # directement
-```
-
-* Le module xxx est un fichier nommé xxx.py
-* Le module xxx à importer est dans le même répertoire que le module yyy qui importe
-* Dans yyy.py, on importe xxx par la directive import
-
-+++
-
-### Directive import et ses conventions 2/2
-
-* On doit préciser le nom du module chaque fois à moins de faire un raccourci:
-
-```python
-import xxx
-
-f = xxx.fff # indirectement: raccourci local
-a = f(4)
-```
-
-* Le module créé par l'utilisateur est prioritaire à celui fourni par Python.
-* Seul, le symbole xxx est importé, fff inconnu
-
-+++
-
-### Directive from ... import ... as ...
-
-* On peut décider de n'importer que certains symboles (variables, fonctions, ...)
-
-```python
-from racine import racine_dicho
-
-a = racine_dicho(4)
-```
-
-* Egalement les renommer localement
-
-```python
-from racine import racine_dicho as mon_sqrt
-from math import sqrt as py_sqrt, exp as py_exp
-
-a = mon_sqrt(4)
-```
-
-+++
-
-### Directive from ... import *
-
-* On peut décider de tout importer:
-
-```python
-from racine import *
-
-a = racine_dicho(4)
-```
-
-* Pratique déconseillée car on ne maîtrise pas totalement ce qui est importé.<br>
-  
-  On devrait plutôt faire:
-
-```python
-from turtle import forward, left, right, done
-```
-
-+++
-
-### Quelques modules fournis
-
-* random: fonctions pour produire des nombres aléatoires
-* math: opérations mathématiques basiques (cosinus,sinus,exp,etc.)
-* turtle: dessin à la tortue
-* os: Interagir avec le système d'exploitation
-* time: La date, heure, ...
-* tkinter: Créer une interface graphique
-
-[Liste complète](https://docs.python.org/3.6/library/index.html)
-
-+++
-
-### Autres modules populaires
-
-* Numpy, Scipy, Pandas: Calcul scientifique.
-* Matplotlib: Dessin 2d (courbes, histogrammes, *etc*).
-* Django, Flask: Faire des sites par programmation.
-* Pillow: Manipuler des images.
-
-Egalement, il existe des modules pour:
-
-* Interagir avec les réseaux sociaux.
-* Analyser les pages web.
-* ...
-
----
-
-## Fichiers
-
-* Comment charger un fichier texte.
-* Comment écrire des données dans un fichier texte
-* Comment charger des fichiers au format .csv.
-
-+++
-
-### Modes d'ouverture
-
-```python
-f = open('fichier.txt', mode='r')
-```
-
-* ‘r’ : Lecture seule
-* ‘w’ : Lecture/Ecriture (écrase le fichier existant)
-* ‘a’ : Lecture/Ecriture à partir de la fin  
-
-+++
-
-### Lecture d'un fichier texte
-
-```python
-f = open('fichier.txt', mode='r')
-```
-
-Méthodes de base:
-
-* f.read(n) : lire *n* caractères
-* f.readline() : lire une ligne
-* f.readlines() : tout lire
-
-+++
-
-### Exemple : Lecture d'un fichier texte
-
-```python
-f = open('fichier.txt', mode='r')
-lignes = f.readlines()
-f.close()
-```
-
-ou encore
-
-```python
-with open('fichier.txt', mode='r') as f:
-    lignes = f.readlines()
-```
-
-* Fermeture automatique du fichier avec *with*
-* Remarque: Chaque ligne est terminée par '\n'
-
-+++
-
-### Ecriture dans un fichier texte
-
-Méthodes de base:
-
-```python
-# Ecrit une chaine dans f et retourne le nombre de caractères écrits
-n = f.write(chaine)
-# Autre possibilité
-print(3, 'Chaine', file=f)
-```
-
-+++
-
-### Exemple : Ecriture d'un fichier texte
-
-```python
-f = open('fichier.txt', mode='w')
-n = f.write("une première ligne\n")
-print("La seconde ligne", file=f)
-f.close()
-```
-
-* Remarque: On peut également utiliser un *with*
-
-+++
-
-### Lecture d'un fichier .csv
-
-CSV ("Comma-separated values") = des valeurs séparées par des virgules.
-
-Exemple: [place de parking disponibles](https://opendata.larochelle.fr/dataset/stationnement-places-disponibles-en-temps-reel/)
-
-```
-dp_id,dp_parc_id,dp_libelle,dp_place_disponible,dp_date,dp_nb_places,dp_x,dp_y
-8977068,5,VIEUX PORT OUEST,289,11-11-2018 18:39:18,420,"379378,696053463","6570179,2092431"
-8977069,4,ENCAN,366,11-11-2018 18:39:22,406,"379864,062986826","6569682,94080835"
-8977070,17,VIEUX PORT SUD,459,11-11-2018 18:39:23,500,"379925,99731268","6570032,62381534"
-8977071,16,VERDUN,424,11-11-2018 18:39:24,452,"379670,377120847","6570946,77561493"
-8977072,20,MAUBEC,65,11-11-2018 18:39:18,109,"380380,783303404","6570379,61800321"
-8977073,21,PORT NEUF,155,11-11-2018 18:39:16,172,"377155,700640437","6570849,71710348"
-```
-
-+++
-
-### Exemple de lecture d'un fichier .csv
-
-```python
-import csv
-
-with open('fichier.csv', newline='') as f:
-  lecteur = csv.reader(f, delimiter=',', quotechar='"')
-  for ligne in lecteur:
-    print(ligne)
-```
-
-+++
-
-### Exemple d'écriture d'un fichier .csv
-
-```python
-import csv
-
-with open('sortie.csv', 'w', newline='') as f:
-    writer = csv.writer(f)
-    writer.writerows(lignes)
-```
-
----
-
-## TEA 1/2
-
-* Un fichier .csv à charger
-* Des activités, des questions amènent à écrire du code.
-* Le résultat du code est entré dans un test avec retour immédiat lorsque que cela est possible (réponse numérique, une chaine de caractère, sortie de print)
-* Nombre de réponses illimité
-* Assistance auprès de votre enseignant de TP en présentiel ou via moodle.
-
-+++
-
-### TEA 2/2
-
-* Un code solution est donné à la fin du TEA.
-* Un super entrainement au CC2...
-* Participation à la note de CC2.
-
----
-
-## Pour aller plus loin
-
-* Listes, dictionnaires en compréhension
-* *args, **Kwargs
-* zip, itertools

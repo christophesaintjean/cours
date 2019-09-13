@@ -1,11 +1,14 @@
+theme : simple
+
 # Layout
-#layout : center-left
-layout : top-left
+layout : center-left
+#layout : top-left
+
 
 # Look-and-Feel
 logo : assets/images/logo.png
 logo-position : top-right
-theme : none
+
 highlight : monokai-sublime
 
 # background
@@ -20,10 +23,9 @@ published : true
 
 # Plugins
 charts : false
-mathjax : TeX-MML-AM_CHTML
-
+#mathjax : TeX-MML-AM_CHTML
+mathjax : TeX-MML-AM_HTMLorMML-full
 code-line-numbers : false
 print-fragments : false
-published : false
+published : true
 loop : false
-gatoken : UA-125050122-1
