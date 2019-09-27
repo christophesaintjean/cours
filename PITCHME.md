@@ -2,7 +2,7 @@
 
 Christophe Saint-Jean
 
-[Transparents](https://gitpitch.com/christophesaintjean/cours/IntroProgS12019) / [Code](https://tinyurl.com/y92hrbqf) du cours 2019-2020
+[Transparents](https://gitpitch.com/christophesaintjean/cours/IntroProgS12019) / [Code](https://tinyurl.com/y2s2hxtn) du cours 2019-2020
 
 ---
 
@@ -422,7 +422,6 @@ Dans ce type de langage, les programmes sont organisés autour de briques logici
 ### Aparté : Langage déclaratif
 
 On parle de *programmation déclarative* lorsqu'on décrit le résultat attendu, les objectifs (**quoi**) sans donner la manière de le faire (**comment**).
-
 Exemple: page HTML5 minimaliste
 
 ```html
@@ -793,6 +792,51 @@ On remarque:
 
 +++
 
+#### Affichage formaté avec .format 1/2
+
+```python
+In [1]: nom = "toto"
+In [2]: age = 8
+
+In [3]: "Salut {}, tu as {} ans".format(nom, age)
+Out[3]: 'Salut toto, tu as 8 ans'
+
+In [4]: "Salut {1}, tu as {0} ans".format(nom, age)
+Out[4]: 'Salut 8, tu as toto ans'
+```
+
++++
+
+#### Affichage formaté avec .format 2/2
+
+On peut également nommer les champs
+
+```python
+In [5]: "Salut {prenom}, tu as {age} ans".format(age=age, prenom=nom)
+Out[5]: 'Salut toto, tu as 8 ans'
+```
+
++++
+
+#### Une version moderne, les f-strings
+
+On peut directement désigner des expressions !!!
+
+```python
+In [1]: nom = "toto"
+In [2]: age = 8
+
+In [3]: f"Salut {nom} !"
+Out[3]: 'Salut toto !'
+
+In [4]: f"Le double de {age} est {2*age}"
+Out[4]: 'Le double de 8 est 16'
+```
+
+Attention à partir de Python 3.6 !!!!
+
++++
+
 ### Saisie Utilisateur
 
 Fonction *input* :
@@ -827,9 +871,9 @@ if, else, elseif
 
 ```python
 if <condition>:
-  <instructions si True>
+    <instructions si True>
 [else:
-  <instructions si False>]
+    <instructions si False>]
 ```
 
 * La partie else est optionnelle
@@ -853,7 +897,7 @@ Une condition peut-être:
 
 Une condition peut-être aussi:
 
-* une valeur numérique: 0 équivaut à *False* sinon *True*
+* une valeur numérique: 0 ou 0. équivaut à *False* sinon *True*
 * une chaine de caractères: '' équivaut à *False* sinon *True*
 * *None* équivaut à *False*
 * *etc*
@@ -907,3 +951,540 @@ a est un nombre positif, impair et non divisible par 3
 
 * Conditions if imbriquées : a $\in$ [0,1]
 * Année Bissextile
+* Tortue (version modifiée du TP1)
+
+---
+
+## Répétitives
+
+while, break, for, continue
+
+---
+
+### Répétitive *"Tant que"*
+
+Syntaxe:
+
+```python
+while <condition>:
+    <instructions>
+```
+
+La condition est évaluée **avant** chaque éxécution des instructions.
+
+Conditions de sortie du "while":
+
+* La condition n'est pas vérifiée.
+* Une sortie explicite par *break*.
+* Crash du programme...
+
++++
+
+##### Cas fréquents d'utilisation *"Tant que"* 1/2
+
+* Répéter *n* fois
+
+```python
+a = 1
+while a < 10:
+  <instructions>
+  a = a + 1
+```
+
+* Compter le nombre d'itérations
+
+```python
+cpt = 0
+while <condition>:
+  <instructions>
+  cpt += 1
+```
+
++++
+
+#### Cas fréquents d'utilisation *"Tant que"* 2/2
+
+* Parcourir un intervalle de valeurs $[a,b]$ par pas de $eps$
+
+```python
+x = a
+while x <= b:
+  <instructions>
+  x += eps
+```
+
+* Une boucle d'événements
+
+```python
+while True:
+  <instructions>
+  if <événement particulier>:
+    break
+```
+
++++
+
+##### Petits exos sur "while"
+
+* Combien de fois peut on diviser un nombre par deux ?
+* Compter le nombre de entiers impairs entre 1 et 1000 divisibles par 3 mais pas par 7.
+* Racine carrée entière:
+  Etant donné un entier $n$, déterminer le plus grand nombre entier $r$ tel que $r^2 \leq n$.
+
+---
+
+### Répétitive for
+
+Syntaxe:
+
+```python
+for <variable> in <sequence>:
+     <instructions>
+```
+
+La séquence peut être:
+
+* Une plage de valeurs avec *range*
+* Une chaîne de caractères
+* Une liste, un tuple (plus tard)
+* personnalisée ...
+
+Le terme anglais est *iterable*.
+
++++
+
+#### Instruction *range*
+
+Syntaxe:
+
+```python
+range(start, stop[, step]) -> range object
+```
+
+Cas d'utilisation:
+
+* range(i, j) -> i, i+1, i+2, ..., j-1.
+* range(i) -> 0, 1, ..., i-1..
+
+Attention, step peut être négatif.
+
++++
+
+#### Exemples *for* avec *range*
+
+```python
+In [1]: for i in range(1,10):
+          print(i, end=' ')
+###
+1 2 3 4 5 6 7 8 9
+In [2]: for i in range(5):
+          print(i, end=' ')
+###
+0 1 2 3 4
+In [3]: for i in range(8, 0, -1):
+          print(i, end=' ')
+###
+8 7 6 5 4 3 2 1
+```
+
++++
+
+#### Exemple *for* avec *str*
+
+```Python
+In [1]: for c in 'Python':
+          print(c, end=', ')
+###
+P, y, t, h, o, n, @
+
+In [2]: cpt = 0
+        for c in 'Pythonneries':
+            if c == 'e':
+              cpt += 1
+        print('Nombre de "e": ', cpt)
+###
+Nombre de "e":  2
+```
+
++++
+
+#### Exercice d'application
+
+`$$\lim_{n \rightarrow +\infty} 4 \sum_{k=0}^{n} \frac{(-1)^{k}}{2k+1} = \pi$$`
+
+Ecrire un programme basé sur cette formule qui approxime $\pi$:
+
+```Python
+In [1]: n = 10**6; som = 0
+
+In [2]: for k in range(n+1):
+          som = som + (-1)**k / (2*k+1)
+
+In [3]: print(4*som)
+3.1414926535900345
+
+In [4]: import math; print(math.pi)
+3.141592653589793
+```
+
++++
+
+### Bonus: instruction *continue*
+
+*continue* permet d'interrompre une itération:
+
+* On retourne au test de la condition dans *while*
+* Prochaine itération dans *for*
+
+```python
+In [1]: for i in range(10):
+          if i % 2 == 0:
+            continue
+          print(i, end=' ')
+###
+1 3 5 7 9
+```
+
++++
+
+### Bonus: *else* dans *while* et *for*
+
+* *else* est exécuté si:
+  * la condition du *while* est *False*
+  * *for* a parcouru toute la séquence
+* *else* n'est pas exécuté si interruption par un *break*.
+
+```python
+In [2]: for i in range(10):
+          print(i, end=' ')
+        else:
+          print('\nTerminé')
+###
+0 1 2 3 4 5 6 7 8 9
+Terminé
+```
+
+---
+
+## Structures de donnnées
+
+liste, tuple, dictionnaire
+
+---
+
+### Liste
+
+Une **liste** est une structure de données qui contient une séquence de valeurs.
+
+Syntaxe:
+
+```python
+[<valeur_1>, <valeur_2>, ..., <valeur_n>]
+```
+
+* Les valeurs ne sont pas nécessairement de même type.
+* Une liste est une séquence
+
++++
+
+#### Exemples de listes
+
+```python
+In [1]: couleurs = ['rouge', 'vert', 'bleu']
+
+In [2]: Sam = [28 , 'Toronto', False, None]
+
+In [3]: Jeff = [70, 'Cambridge', True, 25]
+
+In [4]: People = [Sam, Jeff]
+
+In [5]: print(People)
+[[28, 'Toronto', False, None], [70, 'Cambridge', True, 25]]
+```
+
++++
+
+#### Utilisation d'une liste
+
+On peut rappeler un élément particulier d'une liste par son **indice**.</br>
+Pour une liste de longueur *n*, l'indice est un entier entre **0** et **n-1**.
+
+```python
+In [1]: couleurs = ['rouge', 'vert', 'bleu']
+
+In [2]: len(couleurs)   # longueur de la liste
+Out[2]: 3
+
+In [3]: couleurs[0]
+Out[3]: 'rouge'
+
+In [4]: couleurs[5]
+...
+IndexError: list index out of range
+```
+
++++
+
+#### Liste: Indiçage négatif
+
+Pour faciliter l'accès des derniers éléments d'une liste, *Python* a introduit l'indiçage négatif.
+
+|liste| 'h' | 'e' | 'l' | 'l' | 'o' |
+|-|-----|-----|-----|-----|-----|
+|indice positif| 0   | 1   | 2   | 3   | 4   |
+|indice négatif| -5  | -4  | -3  | -2  | -1  |
+
+Le dernier élément de la liste  toujours l'indice -1.
+
++++
+
+#### Extraction d'une sous-liste 1/3
+
+Syntaxe ($\sim$ *range*):
+
+```python
+       L[<start>:<stop>:<step>]
+```
+
+Quelques cas fréquents (L est une liste):
+
+* Eléments entre l'indice 2 (inclus) et l'indice 5 (exclus):</br>
+  L[2:5]
+* Eléments à partir de  l'indice 4:</br>
+  L[4:]
+* Les 10 premiers éléments:</br>
+  L[:10]
+
++++
+
+#### Extraction d'une sous-liste 2/3
+
+* Duplication de la liste:</br>
+  L[:]
+* Un élément sur 2:</br>
+  L[::2]
+
++++
+
+#### Extraction d'une sous-liste 3/3
+
+Quelques cas fréquents avec indice négatif:
+
+* Les 5 derniers éléments:</br>
+  L[-5:]
+* Tout sauf les derniers 3 éléments:</br>
+  L[:-3]
+* Duplication de *a* dans l'ordre inverse:</br>
+  L[::-1]
+
++++
+
+#### Affecter une valeur à une liste existante
+
+```python
+In [1]: couleurs = ['rouge', 'vert', 'bleu']
+
+In [2]: couleurs[0] = 'jaune'
+
+In [3]: couleurs
+Out[3]: ['jaune', 'vert', 'bleu']
+
+In [4]: couleurs[:2]= [34, 48]
+
+In [5]: couleurs
+Out[5]: [34, 48, 'bleu']
+```
+
++++
+
+#### Insérer un élément en fin de liste : *append*
+
+```python
+In [1]: couleurs = ['rouge', 'vert', 'bleu']
+
+In [2]: couleurs.append('cyan')
+
+In [3]: couleurs
+Out[3]: ['rouge', 'vert', 'bleu', 'cyan']
+
+In [4]: L = []   ## liste vide !!!
+
+In [5]: L.append(4)
+
+In [6]: L
+Out[6]: [4]
+```
+
++++
+
+#### Insérer un élément : *insert*
+
+Syntaxe ($\sim$ *range*):
+
+```python
+    L.insert(<indice>, <element>)
+```
+
+Insère avec décalage vers la fin:
+
+```python
+In [1]: couleurs = ['rouge', 'vert', 'bleu']
+
+In [2]: couleurs.insert(2, 'cyan')
+
+In [3]: couleurs
+Out[3]: ['rouge', 'vert', 'cyan', 'bleu']
+```
+
++++
+
+#### Concaténer deux listes 1/2
+
+Rappel: Concaténer c'est mettre bout à bout deux structures de données.
+
+Deux syntaxes:
+
+```python
+    L = L1 + L2 ou L1+=L2
+    L1.extend(L2)
+```
+
+```python
+In [1]: ['rouge', 'vert', 'bleu'] + ['r', 'v', 'b']
+Out[1]: ['rouge', 'vert', 'bleu', 'r', 'v', 'b']
+```
+
++++
+
+#### Concaténer deux listes 2/2
+
+```python
+In [2]: couleurs = ['rouge', 'vert', 'bleu']
+
+In [3]: couleurs.extend(['r', 'v', 'b'])
+
+In [4]: print(couleurs)
+['rouge', 'vert', 'bleu', 'r', 'v', 'b']
+```
+
++++
+
+#### Suppression d'éléments: *del* ou *remove*
+
+```python
+    del L[3] ou del L[3:]    ## par indice
+    L.remove(5)              ## la première occurrence
+```
+
+```python
+In [1]: couleurs = ['rouge', 'vert', 'bleu']
+
+In [2]: del couleurs[1]
+
+In [3]: couleurs
+Out[3]: ['rouge', 'bleu']
+
+In [4]: couleurs = ['rouge', 'vert', 'bleu', 'vert', 'orange']
+
+In [5]: couleurs.remove('vert')
+
+In [6]: couleurs
+Out[6]: ['rouge', 'bleu', 'vert', 'orange']
+```
+
++++
+
+#### Parcours d'une liste par indice
+
+On peut utiliser les indices.
+
+```python
+In [1]: couleurs = ['rouge', 'vert', 'bleu']
+
+In [2]: for i in range(len(couleurs)):
+          print(couleurs[i].upper(), end=', ')
+###
+ROUGE, VERT, BLEU,
+```
+
+On peut très bien faire aussi avec un *while*
+
++++
+
+#### Parcours d'une liste par itérateur
+
+Rappel: *for* permet d'itérer toute séquence.
+
+```python
+In [1]: couleurs = ['rouge', 'vert', 'bleu']
+
+In [2]: for couleur in couleurs:
+          print(couleur.upper(), end=', ')
+###
+ROUGE, VERT, BLEU,
+```
+
+Très simple, mais on a perdu la position dans la liste !
+
++++
+
+#### Parcours d'une liste par *enumerate*
+
+```python
+In [1]: couleurs = ['rouge', 'vert', 'bleu']
+
+In [2]: for i, couleur in enumerate(couleurs):
+          print('indice:', i, 'valeur:', couleur.upper())
+###
+indice: 0 valeur: ROUGE
+indice: 1 valeur: VERT
+indice: 2 valeur: BLEU
+```
+
+C'est le meilleur choix si l'on a besoin de l'indice en plus de la valeur.
+
++++
+
+#### Exemple sur les listes 1/2
+
+A partir d'une liste de noms, sélectionner ceux qui commencent ou terminent par une voyelle.
+
+```python
+In [1]: voyelles = ['a', 'e', 'i', 'o', 'u', 'y']
+
+In [2]: noms = ['mila', 'mathis', 'anne', 'myriam', 'eloan', 'pierre', 'jules']
+
+In [3]: select = []
+
+In [4]: for nom in noms:
+          for voyelle in voyelles:
+            if nom[0] == voyelle or nom[-1]==voyelle:
+              select.append(nom)
+              break
+
+In [5]: select
+Out[5]: ['mila', 'anne', 'eloan', 'pierre']
+
+```
+
++++
+
+#### Exemple sur les listes 2/2
+
+Une version plus compacte:
+
+```python
+In [1]: voyelles = 'aeiouy'
+
+In [2]: noms = ['mila', 'mathis', 'anne', 'myriam', 'eloan', 'pierre', 'jules']
+
+In [3]: select = []
+
+In [4]: for nom in noms:
+          if nom[0] in voyelles or nom[-1] in voyelles:
+              select.append(nom)
+
+In [5]: select
+Out[5]: ['mila', 'anne', 'eloan', 'pierre']
+
+```
