@@ -1,17 +1,17 @@
 
 
-a = float(input('a ?'))
+a = float(input("a ?  "))
 
 if a < 0:
-    print("a à l'exterieur")
+    print(f"{a} à l'exterieur de [0,1]")
     if a > 1:
-        print("a à l'exterieur")
+        print(f"{a} à l'exterieur de [0,1]")
 else:
-    print("a à l'intérieur")
+    print(f"{a} à l'intérieur de [0,1]")
 
 if a < 0 or a > 1:
-        print("a à l'exterieur")
+    print(f"{a} à l'exterieur de [0,1]")
 else:
-    print("a à l'intérieur")
+    print(f"{a} à l'intérieur de [0,1]")
 
 
