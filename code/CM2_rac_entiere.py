@@ -9,6 +9,7 @@ n = int(input("n ? "))
 r = 0
 while r*r <= n:
     r = r + 1
+    
 # on a donc r*r > n, on est allé trop loin
 r = r - 1
 print("La racine carrée entière de", n, "est", r)

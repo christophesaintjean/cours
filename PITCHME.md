@@ -1028,7 +1028,7 @@ while True:
 ##### Petits exos sur "while"
 
 * Combien de fois peut on diviser un nombre par deux ?
-* Compter le nombre de entiers impairs entre 1 et 1000 divisibles par 3 mais pas par 7.
+* Compter le nombre de entiers impairs entre 1 et 100 divisibles par 3 mais pas par 7.
 * Racine carrée entière:
   Etant donné un entier $n$, déterminer le plus grand nombre entier $r$ tel que $r^2 \leq n$.
 
