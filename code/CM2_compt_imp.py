@@ -1,4 +1,4 @@
-# Compter le nombre de entiers impairs entre 1 et 1000 divisibles par 3 mais pas par 7.
+# Compter le nombre de entiers impairs entre 1 et 100 divisibles par 3 mais pas par 7.
 
 n = 1
 cpt = 0

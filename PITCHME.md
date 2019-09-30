@@ -1096,7 +1096,7 @@ In [3]: for i in range(8, 0, -1):
 In [1]: for c in 'Python':
           print(c, end=', ')
 ###
-P, y, t, h, o, n, @
+P, y, t, h, o, n, 
 
 In [2]: cpt = 0
         for c in 'Pythonneries':
