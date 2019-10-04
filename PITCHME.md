@@ -1059,6 +1059,7 @@ Le terme anglais est *iterable*.
 Syntaxe:
 
 ```python
+range(stop) -> range object
 range(start, stop[, step]) -> range object
 ```
 
