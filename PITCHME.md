@@ -1206,7 +1206,25 @@ In [5]: print(People)
 
 +++
 
-####
+#### Longueur d'une liste / liste vide
+
+```python
+In [1]: len(['rouge', 'vert', 'bleu'])
+Out[1]: 3
+
+In [2]: L = []
+```
+
++++
+
+#### Test d'une liste vide
+
+```python
+if L:        #   ou len(L) > 0
+    print('non vide')
+else:
+    print('vide')
+```
 
 +++
 
@@ -1536,7 +1554,7 @@ Out[4]: ('a', 5000, 'b', 858, 'c', 234)
 
 +++
 
-#### Dépliement (unpacking) d'un tuple
+#### Dépliement (unpacking) d'un tuple (ou f'une liste)
 
 Permet de faire l'affectation multiple de valeurs
 
@@ -1614,7 +1632,7 @@ In [2]: Sam['affiliation'] = 'La Rochelle'
 In [3]: Sam['age'] = 29
 
 In [4]: Sam
-Out[n4]: {'age': 29, 'affiliation': 'La Rochelle'}
+Out[4]: {'age': 29, 'affiliation': 'La Rochelle'}
 ```
 
 +++
