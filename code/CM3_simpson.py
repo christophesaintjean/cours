@@ -1,7 +1,9 @@
 Homer = {'age': 39, 'sexe': 'M', 'prénom': 'Homer', 'nom': 'Simpson'}
-Marge = {'age': 34, 'sexe': 'F', 'prénom': 'Majorie', 'nom': 'Bouvier', 'surnom': 'marge'}
+Marge = {'age': 34, 'sexe': 'F', 'prénom': 'Majorie', 'nom': 'Bouvier', 'surnom': 'Marge'}
 Lisa = {'age': 8, 'sexe': 'F', 'prénom': 'Lisa', 'nom': 'Simpson'}
 Bart = {'age': 10, 'sexe': 'M', 'prénom': 'Bartholomew', 'nom': 'Simpson', 'surnom': 'Bart'}
+
+
 
 Homer['enfants'] = [Lisa, Bart]
 

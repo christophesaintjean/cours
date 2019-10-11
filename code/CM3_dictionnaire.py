@@ -1,6 +1,9 @@
 alphabet ='abcdefghijklmnopqrstuvwxyz'
-texte = 'le petit chat est mort'
+texte = 'le petit chat est mort, les souris dansent'
 dico_cpt = {}  # également dico_cpt = dict()
+
+
+
 
 for lettre in texte:
     if lettre not in alphabet:
