@@ -1679,3 +1679,334 @@ age: 30  ;  affiliation: La Rochelle  ;
 
 * Compter le nombre d'occurrences d'une lettre de l'alphabet dans un texte.
 * La Famille Simpson
+
+---
+
+## Fonctions
+
+Les fonctions sont un moyen d’exécuter un ensemble d’instructions en les nommant.
+
+Syntaxe de base:
+
+```python
+def <nom_de_la_fonction>(<parametre_1>, ..., <parametre_n>):
+    <instructions>
+```
+
+Si l’exécution de ces instructions dépend de certaines valeurs, on parlera de fonction des *paramètres*.
+
+Les parenthèses sont obligatoires, même si la fonction n'a pas aucun paramètre.
+
++++
+
+### Exemple de fonction sans paramètre
+
+```python
+In [1]: from datetime import datetime
+
+In [2]: def bonjour():
+   ...:     heure = datetime.now()
+   ...:     print(f"Bonjour, il est {heure}")
+   ...:
+
+In [3]: bonjour()
+Bonjour, il est 2019-10-25 10:15:50.076705
+```
+
++++
+
+### Exemple de fonction avec un paramètre
+
+```python
+In [1]: def affiche_somme_n_entiers(n):
+   ...:     som = 0
+   ...:     for i in range(1, n):
+   ...:         print(f"{i} + ", end="")
+   ...:         som = som + i
+   ...:     som = som + n
+   ...:     print(f"{n} = {som}")
+
+In [2]: affiche_somme_n_entiers(5)
+1 + 2 + 3 + 4 + 5 = 15
+```
+
++++
+
+### Exemple de fonction avec 2 paramètres
+
+```python
+In [1]: def diff_ch(ch1, ch2):
+    ...:     ch1_u = ch1.upper()
+    ...:     ch2_u = ch2.upper()
+    ...:     if ch1_u == ch2_u:
+    ...:         print(f"{ch1} et {ch2} sont égales à la casse près")
+    ...:     else:
+    ...:         print(f"{ch1} et {ch2} sont différentes")
+    ...:
+
+In [2]: diff_ch("toto", "TotO")
+toto et TotO sont égales à la casse près
+
+In [3]: diff_ch("toto", "titi")
+toto et titi sont différentes
+```
+
++++
+
+### L'instruction *return* 1/2
+
+*return* indique ce que *renvoie* la fonction.
+
+```python
+In [1]: def somme_n_entiers(n):
+            som = 0
+            for i in range(1, n+1):
+              som += i
+            return som
+In [2]: s = somme_n_entiers(10)
+
+In [3]: print('La somme des', 10, 'premiers entiers: ', s, sep=' ')
+La somme des 10 premiers entiers:  55
+```
+
++++
+
+### L'instruction *return* 2/2
+
+Pour retourner plusieurs valeurs, on utilisera un tuple (ou une liste) ou dictionnaire:
+
+```python
+In [1]: def decomposition(n, m):
+          a = n // m
+          b = n % m
+          return (a,b)  # ou return {'quotient': a, 'reste': b}
+
+In [2]: a, b = decomposition (43, 7)
+
+In [3]: print('43 =', a, '* 7 +',b)
+43 = 6 * 7 + 1
+
+```
+
++++
+
+### Une fonction sans return `?!`
+
+Une fonction sans *return* explicite "retournera" la valeur spéciale *None*
+
+```python
+In [1]: def f(a, b):
+          c = a + b
+In [2]: res = f(4, 3)
+
+In [3]: res   #None n'affiche rien !
+
+In [4]: print(res)
+None
+```
+
++++
+
+### Valeurs par défaut
+
+On peut donner des valeurs par défaut à certains paramètres que l'on positionne à droite:
+
+```python
+In [1]: def f(a,b=2):
+          return a**b
+In [2]: f(2)
+Out[2]: 4
+
+In [3]: f(4,3)
+Out[3]: 64
+
+In [4]: def f(b=2, a):
+          return a**b
+  File "<ipython-input-6-8d9bc7ce0f4b>", line 1
+    def f(b=2, a):
+         ^
+SyntaxError: non-default argument follows default argument
+```
+
++++
+
+### Tout peut être paramètre `!`
+
+```python
+In [1]: def f(x):
+          return x**2
+
+In [2]: def mon_map(L,fun):
+          res = []
+          for l in L:
+            res.append(fun(l))
+          return res
+
+In [3]: L = [1, 0, 3, 2, -3]
+
+In [4]: print(mon_map(L, f))
+[1, 0, 9, 4, 9]
+```
+
++++
+
+### La récursivité
+
+Une fonction est dite récursive si elle se calcule en faisant appel à elle même.
+
+```python
+def factorielle(n):
+  if n < 2:
+    return 1
+  return n * factorielle(n-1)
+```
+
+---
+
+## Portée des variables
+
+Quand et comment mes variables sont accessibles ?
+
++++
+
+### Cas simples 1/2
+
+On a déjà vu que les variables n'existent que si elles ont été assignées (valeur ou *None*)
+
+```python
+In [1]: a
+NameError: name 'a' is not defined
+
+In [2]: a = 3
+
+In [3]: a
+Out[3]: 3
+```
+
++++
+
+### Cas simple 2/2
+
+Et dans un bloc:
+
+```python
+In [1]: for i in range(10):
+          a=3
+In [2]: print(a, i)
+3 9
+```
+
+On parle du niveau global ou principal.
+
++++
+
+### Portée des variables: Fonctions 1/4
+
+```python
+In [1]: def f(b):
+          a = 3
+In [2]: a
+NameError: name 'a' is not defined
+
+In [3]: b
+NameError: name 'b' is not defined
+```
+
+Les variables **locales** et les **paramètres** n'existent pas à l'extérieur d'une fonction.
+
++++
+
+### Portée des variables: Fonctions 2/4
+
+```python
+In [1]: a = 1
+
+In [2]: def f():
+          print(a)
+
+In [3]: f()
+1
+```
+
+* Les variables du niveau supérieur sont utilisables dans la fonction
+* C'est considéré comme une *mauvaise pratique* si $f$ est paramétrée par a
+
++++
+
+### Portée des variables: Fonctions 3/4
+
+```python
+In [1]: a = 1
+
+In [2]: def f():
+          a = 2
+
+In [3]: f()
+
+In [4]: a
+Out[4]: 1
+1
+```
+
+L'affectation = dans une fonction ne change pas la valeur d'une variable.
+
++++
+
+### Portée des variables: Fonctions 4/4
+
+```python
+In [1]: a = 1
+
+In [2]: def f(b):
+          b = 2
+
+In [3]: f(a)
+
+In [4]: a
+Out[4]: 1
+```
+
+Idem si c'est un paramètre.
+
++++
+
+### Portée des variables: Fonctions et listes
+
+On peut modifier des objets en passant par des méthodes (Ex.: append pour une liste)
+
+```python
+In [1]: l = [1, 2, 3]
+
+In [2]: def f(liste):
+          liste.append(4)
+
+In [3]: l
+Out[3]: [1, 2, 3]
+
+In [4]: f(l)
+
+In [5]: l
+Out[5]: [1, 2, 3, 4]
+```
+
++++
+
+### Bonus: Python et références
+
+```python
+In [1]: l1 = [1, 2, 3]
+
+In [2]: l2 = l1
+
+In [3]: l2.append(4)
+
+In [4]: l1
+Out[4]: [1, 2, 3, 4]
+
+In [5]: id(l1), id(l2)
+Out[5]: (4520736584, 4520736584)
+```
+
+* Les variables *l1* et *l2* **référencent** le même objet.
+* On peut créer une copie (entre autres) par:<br>
+      l2 = l1[:] ou l2 = l1.copy()
