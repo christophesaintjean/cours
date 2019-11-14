@@ -1097,7 +1097,7 @@ In [3]: for i in range(8, 0, -1):
 In [1]: for c in 'Python':
           print(c, end=', ')
 ###
-P, y, t, h, o, n, 
+P, y, t, h, o, n,
 
 In [2]: cpt = 0
         for c in 'Pythonneries':
@@ -2078,11 +2078,8 @@ a = xxx.ma_fonction(4) # directement
 
 ### Généralités: Directive import et ses conventions 2/3
 
-Conventions:
-
 * Le module xxx est un fichier nommé xxx.py
 * Le module xxx à importer est dans le même répertoire que le module yyy qui l'importe
-* Dans yyy.py, on importe xxx par la directive "import xxx"
 * On doit préciser le nom du module chaque fois à moins de faire un raccourci:
 
 ```python
@@ -2298,8 +2295,10 @@ Out[3]: json.dumps(Lisa)
 Out[3]: '{"age": 8, "sexe": "F", "pr\\u00e9nom": "Lisa", "nom": "Simpson"}'
 ```
 
-Il sait convertir automatiquement : dict, list, tuple, int, float, str
-, bool, None
+Il sait convertir automatiquement :
+
+* dict, list, tuple
+* int, float, str, bool, None
 
 +++
 
@@ -2311,14 +2310,11 @@ In [1]: import json
 In [2]: Lisa = {'age': 8, 'sexe': 'F', 'prénom': 'Lisa', 'nom': 'Simpson'}
 
 In[3]: with open('Lisa.json', mode='w') as f:
-            json.dump(Lisa, f)
+          json.dump(Lisa, f)
 
-In[4]:with open('Lisa2.json', mode='w') as f:
-    json.dump(Lisa, f, indent=4, sort_keys=True)
+In[4]: with open('Lisa2.json', mode='w') as f:
+          json.dump(Lisa, f, indent=4, sort_keys=True)
 ```
-
-Il sait convertir automatiquement : dict, list, tuple, int, float, str
-, bool, None
 
 +++
 
@@ -2340,9 +2336,6 @@ In [5]: type(Lisa)
 Out[5]: dict
 ```
 
-Il sait convertir automatiquement : dict, list, tuple, int, float, str
-, bool, None
-
 +++
 
 ### Conversion d'un objet JSON vers Python 2/2
@@ -2356,12 +2349,10 @@ In [2]: with open('Lisa.json', mode='r') as f:
               Lisa = json.load(f)
 In [3]: Lisa
 Out[3]: {'age': 8, 'nom': 'Simpson', 'prénom': 'Lisa', 'sexe': 'F'}
-type(Lisa)
-Out[10]: dict
-```
 
-Il sait convertir automatiquement : dict, list, tuple, int, float, str
-, bool, None
+In [4]: type(Lisa)
+Out[4]: dict
+```
 
 +++
 
@@ -2371,7 +2362,7 @@ CSV ("Comma-separated values") = des valeurs séparées par des virgules.
 
 Exemple: [place de parking disponibles](https://opendata.larochelle.fr/dataset/stationnement-places-disponibles-en-temps-reel/)
 
-```
+```csv
 dp_id,dp_parc_id,dp_libelle,dp_place_disponible,dp_date,dp_nb_places,dp_x,dp_y
 8977068,5,VIEUX PORT OUEST,289,11-11-2018 18:39:18,420,"379378,696053463","6570179,2092431"
 8977069,4,ENCAN,366,11-11-2018 18:39:22,406,"379864,062986826","6569682,94080835"
@@ -2389,9 +2380,9 @@ dp_id,dp_parc_id,dp_libelle,dp_place_disponible,dp_date,dp_nb_places,dp_x,dp_y
 import csv
 
 with open('fichier.csv', newline='') as f:
-  lecteur = csv.reader(f, delimiter=',', quotechar='"')
-  for ligne in lecteur:
-    print(ligne)
+   lecteur = csv.reader(f, delimiter=',', quotechar='"')
+   for ligne in lecteur:
+      print(ligne)
 ```
 
 +++
@@ -2405,6 +2396,7 @@ with open('sortie.csv', 'w', newline='') as f:
     writer = csv.writer(f)
     writer.writerows(lignes)
 ```
+
 ---
 
 ## La documentation
@@ -2521,4 +2513,3 @@ Découvrir les bases de la programmation informatique.
   * Tri d'un tableau
   * Sélection d'éléments (k-ième plus grand)
   * ...
-
