@@ -2010,3 +2010,515 @@ Out[5]: (4520736584, 4520736584)
 * Les variables *l1* et *l2* **référencent** le même objet.
 * On peut créer une copie (entre autres) par:<br>
       l2 = l1[:] ou l2 = l1.copy()
+
+---
+
+## Fonctions externes et Modules
+
+* Comment organiser son code pour le réutiliser ?
+* Comment utiliser du code Python fait par d'autres ?
+
++++
+
+### Exemple: importer une fonction 1/2
+
+```python
+# Contenu du fichier "racine.py"
+def racine_dicho(x):
+    min, max, eps = 0, x, 1e-6
+    while True:
+        r = (min + max) / 2
+        if abs(r * r - x) < eps:
+            break
+        elif r * r < x:
+            min = r
+        else:
+            max = r
+    return r
+```
+
++++
+
+### Exemple: importer une fonction 2/2
+
+```python
+# Contenu du fichier  "comp_rac.py"
+import math
+import racine
+
+x = float(input('x ? '))
+if abs(math.sqrt(x) - racine.racine_dicho(x)) < 1e-6:
+    print("Les valeurs sont les mêmes")
+else:
+    print("Roger, on a un problème !!!")
+```
+
++++
+
+### Généralités: Directive import et ses conventions 1/3
+
+```python
+# Contenu du fichier "xxx.py"
+ma_variable = <une expression>
+
+def ma_fonction(<les paramètres>):
+    <le code>
+    return <son retour>
+```
+
+```python
+# Contenu du fichier "yyy.py"
+import xxx
+
+v = xxx.ma_variable
+a = xxx.ma_fonction(4) # directement
+```
+
++++
+
+### Généralités: Directive import et ses conventions 2/3
+
+Conventions:
+
+* Le module xxx est un fichier nommé xxx.py
+* Le module xxx à importer est dans le même répertoire que le module yyy qui l'importe
+* Dans yyy.py, on importe xxx par la directive "import xxx"
+* On doit préciser le nom du module chaque fois à moins de faire un raccourci:
+
+```python
+import xxx
+
+f = xxx.ma_fonction # indirectement: raccourci local
+a = f(4)
+```
+
++++
+
+### Généralités: Directive import et ses conventions 3/3
+
+```python
+import math
+import racine
+def sqrt(x):
+    return racine.racine_dicho(x)
+def print(x):
+    pass
+```
+
+* Le module créé par l'utilisateur est prioritaire à celui fourni par Python -> print du système est écrasé.
+* Pas de confusion entre *sqrt* et *math.sqrt*
+
++++
+
+### Directive from ... import ... as ...
+
+* On peut décider de n'importer que certains symboles (variables, fonctions, ...)
+
+```python
+from racine import racine_dicho
+
+a = racine_dicho(4)
+```
+
+* Egalement les renommer localement
+
+```python
+from racine import racine_dicho as mon_sqrt
+from math import sqrt as py_sqrt, exp as py_exp
+
+a = mon_sqrt(4)
+```
+
++++
+
+### Directive from ... import *
+
+* On peut décider de tout importer:
+
+```python
+from racine import *
+
+a = racine_dicho(4)
+```
+
+* Pratique déconseillée car on ne maîtrise pas totalement ce qui est importé.<br>
+  
+  On devrait plutôt faire:
+
+```python
+from turtle import forward, left, right, done
+```
+
++++
+
+### Quelques modules fournis
+
+* random: fonctions pour produire des nombres aléatoires
+* math: opérations mathématiques basiques (cosinus,sinus,exp,etc.)
+* turtle: dessin à la tortue
+* os: Interagir avec le système d'exploitation
+* time: La date, heure, ...
+* tkinter: Créer une interface graphique
+
+[Liste complète](https://docs.python.org/3.6/library/index.html)
+
++++
+
+### Autres modules populaires
+
+* Numpy, Scipy, Pandas: Calcul scientifique.
+* Matplotlib: Dessin 2d (courbes, histogrammes, *etc*).
+* Django, Flask: Faire des sites par programmation.
+* Pillow: Manipuler des images.
+
+Egalement, il existe des modules pour:
+
+* Interagir avec les réseaux sociaux.
+* Analyser les pages web.
+* ...
+
+---
+
+## Fichiers
+
+* Comment charger un fichier texte.
+* Comment écrire des données dans un fichier texte
+* Comment charger des fichiers au format .csv.
+
++++
+
+### Modes d'ouverture
+
+```python
+f = open('fichier.txt', mode='r')
+```
+
+* ‘r’ : Lecture seule
+* ‘w’ : Lecture/Ecriture (écrase le fichier existant)
+* ‘a’ : Lecture/Ecriture à partir de la fin  
+
++++
+
+### Lecture d'un fichier texte
+
+```python
+f = open('fichier.txt', mode='r')
+```
+
+Méthodes de base:
+
+* f.read(n) : lire *n* caractères
+* f.readline() : lire une ligne
+* f.readlines() : tout lire
+
++++
+
+### Exemple : Lecture d'un fichier texte
+
+```python
+f = open('fichier.txt', mode='r')
+lignes = f.readlines()
+f.close()
+```
+
+ou encore (contexte en Python)
+
+```python
+with open('fichier.txt', mode='r') as f:
+    lignes = f.readlines()
+```
+
+* Fermeture automatique du fichier avec *with*
+* Remarque: Chaque ligne est terminée par '\n'
+
++++
+
+### Ecriture dans un fichier texte
+
+Méthodes de base:
+
+```python
+# Ecrit une chaine dans f et retourne le nombre de caractères écrits
+n = f.write(chaine)
+# Autre possibilité
+print(3, 'Chaine', file=f)
+```
+
++++
+
+### Exemple : Ecriture d'un fichier texte
+
+```python
+f = open('fichier.txt', mode='w')
+n = f.write("une première ligne\n")
+print("La seconde ligne", file=f)
+f.close()
+```
+
+* Remarque: On peut également utiliser un *with*
+
++++
+
+### Aparté: Suppression des '\n'
+
+```python
+In [1]: ch = 'Toto\n'
+
+In [2]: ch2 = ch.rstrip()
+
+In [3]: len(ch), len(ch2)
+Out[3]: (5, 4)
+
+In [4]: "Toto.n8.88n.8".rstrip("n8.")
+Out[4]: 'Toto'
+```
+
++++
+
+### Format JSON
+
+Le format **J**ava**S**cript **O**bject **N**otation permet d'échanger simplement des données entre applications.
+
+Grossièrement, il s'agit d'une chaine de caractères structurée.
+
+Pour nous, il permet de charger/sauvegarder simplement le contenu des variables.
+
+Python fournit le module **json**.
+
++++
+
+### Conversion d'un objet Python en JSON 1/2
+
+```python
+In [1]: import json
+
+In [2]: Lisa = {'age': 8, 'sexe': 'F', 'prénom': 'Lisa', 'nom': 'Simpson'}
+
+Out[3]: json.dumps(Lisa)
+Out[3]: '{"age": 8, "sexe": "F", "pr\\u00e9nom": "Lisa", "nom": "Simpson"}'
+```
+
+Il sait convertir automatiquement : dict, list, tuple, int, float, str
+, bool, None
+
++++
+
+### Conversion d'un objet Python en JSON 2/2
+
+```python
+In [1]: import json
+
+In [2]: Lisa = {'age': 8, 'sexe': 'F', 'prénom': 'Lisa', 'nom': 'Simpson'}
+
+In[3]: with open('Lisa.json', mode='w') as f:
+            json.dump(Lisa, f)
+
+In[4]:with open('Lisa2.json', mode='w') as f:
+    json.dump(Lisa, f, indent=4, sort_keys=True)
+```
+
+Il sait convertir automatiquement : dict, list, tuple, int, float, str
+, bool, None
+
++++
+
+### Conversion d'un objet JSON vers Python 1/2
+
+Rarement on définit une chaine JSON directement
+
+```python
+In [1]: import json
+
+In [2]: Lisa_json ='{"age": 8, "School": true}'
+
+In [3]: Lisa = json.loads(Lisa_json)
+
+In [4]: Lisa
+Out[4]: {'age': 8, 'School': True}
+
+In [5]: type(Lisa)
+Out[5]: dict
+```
+
+Il sait convertir automatiquement : dict, list, tuple, int, float, str
+, bool, None
+
++++
+
+### Conversion d'un objet JSON vers Python 2/2
+
+Chargement direct par **json.load**
+
+```python
+In [1]: import json
+
+In [2]: with open('Lisa.json', mode='r') as f:
+              Lisa = json.load(f)
+In [3]: Lisa
+Out[3]: {'age': 8, 'nom': 'Simpson', 'prénom': 'Lisa', 'sexe': 'F'}
+type(Lisa)
+Out[10]: dict
+```
+
+Il sait convertir automatiquement : dict, list, tuple, int, float, str
+, bool, None
+
++++
+
+### Lecture d'un fichier .csv
+
+CSV ("Comma-separated values") = des valeurs séparées par des virgules.
+
+Exemple: [place de parking disponibles](https://opendata.larochelle.fr/dataset/stationnement-places-disponibles-en-temps-reel/)
+
+```
+dp_id,dp_parc_id,dp_libelle,dp_place_disponible,dp_date,dp_nb_places,dp_x,dp_y
+8977068,5,VIEUX PORT OUEST,289,11-11-2018 18:39:18,420,"379378,696053463","6570179,2092431"
+8977069,4,ENCAN,366,11-11-2018 18:39:22,406,"379864,062986826","6569682,94080835"
+8977070,17,VIEUX PORT SUD,459,11-11-2018 18:39:23,500,"379925,99731268","6570032,62381534"
+8977071,16,VERDUN,424,11-11-2018 18:39:24,452,"379670,377120847","6570946,77561493"
+8977072,20,MAUBEC,65,11-11-2018 18:39:18,109,"380380,783303404","6570379,61800321"
+8977073,21,PORT NEUF,155,11-11-2018 18:39:16,172,"377155,700640437","6570849,71710348"
+```
+
++++
+
+### Exemple de lecture d'un fichier .csv
+
+```python
+import csv
+
+with open('fichier.csv', newline='') as f:
+  lecteur = csv.reader(f, delimiter=',', quotechar='"')
+  for ligne in lecteur:
+    print(ligne)
+```
+
++++
+
+### Exemple d'écriture d'un fichier .csv
+
+```python
+import csv
+
+with open('sortie.csv', 'w', newline='') as f:
+    writer = csv.writer(f)
+    writer.writerows(lignes)
+```
+---
+
+## La documentation
+
+Parce ce que:
+
+* Le programmeur n'a pas une mémoire infaillible
+* On peut espérer faire du code que les autres vont utiliser (éventuellement sans le lire)
+
+On peut documenter tous les niveaux du code: fonction, ~~classe~~, ~~module~~
+
+Il s'agit de placer une **chaine de caractères** au bon endroit ...
+
+Règles pour la documentation: [PEP 257](https://www.python.org/dev/peps/pep-0257/)
+
++++
+
+### Conventions pour la documenation simple
+
+* On utilise des triples guillemets pour commencer et finir la ligne.
+* La première lettre est en majuscule et on termine la ligne par un point.
+* Indentation identique au code.
+* On décrit ce que fait la fonction.
+
++++
+
+### Exemple de documentation simple
+
+```python
+In [1]: def carre(x):
+   ...:   """Calcul du carré d'un nombre."""
+   ...:   return x * x
+In [2]: print(carre.__doc__)
+Calcul du carré d'un nombre.
+
+In [2]: help(carre)
+```
+
++++
+
+### Pour une documentation plus longue
+
+```python
+"""La première ligne décrit la fonction.
+  
+   Description textuelle de la fonction.
+   Description textuelle de la fonction.
+   Description textuelle de la fonction.
+"""
+```
+
++++
+
+### Exemple de documentation plus riche 1/2
+
+```python
+def monpow(a, b):
+  """Calcule a à la puissance b
+  
+    Ici une explication longue de la puissance
+    d'un nombre :math:`a^b = aa..a` b fois
+
+    :param a: la valeur
+    :param b: l'exposant
+    :type a: int, float,...
+    :type b: int, float,...
+    :returns: a**b
+    :rtype: int, float
+```
+
++++
+
+### Exemple de documentation plus riche 2/2
+
+```python
+"""" suite ....
+
+    :Exemples:
+    >>>nompow(2, 3)
+    8
+    >>>nompow(2., 2)
+    4.0
+
+    .. note:: c'est une version accélérée de la puissance par multiplication successives
+    .. seealso:: pow
+    .. warning:: a et b sont des nombres
+    """
+    return a**b
+```
+
+---
+
+## Bilan de l'UE
+
+Découvrir les bases de la programmation informatique.
+
+* Maitriser les variables et leurs types
+* Stocker des données dans une structure de liste
+* Effectuer des calculs sur des données
+* Organiser son code en fonctions et modules
+* Importer des données/Exporter des résultats
+
++++
+
+### A suivre en S2 (Informatique)
+
+* Mieux comprendre la gestion des listes et leur efficacité
+* Découvrir l'algorithmique en géneral:
+  * Notions de preuves (correction, terminaison)
+  * Comparaison d'algorithmes (rapidité mémoire)
+  * Principe "Diviser pour régner"
+* Nombreux algorithmes sur les tableaux:
+  * Recherche d'éléments
+  * Tri d'un tableau
+  * Sélection d'éléments (k-ième plus grand)
+  * ...
+
