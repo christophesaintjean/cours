@@ -1,11 +1,17 @@
 ### Lecture
 
+"""
+# Lecture de tout en 1 instruction
+f = open('alice.txt', mode='r')
+lignes = f.readlines()     # lignes est une liste de chaines de caratères terminées par \n
+f.close()
+print(lignes[:9])
+
 # Lecture de tout en 1 instruction
 with open('alice.txt', mode='r') as f:
     lignes = f.readlines()
 print(lignes[:9])
 
-"""
 # Lecture ligne par ligne
 with open('alice.txt', mode='r') as f:
     while True:
@@ -19,7 +25,7 @@ with open('alice.txt', mode='r') as f:
 une_ligne = lignes[8]
 print(une_ligne)
 print(une_ligne.split(' '))
-
+"""
 ### Ecriture
 L = [['Hauteur', 'Largeur', 'x0', 'y0'],
      [1, 20, 4, 0],
@@ -29,4 +35,3 @@ with open('L.txt', mode='w') as f:
     for l in L:
         print(l, file=f)
         print(l)
-"""

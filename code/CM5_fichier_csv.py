@@ -5,7 +5,7 @@ fichier_telechargement = "stationnement.csv"
 ## Lecture
 with open(fichier_telechargement, 'r', newline='') as f:
     lecteur = csv.reader(f, delimiter=',', quotechar='"')
-    # next(lecteur)       # on ne lit pas l'entete
+    next(lecteur)       # on ne lit pas l'entete
     lignes = []
     for ligne in lecteur:
         lignes.append(ligne)
