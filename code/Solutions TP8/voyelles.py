@@ -62,8 +62,12 @@ for v in voy:
 
 for l in m:
     if l in voy:
-        D[v] = D[v] + 1
-
+        D[l] = D[l] + 1
+"""
+for l in m:
+    if l in D:       #   On teste que la clé est dans le dico,  c'est donc une voyelle !
+        D[l] = D[l] + 1
+"""
 print(D)
 
 Dcv = {"Lc" : [], "Lv": []}
