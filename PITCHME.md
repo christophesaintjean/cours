@@ -2414,7 +2414,7 @@ Règles pour la documentation: [PEP 257](https://www.python.org/dev/peps/pep-025
 
 +++
 
-### Conventions pour la documenation simple
+### Conventions pour la documentation simple
 
 * On utilise des triples guillemets pour commencer et finir la ligne.
 * La première lettre est en majuscule et on termine la ligne par un point.
